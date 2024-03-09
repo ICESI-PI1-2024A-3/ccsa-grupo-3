@@ -78,3 +78,30 @@
 **¿Que hice ayer?** Practique la alteración de datos mediante queries.
 **¿Que voy a hacer hoy?** Continuare practicando el uso de queries en un proyecto aparte.
 **¿He tenido algún problema?** He tenido problemas con la sintaxis de Django.
+
+## Daily 03/08/2024
+
+#### Silem
+**¿Qué hice ayer?** Practique el uso de queries en Django usando proyecto privado.
+**¿Que voy a hacer hoy?** Investigare la creación de usuarios y su asignación de permisos.
+**¿He tenido algún problema?** Un poco de confusion a la hora de estructurar el proyecto.
+
+#### Johan
+**¿Qué hice ayer?** Estudio de Django y diseño de templates.
+**¿Qué voy a hacer hoy?** Seguir avanzando en los temas con Django y realizar búsqueda de plantillas pertinentes.
+**¿He tenido algún problema?** No he tenido ningún problema hasta el momento.
+
+#### Alejandro
+**¿Qué hice ayer?** Realice borradores en base a los mockups del proyecto.
+**¿Qué voy a hacer hoy?** Rehacer los diseños de los borradores debido a cambios.
+**¿He tenido algún problema?** No he tenido ningún problema hasta el momento.
+
+#### Gerson
+**¿Qué hice ayer?** Solucione dudas que tenía con respecto al modelo con Django.
+**¿Que haré hoy?** Voy a continuar revisando documentación y viendo buenas prácticas que podrían servir para el equipo en general.
+**¿He tenido algún problema?** No he tenido ningún inconveniente.
+
+#### Juan
+**¿Qué hice ayer?** Termine de corregir todos los diagramas de casos de uso.
+**¿Que voy a hacer hoy?** Comenzare con documentación de Django para poder comenzar con el diseño de las pantallas.
+**¿He tenido algún problema?** Hasta el momento no he tenido inconvenientes.
