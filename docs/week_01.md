@@ -17,7 +17,7 @@
 
 #### Silem
 **¿Qué hice ayer?** Organize las HU que irían en el primer sprint
-**¿Qué voy a hacer hoy?** Reanudar el aprendizaje de la herramienta Django. 
+**¿Qué voy a hacer hoy?** Reanudar el aprendizaje de la herramienta Django.
 **¿He tenido algún problema?** He tenido dificultades con las versiones que se usan en las guías.
 
 #### Gerson
@@ -35,7 +35,7 @@
 #### Alejandro
 **¿Qué hice ayer?** seguí avanzando en el proyecto aparte, en especial en el apartado de modelos y vistas logrando avanzar en el tema.
 **¿Qué voy a hacer hoy?** empezare a crear unos borradores en base a los mockups del proyecto.
-**¿He tenido algún problema?** el problema  sobre  conectar la app al proyecto para reflejar la vista fue solucionado.
+**¿He tenido algún problema?** el problema sobre conectar la app al proyecto para reflejar la vista fue solucionado.
 
 #### Gerson
 **¿Que hice ayer?** Continúe avanzando con las historias de usuario, logré encontrarme con el cliente y de esta manera resolver dudas pertinentes que tenía.
@@ -48,6 +48,33 @@
 **¿He tenido algún problema?** Hasta el momento no. Con los problemas debidamente identificados, sólo fue cuestión de corregir sin problema.
 
 #### Silem
-**¿Qué hice ayer?** Logre solucionar los conflictos de incompatibilidad leyendo la documentación. 
-**¿Qué voy a hacer hoy?**  Seguiré realizando la guía, enfocándome en la alteración de datos mediante queries.  
-**¿He tenido algún problema?**  De momento no he presentado problemas.
+**¿Qué hice ayer?** Logre solucionar los conflictos de incompatibilidad leyendo la documentación.
+**¿Qué voy a hacer hoy?** Seguiré realizando la guía, enfocándome en la alteración de datos mediante queries.  
+**¿He tenido algún problema?** De momento no he presentado problemas.
+
+## Daily 03/07/2024
+
+#### Johan
+**¿Qué hice ayer?** Corregí los diagramas.
+**¿Qué voy a hacer hoy?** Estudiar Django.
+**¿He tenido algún problema?** Hasta ahora, no he tenido ningún problema.
+
+#### Gerson
+**¿Que hice ayer?** Socializar la corrección de historias de usuario con las anotaciones pertinentes del cliente.
+**¿Que voy a hacer hoy?** Comenzar a solucionar dudas particulares con respecto al modelo y vistas en Django.
+**¿He tenido algún problema?** No se ha presentado problemas hasta el momento.
+
+#### Alejandro
+**¿Que hice ayer?** Realice unos borradores en base a los mockups del proyecto.
+**¿Que voy a hacer hoy?** Seguiré avanzando en los borradores.
+**¿He tenido algún problema?** No se ha presentado problemas hasta el momento.
+
+#### Juan
+**¿Que hice ayer?** Corregí la mayoría de errores de los diagramas de casos de uso .
+**¿Que voy a hacer hoy?** Terminaré de corregir todos los problemas de los diagramas de casos de uso.
+**¿He tenido algún problema?** Hasta el momento no he tenido problemas.
+
+#### Silem
+**¿Que hice ayer?** Practique la alteración de datos mediante queries.
+**¿Que voy a hacer hoy?** Continuare practicando el uso de queries en un proyecto aparte.
+**¿He tenido algún problema?** He tenido problemas con la sintaxis de Django.
