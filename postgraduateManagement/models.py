@@ -1,71 +1,104 @@
 from django.db import models
-
-# Create your models here.
-from django.db import models
-from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 # Create your models here.
-
+class Departamento(models.Model):
+    name = models.CharField(
+        max_length = 200,
+        help_text = 'Nombre del departamento'
+    )
 
 class Materia(models.Model):
-    nrc = \
-        models.CharField(max_length=8, help_text='Ingrese el nrc de la materia')
-    syllabus = \
-        models.FileField()
-    descripcion = \
-        models.CharField(max_length=256,
-                         help_text='Ingrese la descripcion de la materia')
-    numero = \
-        models.CharField(max_length=64,
-                         help_text='Ingrese  el numero de identificacion de la materia')
-    horas = \
-        models.CharField(max_length=2,
-                         help_text='Ingrese el numero de horas de la materia')
-    campus = \
-        models.CharField(max_length=128,
-                         help_text='Ingrese el campus donde se dictara la  materia')
-    asientos = \
-        models.IntegerField(max_length=2,
-                            help_text='Ingrese el numero de asientos')
-    primary_key = \
-        nrc
+    id_curso = models.CharField(
+        primary_key = True,
+        max_length = 8,
+        help_text = 'Código de la materia'
+    )
 
+    nombre = models.CharField(
+        max_length = 120,
+        help_text = 'Nombre de la materia'
+    )
+
+    creditos = models.IntegerField(
+        default = 1,
+        validators = [
+            MinValueValidator(0, message="Los créditos deben ser al menos 0."),
+            MaxValueValidator(20, message="Los créditos no pueden exceder 20."),
+            ],
+        help_text = 'Cantidad de créditos que pesa la materia'
+    )
+
+class Periodo(models.Model):
+    semestre = models.IntegerField(
+        MinValueValidator(0, message="El semestre debe ser mayor a 0."),
+        help_text = "Semestre académico"        
+        )
+    
+    fecha_inicio = models.DateField(
+        help_text = "Fecha de inicio del semestre"  
+        )
+    
+    fecha_fin = models.DateField(
+        help_text = "Fecha de finalización del semestre"  
+        )
 
 class Curso(models.Model):
-    materia_nrc = \
-        models.ForeignKey(Materia.nrc, on_delete=models.CASCADE)
-    numgrupo = \
-        models.CharField(max_length=8, help_text='Ingrese el numero de grupo')
-    tipodegrupo = \
-        models.CharField(max_length=12, help_text=' ingrese el tipo de grupo')
-    primary_key = \
-        (materia_nrc, numgrupo)
+    nrc = models.IntegerField(
+        primary_key = True,
+        help_text = 'NRC del curso'
+    )
 
+    materia = models.ForeignKey(
+        'Materia', 
+        on_delete = models.CASCADE,
+        null = False
+    )
+    
+    grupo = models.IntegerField(
+        help_text = 'numero del curso'
+    )
 
-class Docente(models.Model):
-    cedula = \
-        models.CharField(max_length=32, help_text='ingrese numero de cedula')
-    nombre = \
-        models.CharField(max_length=250, help_text='ingrese su nombre')
-    apellido = \
-        models.CharField(max_length=250, help_text='ingrese su apellido')
-    foto = \
-        models.ImageField()
-    ciudad = \
-        models.CharField(max_length=250, help_text='ingrese su ciudad de origen')
-    pais = \
-        models.CharField(max_length=32, help_text='ingrese su pais de origen')
-    telefono = \
-        models.CharField(max_length=250, help_text='ingrese su numero de telefono')
-    correo = \
-        models.CharField(max_length=250, help_text='ingrese su correo electronico')
-    primary_key = \
-        cedula
+    cupo = models.IntegerField(
+        help_text = 'Cantidad de personas que tendrá el curso'
+    )
 
+    
 
-class Contrato(models.Model):
-    docente_cedula = \
-        models.ForeignKey(Docente.cedula, on_delete=models.CASCADE)
-    archivo = \
-        models.FileField()
+class Clase(models.Model):
+    """aquí van las clases que se dictaran en un programa de posgrado"""
+
+    curso = models.ForeignKey(
+        'Curso',
+        on_delete = models.CASCADE,
+        null = False
+    )
+
+    MODALIDAD_CLASE = (
+        ('p', 'presencial'),
+        ('v', 'virtual'),
+        ('h', 'híbrida')
+    )
+
+    modalidad = models.CharField(
+        max_length = 1,
+        choices = MODALIDAD_CLASE,
+        blank = True,
+        default = 'p',
+        help_text = 'Modalidad de la clase'
+    )
+
+    # Se supone que esto debe insertarse de manera autónoma por el sistema.
+    fecha = models.DateField(
+        null = False,
+        help_text =  'Fecha de la clase'
+    )
+
+    hora_inicio = models.DateTimeField(
+        help_text =  'Hora de inicio'
+    )
+
+    hora_fin = models.DateTimeField(
+        help_text =  'Hora de finalización'
+    )

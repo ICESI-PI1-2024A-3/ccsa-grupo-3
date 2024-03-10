@@ -1,0 +1,17 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Clase List</h1>
+  {% if clase_list %}
+    <ul>
+      {% for clase in clase_list %}
+      <li>
+        <a>{{ clase.fecha_inicio }}</a>
+        ({{clase.fecha_fin}})
+      </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay clases en la base de datos</p>
+  {% endif %}
+{% endblock %}
