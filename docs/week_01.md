@@ -105,3 +105,37 @@
 **¿Qué hice ayer?** Termine de corregir todos los diagramas de casos de uso.
 **¿Que voy a hacer hoy?** Comenzare con documentación de Django para poder comenzar con el diseño de las pantallas.
 **¿He tenido algún problema?** Hasta el momento no he tenido inconvenientes.
+
+## Daily 03/09/2024
+
+#### Gerson
+**¿Que hice ayer ?** Termine de revisar documentación y orientarme acerca de algunas dudas que surgieron con el modelo 
+**¿Que voy a hacer hoy ?** Comencé a investigar acerca de asignación de roles y permisos para ver la manera de aplicar la implementación con respecto a las historias de usuario
+**¿He tenido dificultades ?** Me han surgido algunas dudas que las estoy separando para consultar bien al respecto
+
+#### Alejandro
+
+**¿Qué hice ayer ?**Rehíce los diseños de los borradores
+**¿Qué voy a hacer hoy ?** Comenzar a investigar sobre los CRUD y su desarrollo
+**¿He tenido dificultades ?** Ningún problema hasta el momento
+
+#### Silem
+
+**¿Qué hice ayer ?** Investigacion sobre creacion de usuarios y asignacion de permisos
+**¿Qué voy a hacer hoy ?** comenzar a trbajar sobre los modelos de las base de datos
+**¿He tenido dificultades ?** algunos modelos del MER no estan del todo bien definidos 
+
+#### Juan
+
+**¿Qué hice ayer ?** leer documentacion de django para poder diseñar las pantallas
+**¿Qué voy a hacer hoy ?** Comenzar a investigar como aplicar roles y crear usuarios
+**¿He tenido dificultades ?** Ningún problema hasta el momento
+
+#### Johan 
+
+**¿Qué hice ayer ?** Estuiar django y buscar plantillas
+**¿Qué voy a hacer hoy ?** tarbajar sobre las correciones al MER de acuerdo a las inconsistencias encontradas
+**¿He tenido dificultades ?** Ningún problema hasta el momento
+
+
+
