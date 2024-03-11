@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="40571D75-B255-4A81-C5EC-F2BFD3D07D3E" mainViewID="EB491D79-F002-6CCF-4D50-DE09F7DDAE22">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:06:31 UTC</createdTime>
+<ownerDesignName>xTerminar</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

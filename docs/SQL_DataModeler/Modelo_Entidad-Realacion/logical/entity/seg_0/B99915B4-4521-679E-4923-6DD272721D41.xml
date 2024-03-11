@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B99915B4-4521-679E-4923-6DD272721D41" name="Facultad">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 02:24:18 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="BF69EE29-14CC-5260-B572-96E35B1B1E96">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 02:24:26 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>12 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="106733C2-3B01-DE58-B5A8-FE6386F8D53C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 02:24:53 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120</dataTypeSize>
+<ownDataTypeParameters>120,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F636FBB2-B134-9B2F-BF3F-6973561B0DFE" name="Facultad PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 02:24:52 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BF69EE29-14CC-5260-B572-96E35B1B1E96</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

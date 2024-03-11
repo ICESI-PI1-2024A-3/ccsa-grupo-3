@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="958A055B-A416-852A-6B42-5BD928A20F51" name="Usuario">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>A40DB07F-BD36-01C1-E5DA-AD1F6448B1B2</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="8B6273DF-A240-E1A0-812B-3397B264E68F">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>A0E11E86-903D-1672-F8DE-F4FC73021FF1</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="540565CD-4EF2-C9EA-47F0-679C18050F95">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>58AFA058-B6F6-4F93-5646-343FFAF0B1E1</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="12209699-6043-C813-CA4D-74610954D7F5">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>840A3DA7-C7D4-12AA-C4E4-B809EE9090A5</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3A31BBB0-B3B9-9C99-F6D1-6AA85ACA1FB3" name="Usuario_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>9DC355ED-A0D4-BFA8-C3CF-625D9463B137</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8B6273DF-A240-E1A0-812B-3397B264E68F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

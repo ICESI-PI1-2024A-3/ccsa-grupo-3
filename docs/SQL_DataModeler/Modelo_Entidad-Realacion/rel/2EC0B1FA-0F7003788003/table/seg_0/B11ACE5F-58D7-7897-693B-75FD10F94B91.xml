@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B11ACE5F-58D7-7897-693B-75FD10F94B91" name="Persona">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>0A5B22C0-D775-4126-26EC-B4EB68091BA2</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="cedula" id="AB943318-8B3E-FD0D-846A-5ADE1F46B5F3">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>1500AADC-D3AA-35A3-F2D9-6015429773F0</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="F2845885-5D15-D4F6-860A-6264FBA4AD4E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>9A0A44A1-DC87-9164-EB77-790A2D033508</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="12BDB0D7-40C9-C72E-6578-65E1DEED8056">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>B54986E8-E674-B7DF-53DD-442FAA45A14E</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="7BF7970C-3806-80F0-F35C-97AE6C465E6D">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>59704453-C406-C756-5977-804FC5249EC4</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefono" id="D4EB905A-41E2-F874-A622-0388220FEB7C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>7A03A51A-FDCB-1045-1BE8-539E7A243DE3</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cuidad_id" id="A265CDD1-F946-2327-5DFD-0B6E06DD0137">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>C9A9E6DD-1347-1DA1-BEC0-4775D3A80BA6</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A4EF8037-17ED-A42E-B6D9-404F73C6859E" referredColumn="60C0CE21-6DC7-39A2-DF47-B5F3DD967270"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="331B1D43-FEB4-1E5D-CCCF-6C608ABF56C7" name="Persona_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>55529A7C-34AB-3DCA-3552-33AA49A81F5C</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AB943318-8B3E-FD0D-846A-5ADE1F46B5F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9B6BDA4E-6564-C881-A27E-8FDB39E1A15B" name="Relation_29">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>A26C22C2-A037-5694-0AD9-58AD4855FF64</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A265CDD1-F946-2327-5DFD-0B6E06DD0137"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

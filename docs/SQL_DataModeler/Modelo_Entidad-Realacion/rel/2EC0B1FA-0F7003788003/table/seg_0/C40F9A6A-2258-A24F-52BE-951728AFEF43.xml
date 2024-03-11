@@ -1,0 +1,113 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C40F9A6A-2258-A24F-52BE-951728AFEF43" name="Solicitud">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>3A941ED1-01E4-0F81-4A75-0FB816004193</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="30787704-FB11-C9FE-BFBD-2E6344D23D82">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>F0EBEAA3-288E-9F1E-EA17-3890D95A9F5A</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="449AD73D-7131-1892-5427-71C6DB3FC5CB">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>00F0B99B-E29D-5A83-8998-7FCF5F2E0E60</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_solicitud" id="3AB9651D-07EE-9A20-FC9C-A9B7BE7EEB3C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>7EA32200-2589-035D-7555-EDFB09606450</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_codigo" id="7764A2AF-226D-5665-04B7-F6893CC4140B">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>16E02B8F-EBD5-DB0D-A099-187814FF788E</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B781F5D4-D347-C50F-5EE2-BEC6399CAFC4" referredColumn="8B6273DF-A240-E1A0-812B-3397B264E68F"/>
+</associations>
+</Column>
+<Column name="EstadoSolicitud_codigo" id="BA905068-B395-888C-271F-177C1DDE6ADA">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>6CBB67B2-F6D9-EBB5-86C5-FF422DD8209F</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A61FD982-0DF6-27ED-D2BB-4C983E99046E" referredColumn="C46AF325-5C07-A73D-E917-4A43B85C13A9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="14A9F5ED-5C24-F4E1-0181-10AF846235DF" name="Solicitud_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>DE14FB98-5420-23EE-ADB9-80D1C93FE439</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="30787704-FB11-C9FE-BFBD-2E6344D23D82"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D12D5198-AEF4-4B72-9E14-F30BF33FF129" name="Relation_10">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>2911C35C-E968-1D20-F6AF-BFC56CB5C312</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7764A2AF-226D-5665-04B7-F6893CC4140B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EB0D51C5-E773-DC0D-8073-9B593F60D6AD" name="Relation_36">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>BA576C66-BA55-FD5A-B7F9-FAD3787C5E90</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BA905068-B395-888C-271F-177C1DDE6ADA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
