@@ -161,24 +161,25 @@ class Espacio(models.Model):
 
     id_espacio = models.CharField(
         primary_key = True,
-        max_length = 8
+        max_length = 4
     )
 
     id_subespacio = models.CharField(
         max_length = 2,
-        null = False,
-        blank = True
+        null = True,
+        blank = True,
     )
 
     tipo = models.CharField(
         max_length = 24,
         blank = False,
-        default = "salon"
+        default = "Salon"
     )
 
     capacidad = models.IntegerField(
         blank = True,
-        null = False
+        null = False,
+        default = 30
     )
 
     def __str__(self):
