@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'postgraduateManagement',
     'requestsManagement',
+    'login'
 ]
 
 MIDDLEWARE = [
@@ -57,7 +58,7 @@ ROOT_URLCONF = 'ccsaProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates', 'login'],  # Agrega esta línea para incluir la carpeta 'templates'
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -69,6 +70,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'ccsaProject.wsgi.application'
 
