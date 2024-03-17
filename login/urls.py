@@ -20,5 +20,7 @@ from login import views
 
 urlpatterns = [
     path('', views.home, name='home'),        # Ruta raíz
-    ##path('products/', home, name='products'),  # Redirigir a la vista home
+    # Redirigir a la vista home
+    path('products/', views.products, name='products'),
+    path('logout/', views.exit, name='exit'),
 ]
