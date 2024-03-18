@@ -1,0 +1,17 @@
+{% extends "base.html" %} 
+{% block title %}<title>
+  MataderoComunitario - Inicio</title
+>{% endblock %} {% block content %}
+<h1>Home</h1>
+<p>
+  Aqui va un texto
+  <em>Mozilla Developer Network</em>!
+</p>
+<h2>Dynamic content</h2>
+<p>Hasta ahora, tenemos lo siguiente:</p>
+<ul>
+  <li><strong>Materias:</strong> {{ num_materias }}</li>
+  <li><strong>Cursos:</strong> {{ num_curso }}</li>
+  <li><strong>Clases:</strong> {{ num_clase }}</li>
+</ul>
+{% endblock %}
