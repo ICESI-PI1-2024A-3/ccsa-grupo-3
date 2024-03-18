@@ -3,6 +3,34 @@
 
 {% block content %}
 
+<ul>
+    
+    <li>
+        <a href={% url 'home' %}>Inicio</a>
+        <a href={% url 'products' %}>Productos</a>
+    </li>    
+
+
+        {%if request.user.is_authenticated %}
+        <a href={%url 'exit' %}>Salir</a>
+
+        {%else %}
+        <a href={%url 'login' %}>Ingresar</a>
+
+        {% endif %}
+    
+    
+
+     
+</ul>   
+
+
+
+
+
+
+
+
 <h3>Inicio</h3>
 
 

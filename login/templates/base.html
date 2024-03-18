@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
+
+    {% load static %}
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'css/loginStyle.css' %}"/>
+    {% block stylesheet %} {% endblock%}
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>Login</title>
+
+    
+
 </head>
+
+
+
 <body>
-    <h2>Inicio</h2>
     
-    <ul>
     
-        <li>
-            <a href={% url 'home' %}>Inicio</a>
-            <a href={% url 'products' %}>Productos</a>
-        </li>    
-
-
-            {%if request.user.is_authenticated %}
-            <a href={%url 'exit' %}>Salir</a>
-
-            {%else %}
-            <a href={%url 'login' %}>Ingresar</a>
-
-            {% endif %}
-        
-        
-
-         
-    </ul>    
+    
 
     {% block content %}{% endblock  %}
 

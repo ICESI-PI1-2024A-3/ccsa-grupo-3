@@ -3,22 +3,39 @@
 
 {% block content %}
 
-<h3>Login</h3>
 
-<form action="" method="post">
+
+
+<!-- class formulario -->
+
+ <div class="formulario">
+
+   <h1>Iniciar Sesión</h1>
+   <form action="" method="post">
 
      {% csrf_token %}
 
-     <input type="text" name="username" id="" placeholder="Nombre de usuario">
+     <div class="username">
+        <input type="text" name="username" id="">
+        <label>Nombre de Usuario</label>
+     </div>
+
+   
+
+     <div class="password">
+        <input type="password" name="password" id="" >
+        <label>Contraseña</label>
+    </div>
+
+     <div class="recordar">¿Olvidó su contraseña?</div>
      <br>
-     <input type="password" name="password" id="" placeholder="Contraseña">
-
-     <br>
-
-     <button type="submit">Iniciar Sesión</button>
-    
+     <button type="submit">Iniciar</button>
+     
 
 
-</form>
+    </form>
+
+ </div>
+
 
 {% endblock  %}
