@@ -6,11 +6,14 @@ from django.contrib.auth import logout
 # Create your views here.
 
 
+def login(request):
+    return render(request, 'registration/login.html')
+
+
 def home(request):
     return render(request, 'home.html')
 
 
-@login_required
 def products(request):
     return render(request, 'products.html')
 

@@ -19,7 +19,9 @@ from django.urls import path
 from login import views
 
 urlpatterns = [
-    path('', views.home, name='home'),        # Ruta raíz
+
+    path('', views.login),
+    path('home/', views.home, name='home'),        # Ruta raíz
     # Redirigir a la vista home
     path('products/', views.products, name='products'),
     path('logout/', views.exit, name='exit'),
