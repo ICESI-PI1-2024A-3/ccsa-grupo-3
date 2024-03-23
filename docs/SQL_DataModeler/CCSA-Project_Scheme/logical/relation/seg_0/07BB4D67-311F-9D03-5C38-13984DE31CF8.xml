@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_31" directorySegmentName="seg_0" id="07BB4D67-311F-9D03-5C38-13984DE31CF8">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<sourcePk>D76B4AA8-9849-08D4-E6C1-ED3815478ED5</sourcePk>
+<targetPk>C6FA038A-B665-8DC8-6554-30CB462CBF31</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>DEAECD9F-04A1-8835-EE37-2D662713BDA1</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>19F17AC5-6E97-B81A-047B-71164131F056</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

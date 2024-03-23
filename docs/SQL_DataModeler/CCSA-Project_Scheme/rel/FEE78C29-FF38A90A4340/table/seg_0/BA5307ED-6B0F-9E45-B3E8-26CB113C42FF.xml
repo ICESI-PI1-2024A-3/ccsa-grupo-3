@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BA5307ED-6B0F-9E45-B3E8-26CB113C42FF" name="Programa">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>390E484B-2051-89AC-31E5-B5CE155B8099</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="29CD663E-48A1-DBF2-490D-740C32566CC4">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>B2086A79-7356-1416-F729-0CFBB1C9103C</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="0C36696B-E436-2035-9BE5-A8C7D8D7097A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>194B2B81-488B-8D4B-2002-F431D39CB13C</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255 CHAR</dataTypeSize>
+<ownDataTypeParameters>255 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="0ECF32A9-3DC1-E1D8-B6C7-49AE872E31D0">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>3D5EAA21-11CF-6A5C-921C-7E353A93A43C</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoPrograma_id" id="EFF8D146-2897-8BEF-E717-938F621C103B">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>50A50A4B-7A80-8939-4829-093CB43C1721</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="750FC5C2-ED25-8382-2F8E-9BCC9224251E" referredColumn="30C7D564-6EF3-3C7C-9013-1E49443FA5FC"/>
+</associations>
+</Column>
+<Column name="Facultad_id" id="1865A1B1-5D7E-4676-A21B-537E007C57E8">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>9DC7E2AF-1DE9-690E-B3D2-B833C88B5715</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A1F66F5A-9997-2D20-3C8A-5BB7DD893532" referredColumn="6A532913-91E7-A0AA-9465-C9C9A1345C19"/>
+</associations>
+</Column>
+<Column name="Director_cedula" id="5F39B4C5-00F3-88C8-88F3-FBCC1D768BCB">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>C22E0692-BEA7-02B9-CD46-FD2FDA2AE6CC</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="219E0329-902D-4CCA-5675-9081E8C68EB2" referredColumn="AE78314A-176A-415C-24DB-E7A0438152E3"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="2072002D-72EE-6134-4037-24A0EF0F11BF" name="Programa_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>5EFEB6E5-E73F-4162-E0F3-5FEA0F1B9E6E</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="29CD663E-48A1-DBF2-490D-740C32566CC4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7F207AD0-BA24-BEB6-7EED-4EE092527334" name="Programa__IDX">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>1FF8F21D-F074-5F30-0F2B-5D90E82E6EAF</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="5F39B4C5-00F3-88C8-88F3-FBCC1D768BCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B412EB03-2083-A3FE-D4D2-37B01EB57DDC" name="Relation_16">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>511E644C-D2B3-5BA3-11A3-3BA9B66FF8B5</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFF8D146-2897-8BEF-E717-938F621C103B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C97D5EE2-D625-E202-B456-747C516F8F6A" name="Relation_17">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>52E61BF4-E0DF-67B1-D5DD-E28E3335CFDF</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1865A1B1-5D7E-4676-A21B-537E007C57E8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F41230CC-BA91-440B-202A-817719AC6A5A" name="Relation_18">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>1FF8F21D-F074-5F30-0F2B-5D90E82E6EAF</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5F39B4C5-00F3-88C8-88F3-FBCC1D768BCB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
