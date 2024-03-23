@@ -291,7 +291,7 @@ class Programa(models.Model):
     Modelo para representar los programas académicos.
 
     Atributos:
-        codigo (CharField): Código único del programa.
+        código (CharField): Código único del programa.
         nombre (CharField): Nombre descriptivo del programa.
         descripción (TextField): Descripción del programa.
         facultad (ForeignKey): Facultad a la que pertenece el programa.
@@ -310,6 +310,8 @@ class Programa(models.Model):
     )
 
     descripcion = models.TextField()
+
+    url_image = models.URLField()
 
     facultad = models.ForeignKey(
         'Facultad', on_delete=models.CASCADE
@@ -421,7 +423,7 @@ class Curso(models.Model):
 
     Atributos:
         nrc (CharField) = Número de registro del curso.
-        grupo (IntegerField) = Grupo al que pertenece el curso.
+        grupo (CharField) = Grupo al que pertenece el curso.
         cupo (IntegerField) = Cantidad de maxima del curso.
         materia (ForeignKey) = Materia a la que pertenece el curso.
         usuario (ForeignKey) = Usuario que crea el curso.
@@ -434,7 +436,9 @@ class Curso(models.Model):
         max_length=6
     )
 
-    grupo = models.IntegerField()
+    grupo = models.CharField(
+        max_length=2,
+    )
 
     cupo = models.IntegerField()
 
