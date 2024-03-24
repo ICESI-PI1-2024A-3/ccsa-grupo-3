@@ -1,0 +1,142 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5BB083ED-C435-CD7A-0282-AC1BEE01CFE8" name="Programa">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>571077FA-B8C2-DCD7-DCC7-3B2D3269400A</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="9723143D-8D26-DAA1-2EE0-66A19CB63B8C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>3362E2E9-B0A7-9415-3090-7A6A930FDF9E</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="E0572641-EEC6-539F-7EF8-242A87C8C942">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>F764DB95-F941-60CE-FDB6-69C4F3AFD970</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TipoPrograma_codigo" id="497C145F-F32F-E0E5-0AC7-627F46A4A1C7">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>A3C4FBD7-CCC8-41C0-A98D-41F1B5D23C99</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E9681EBF-FCBA-D237-B509-A9AAB4F57912" referredColumn="E0F77F92-4E63-A933-4CD2-63328D1BFF36"/>
+</associations>
+</Column>
+<Column name="Facultad_id" id="AD8C063D-22F1-87BD-6FF6-63EA6A8C0050">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>2E7E267A-7972-E654-850A-5F1635586F9D</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A77883C0-9E9B-A576-8558-E8FC9DAA5674" referredColumn="90CFB4FD-AF3C-1A3F-1E9A-8FDDF7D045D2"/>
+</associations>
+</Column>
+<Column name="Director_cedula" id="FBE2ADE8-2D50-77D7-3A41-C5FDE0E5EC8E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>07D03863-E4F0-A9E1-A91E-45E491B639C7</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="44F4DBDF-5D24-2363-FDF2-E5BD014EBA18" referredColumn="E4A64917-089F-6BE6-5DBB-19612779144A"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CC3EAE57-CB4D-DB20-D655-BFFC4324040E" name="Programa_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>AC0DEA71-A17C-459F-C3E9-5663D023FEC0</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9723143D-8D26-DAA1-2EE0-66A19CB63B8C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1919C175-FE1E-B864-C14A-4D057C5F044F" name="Programa__IDX">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>B3F627C2-4F2D-6BD6-0FD0-7B97F47CB216</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="FBE2ADE8-2D50-77D7-3A41-C5FDE0E5EC8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="126986B1-E205-81D9-DA3E-A35F4CBACC17" name="Relation_16">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>295D7E77-59C8-CA91-9D8D-827A18490E21</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="497C145F-F32F-E0E5-0AC7-627F46A4A1C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3CCDFF60-5372-56B0-631F-1B9EF9910EF5" name="Relation_17">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>D07498B0-3DC6-2154-E7A1-8066AD69A30A</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD8C063D-22F1-87BD-6FF6-63EA6A8C0050"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0842B155-E14B-9513-C866-E947DD178460" name="Relation_18">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>B3F627C2-4F2D-6BD6-0FD0-7B97F47CB216</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FBE2ADE8-2D50-77D7-3A41-C5FDE0E5EC8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3BD6400B-84DA-C8FA-0E5E-7D2DE75B668C" name="Pensum">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>3599002A-38A5-AB94-40DF-B8E3DF985232</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="8AB9600E-EC79-CD4C-1AD8-078BCBAA0FED">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>7691F32B-6E18-6C87-FC03-4993667C4D82</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>16 CHAR</dataTypeSize>
+<ownDataTypeParameters>16 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Materia_codigo" id="CAE0E0A2-5E6A-D4DB-E29E-7D2179EB6C4F">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>6E91CBBB-FC6B-281B-8431-C14B864B84CD</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E9D80A4-3CA7-C6F5-1635-B34D2D9A3006" referredColumn="99CDE450-54F7-AD39-73EB-F965DE142F45"/>
+</associations>
+</Column>
+<Column name="Programa_codigo" id="7C44467D-C66B-DC86-BDD8-218F4E253836">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>12C1BC3D-ECC4-2E95-AB9E-1B0D97605F82</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="07E44CC1-C22E-78D5-5FAC-3E5C09087915" referredColumn="9723143D-8D26-DAA1-2EE0-66A19CB63B8C"/>
+</associations>
+</Column>
+<Column name="Periodo_semestre" id="9B32554C-2038-2E60-0006-33788A3CFB9D">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>EA3D992D-96B8-2C68-28C6-EBF7F3EFF193</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F823A084-3871-50C1-51CB-49B9BAFE0D2D" referredColumn="4D217139-2380-FB15-93C5-3B4AB7615C4C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D28B344A-5812-933F-9EA4-E39283FFC537" name="Pensum_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>A3432EE3-7C8F-62BB-54F3-AE15E7FAB31A</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8AB9600E-EC79-CD4C-1AD8-078BCBAA0FED"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="52AC53D8-77D8-A0AA-EB0F-507ACF793A41" name="Relation_25">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>8A3D02A2-16FE-BEBC-37AC-0BA3727E0921</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CAE0E0A2-5E6A-D4DB-E29E-7D2179EB6C4F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="083D524B-0E9F-C1F2-D0E5-409BE11F2F4C" name="Relation_26">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>6FA29187-4EA1-090C-95A8-5366DBC6E011</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C44467D-C66B-DC86-BDD8-218F4E253836"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C02236CB-3B53-F793-49A4-43D182435138" name="Relation_27">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>1CFCF3AC-A28A-78DD-3A61-D2DDAB4DDF57</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9B32554C-2038-2E60-0006-33788A3CFB9D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

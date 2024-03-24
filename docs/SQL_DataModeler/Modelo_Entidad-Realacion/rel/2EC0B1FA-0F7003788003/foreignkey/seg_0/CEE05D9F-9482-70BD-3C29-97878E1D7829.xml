@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="CEE05D9F-9482-70BD-3C29-97878E1D7829" containerWithKeyObject="87ADA8FF-5615-E5EE-8248-31C59B78CB60" localFKIndex="45176B5C-D794-68FE-149B-126BC8FEB47A" name="Hierarchy_1">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>BD4E8672-D943-8830-5C3A-171F16D58AF6</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<referredTableLongName>Solicitud</referredTableLongName>
+<arc>06BF3E85-0A15-8B6A-22B9-1002C8E3B907</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>C40F9A6A-2258-A24F-52BE-951728AFEF43</referredTableID>
+<keyObject>14A9F5ED-5C24-F4E1-0181-10AF846235DF</keyObject>
+<referredKeyID>14A9F5ED-5C24-F4E1-0181-10AF846235DF</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>codigo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

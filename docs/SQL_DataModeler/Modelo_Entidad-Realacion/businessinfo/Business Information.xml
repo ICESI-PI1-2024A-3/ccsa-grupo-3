@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="4B64AD9B-71AA-255B-BC37-C25197D5822D">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:06:31 UTC</createdTime>
+<ownerDesignName>xTerminar</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>
