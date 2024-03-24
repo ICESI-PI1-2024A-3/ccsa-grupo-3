@@ -43,6 +43,16 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="url_image" id="A992881B-2968-5DB4-088F-312F1FB8666A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 23:56:37 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="TipoPrograma_id" id="EFF8D146-2897-8BEF-E717-938F621C103B">
 <createdBy>silem</createdBy>
 <createdTime>2024-03-23 03:24:50 UTC</createdTime>

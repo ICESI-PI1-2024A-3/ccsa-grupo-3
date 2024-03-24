@@ -56,6 +56,18 @@
 <logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="url_image" id="10021D66-9EA4-7E40-630D-CCFF7E3D47AD">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 23:54:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="id1" id="50A50A4B-7A80-8939-4829-093CB43C1721">
 <createdBy>silem</createdBy>
 <createdTime>2024-03-23 03:20:33 UTC</createdTime>

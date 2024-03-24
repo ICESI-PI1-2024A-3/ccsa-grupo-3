@@ -25,6 +25,7 @@
 <createdTime>2024-03-23 03:24:50 UTC</createdTime>
 <generatorID>45315F5F-F818-BF78-CEBF-1BA47CD7F7B2</generatorID>
 <ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

@@ -27,8 +27,9 @@
 <ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT011</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>2 CHAR,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="cupo" id="3A95A907-69E7-3F1B-B854-4C5B1A799F39">
@@ -57,18 +58,6 @@
 <associations>
 <colAssociation fkAssociation="B88ADD2B-7D9C-4DEB-7FE7-81C2BD68DB24" referredColumn="B54C2289-8A66-54BA-5614-F0474E193C89"/>
 </associations>
-</Column>
-<Column name="codigo1" id="4DF14E05-7196-D34B-3348-F4309825588F">
-<createdBy>silem</createdBy>
-<createdTime>2024-03-23 03:24:50 UTC</createdTime>
-<generatorID>E8635CA7-41DD-FA97-453D-D4EAB16D9E1E</generatorID>
-<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1 CHAR</dataTypeSize>
-<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="Usuario_id" id="4A8144CA-6305-A9EA-B926-46DD1D0CA1E9">
 <createdBy>silem</createdBy>
