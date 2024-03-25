@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Materias</title>
+</head>
+<body>
+    <h1>Materias</h1>
+    <ul class="list">
+        {% for materia in object_list %}
+            <li>Código: {{ materia.codigo }}</li>
+            <li>Nombre: {{ materia.nombre }}</li>
+            <li>Créditos: {{ materia.creditos }}</li>
+            <li><a href="{% url 'courseview' materia.codigo %}">Ver Cursos</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
