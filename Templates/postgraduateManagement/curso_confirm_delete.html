@@ -1,0 +1,26 @@
+<!-- curso_confirm_delete.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmar Eliminación</title>
+</head>
+<body>
+    <h2>¿Estás seguro que deseas eliminar el curso?</h2>
+    <p>Detalles del curso:</p>
+    <ul>
+        <li>NRC: {{ object.nrc }}</li>
+        <li>Grupo: {{ object.grupo }}</li>
+        <li>Cupo: {{ object.cupo }}</li>
+        <li>Materia: {{ object.codigo_materia }}</li>
+        <!-- Agrega más campos según sea necesario -->
+    </ul>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar Eliminación</button>
+        <a href="{% url 'subjectmanagment'%}">Cancelar</a>
+    </form>
+</body>
+</html>

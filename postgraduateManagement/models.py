@@ -182,11 +182,10 @@ class Usuario(models.Model):
     )
 
     def __str__(self):
-        return f"{self.codigo} | {self.apellido} {self.nombre}"
+        return f"{self.id} | {self.apellido} {self.nombre}"
 
 
 class Espacio(models.Model):
-
     """
     Modelo que representa los espacios de la universidad
 
@@ -371,13 +370,16 @@ class Periodo(models.Model):
     """
 
     semestre = models.CharField(
-        primary_key=True, 
+        primary_key=True,
         max_length=10
     )
 
     fecha_inicio = models.DateField()
 
     fecha_fin = models.DateField()
+
+    def __str__(self):
+        return f"{self.semestre}"
 
 
 class Materia(models.Model):
@@ -546,6 +548,7 @@ class Clase(models.Model):
         on_delete=models.CASCADE,
         related_name='espacio_asignado'
     )
+
 
 class Pensum(models.Model):
     """

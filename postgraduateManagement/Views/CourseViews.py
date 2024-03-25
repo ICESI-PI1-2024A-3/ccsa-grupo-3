@@ -1,7 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from postgraduateManagement.models import Curso, Materia
+from django.urls import reverse
 
 
 class SubjectManagment(ListView):
@@ -21,14 +23,13 @@ class CourseView(ListView):
 
 class CourseDeleteView(DeleteView):
     model = Curso
-    success_url = reverse_lazy('course_list')
+    success_url = reverse_lazy('subjectmanagment')
 
 
 class CourseUpdateView(UpdateView):
     model = Curso
     fields = ['nrc', 'grupo', 'cupo', 'usuario', 'periodo']
-    success_url = reverse_lazy('course_list')
-
+    success_url = reverse_lazy('subjectmanagment')
 
 class CourseCreateView(CreateView):
     model = Curso

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edición de Cursos</title>
+</head>
+<body>
+    <h1>Edición de Curso</h1>
+    <form method="post">
+    {% csrf_token %}
+    <label for="nrc">NRC:</label><br>
+    <input type="text" id="nrc" name="nrc" value="{{ curso.nrc }}"><br>
+
+    <label for="grupo">Grupo:</label><br>
+    <input type="text" id="grupo" name="grupo" value="{{ curso.grupo }}"><br>
+
+    <label for="cupo">Cupo:</label><br>
+    <input type="text" id="cupo" name="cupo" value="{{ curso.cupo }}"><br>
+
+    <label for="usuario">Usuario:</label><br>
+    <input type="text" id="usuario" name="usuario" value="{{ curso.usuario.id }}"><br>
+
+    <label for="periodo">Periodo:</label><br>
+    <input type="text" id="periodo" name="periodo" value="{{ curso.periodo }}"><br>
+
+    <button type="submit">Guardar Cambios</button>
+    </form>
+</body>
+</html>

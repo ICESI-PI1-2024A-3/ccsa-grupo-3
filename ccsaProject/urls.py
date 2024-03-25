@@ -23,11 +23,12 @@ from postgraduateManagement import Views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', postgraduateManagement.Views.CourseViews.SubjectManagment.as_view(), name='subjectmanagment'),
-    path('subjectmanagment/', postgraduateManagement.Views.CourseViews.CourseView.as_view(), name='courseview'),
+    path('subjectmanagment/<str:codigo_materia>/',
+         postgraduateManagement.Views.CourseViews.CourseView.as_view(), name='courseview'),
     path('courses/<int:pk>/delete/', postgraduateManagement.Views.CourseViews.CourseDeleteView.as_view(),
          name='course_delete'),
-    path('courses/<int:pk>/update/', postgraduateManagement.Views.CourseViews.CourseUpdateView.as_view(),
-         name='course_update'),
+    path('courses/<str:codigo_materia>/<int:pk>/update/',
+         postgraduateManagement.Views.CourseViews.CourseUpdateView.as_view(), name='course_update'),
     path('courses/create/', postgraduateManagement.Views.CourseViews.CourseCreateView.as_view(), name='course_create'),
 
 ]
