@@ -1,0 +1,65 @@
+{% extends "root.html" %}
+
+{% block title %}
+    Profile Card
+{% endblock %}
+
+{% load static %}
+{% block static %}
+    {{block.super}}
+
+    <link rel="stylesheet" href="{% static "css/teachers_styles.css" %}">
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    {% endblock %}
+
+{% block content %}
+<div id="page" class="site">
+    <div class="card">
+        <div class="image">
+            <img src="https://th.bing.com/th/id/R.a587451c44c41649ca6dde78b76778d8?rik=biGovzvKa4apSQ&pid=ImgRaw&r=0" alt="image">
+        </div>
+        <div class="info">
+            <div class="name">
+                <h2>Sarah Webrick</h2>
+                <p>Designer, EN</p>
+            </div>
+            <div class="button">
+                <a href="#" class="trigger">
+                    <span class="open">More</span>
+                    <span class="close">Close</span>    
+                </a>
+            </div>
+            <div class="details">
+                <div class="left">
+                    <div class="about">
+                        <h3>About</h3>
+                        <p>Professional UI/UX designer that loves fashion and trveling</p>
+                    </div>
+                    <div class="socials">
+                        <ul>
+                            <li><a href="#"><ion-icon name="logo-dribbble"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-behance"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-github"></ion-icon></a></li>
+                            <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        </ul>
+                    </div>
+                    <div class="button">
+                        <a href="#"><span>Hire Me</span></a>
+                        <a href="#" class="light"><span>More of Me</span></a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block test %}
+
+
+
+<script src="{% static 'js/teachers_script.js' %}"></script>
+{% endblock %}
+
