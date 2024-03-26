@@ -28,18 +28,13 @@ class CourseDeleteView(DeleteView):
 
 class CourseUpdateView(UpdateView):
     model = Curso
-    fields = ['nrc', 'grupo', 'cupo', 'usuario', 'periodo']
+    fields = ['grupo', 'cupo', 'usuario', 'periodo']
     success_url = reverse_lazy('subjectmanagment')
+
 
 class CourseCreateView(CreateView):
     model = Curso
-    fields = ['nrc', 'grupo', 'cupo', 'usuario', 'periodo']  # Excluyendo 'materia' del formulario
-
-    def form_valid(self, form):
-        codigo_materia = self.kwargs.get('codigo_materia')
-        form.instance.materia_id = codigo_materia
-        return super().form_valid(form)
-
-    def get_success_url(self):
-        codigo_materia = self.kwargs.get('codigo_materia')
-        return reverse_lazy('course_list', kwargs={'codigo_materia': codigo_materia})
+    fields = ['materia', 'nrc', 'grupo', 'cupo', 'usuario', 'periodo']
+    template_name = 'postgraduateManagement/curso_createform.html'
+    print('Create')
+    success_url = reverse_lazy('subjectmanagment')

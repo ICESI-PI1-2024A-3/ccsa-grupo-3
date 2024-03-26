@@ -29,6 +29,7 @@ urlpatterns = [
          name='course_delete'),
     path('courses/<str:codigo_materia>/<int:pk>/update/',
          postgraduateManagement.Views.CourseViews.CourseUpdateView.as_view(), name='course_update'),
-    path('courses/create/', postgraduateManagement.Views.CourseViews.CourseCreateView.as_view(), name='course_create'),
+    path('courses/create/',
+         postgraduateManagement.Views.CourseViews.CourseCreateView.as_view(), name='course_create'),
 
 ]

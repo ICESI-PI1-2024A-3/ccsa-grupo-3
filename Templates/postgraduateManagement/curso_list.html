@@ -13,11 +13,10 @@
             <ul>
                 <li><a href="{% url 'course_delete' curso.pk %}">Eliminar</a></li>
                 <li><a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}">Actualizar</a></li>
-            (Código de Materia: {{ curso.materia.codigo }})
             </ul>
             <hr>
         {% endfor %}
     </ul>
-    <a href="{% url 'course_create' %}">Crear Curso</a>
+    <a href="{% url 'course_create'%}">Crear Curso</a>
 </body>
 </html>

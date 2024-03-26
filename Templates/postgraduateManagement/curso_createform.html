@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edición de Cursos</title>
+    <title>creacion  de Cursos</title>
 </head>
 <body>
-    <h1>Edición de Curso</h1>
-    <form method="post">{% csrf_token %}
+    <h1>Crear Curso</h1>
+       <form method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="guardar">
     </form>

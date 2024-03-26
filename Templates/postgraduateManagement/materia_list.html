@@ -12,7 +12,6 @@
             <li>Nombre: {{ materia.nombre }}</li>
             <li>Créditos: {{ materia.creditos }}</li>
            <li><a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a></li>
-             (Código de Materia: {{ materia.codigo }})
         {% endfor %}
     </ul>
 </body>
