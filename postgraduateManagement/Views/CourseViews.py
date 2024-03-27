@@ -7,10 +7,12 @@ from django.urls import reverse
 
 
 class SubjectManagment(ListView):
+    template_name = 'postgraduateManagement/../materia_list.html'
     model = Materia
 
 
 class CourseView(ListView):
+    template_name = 'postgraduateManagement/../curso_list.html'
     model = Curso
 
     def get_queryset(self):
@@ -22,11 +24,13 @@ class CourseView(ListView):
 
 
 class CourseDeleteView(DeleteView):
+    template_name = 'postgraduateManagement/../curso_confirm_delete.html'
     model = Curso
     success_url = reverse_lazy('subjectmanagment')
 
 
 class CourseUpdateView(UpdateView):
+    template_name = 'postgraduateManagement/../curso_form.html'
     model = Curso
     fields = ['grupo', 'cupo', 'usuario', 'periodo']
     success_url = reverse_lazy('subjectmanagment')
@@ -35,6 +39,6 @@ class CourseUpdateView(UpdateView):
 class CourseCreateView(CreateView):
     model = Curso
     fields = ['materia', 'nrc', 'grupo', 'cupo', 'usuario', 'periodo']
-    template_name = 'postgraduateManagement/curso_createform.html'
+    template_name = 'postgraduateManagement/../curso_createform.html'
     print('Create')
     success_url = reverse_lazy('subjectmanagment')

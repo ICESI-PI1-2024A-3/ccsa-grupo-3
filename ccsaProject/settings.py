@@ -59,7 +59,7 @@ ROOT_URLCONF = 'ccsaProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['Templates/'],
+        'DIRS': ['postgraduateManagement/Templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
