@@ -17,10 +17,9 @@
     {% endblock %}
   </head>
   <body>
-    {% block navbar %}
 
-    <nav class="navbar">
-      <ul class="navbar-nav">
+    <nav class="sidebar">
+      <ul class="sidebar-nav">
         <li class="logo">
           <a href="#" class="nav-link">
             <span class="link-text logo-text">ICESI</span>
@@ -115,8 +114,27 @@
       </ul>
     </nav>
 
-    {% endblock %}
-    <!-- navbar block -->
+    <header id="page-header">
+      <div class="header-content">
+        <nav class="navigation-bar">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="">Home</a>
+            </li>
+
+            <li class="breadcrumb-item">
+              <a href="">Example Patch 1</a>
+            </li>
+            
+            <li class="breadcrumb-item">
+              <a href="">Example Patch 2</a>
+            </li>
+          </ol>
+        </nav>
+
+        <h1>Actual Patch</h1>
+      </div>
+    </header>
 
     {% block index_bar %}{% endblock %}
     <!-- index_bar block -->
