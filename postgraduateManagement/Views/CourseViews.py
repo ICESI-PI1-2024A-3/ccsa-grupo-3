@@ -40,5 +40,4 @@ class CourseCreateView(CreateView):
     model = Curso
     fields = ['materia', 'nrc', 'grupo', 'cupo', 'usuario', 'periodo']
     template_name = 'postgraduateManagement/../curso_createform.html'
-    print('Create')
     success_url = reverse_lazy('subjectmanagment')
