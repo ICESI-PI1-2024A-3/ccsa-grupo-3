@@ -15,6 +15,28 @@
     {% endblock %}
 
 {% block content %}
+    <form method="GET" action="." class="form-row">
+
+            <div class="search-bar">
+                <ion-icon name="search-outline"></ion-icon>
+                <input type="search" name="search_contains" placeholder="Buscar"/>
+            </div>
+
+            <select name="status">
+                <option value = "activo" selected>Profesores Activos</option>
+                <option value = "inactivo">Profesores Inactivos</option>
+            </select>
+
+            <select name="city">
+                <option value = "" select>Cuidad</option>
+                {% for city in cities %}
+                    <option value="{{city.id}}">{{city.nombre}}</option>
+                {% endfor %}
+            </select>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
     <div class="grid-container">
 
         {% for teacher in teacher_list %}
@@ -38,6 +60,12 @@
                     <div class="left">
                         <div class="about">
                             <h3>About</h3>
+                            <div class="about-data">
+                                <ion-icon name="id-card-outline"></ion-icon>
+                                <button onclick="copy_teacher_id('{{teacher.cedula}}')">
+                                    <input type="text" value="{{teacher.cedula}}" id="{{teacher.cedula}}" readonly>
+                                </button>
+                            </div>
                             <div class="about-data">
                                 <ion-icon name="mail-outline"></ion-icon>
                                 <button onclick="copy_teacher_email('{{teacher.cedula}}')">

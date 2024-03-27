@@ -307,3 +307,8 @@ ul {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+}

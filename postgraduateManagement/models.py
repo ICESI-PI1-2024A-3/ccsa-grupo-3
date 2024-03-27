@@ -283,7 +283,17 @@ class Docente(Persona):
     """
     Representa a los docentes obtenidos people.net
     """
-    pass
+    
+    STATUS_CHOICES = (
+        ('activo', 'Activo'),
+        ('inactivo', 'Inactivo')
+    )
+
+    estado = models.CharField(
+        max_length=8,
+        choices=STATUS_CHOICES,
+        default='activo'
+    )
 
 
 class Programa(models.Model):
