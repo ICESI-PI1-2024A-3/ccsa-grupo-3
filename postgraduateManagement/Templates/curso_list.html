@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'css/curso_list.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+
     <meta charset="UTF-8">
     <title>Listado de Cursos</title>
 </head>
@@ -11,12 +18,19 @@
             <li>{{ curso.nrc }} - {{ curso.grupo }}</li>
             <!-- Puedes mostrar más detalles si lo deseas -->
             <ul>
-                <li><a href="{% url 'course_delete' curso.pk %}">Eliminar</a></li>
-                <li><a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}">Actualizar</a></li>
+                <li><a href="{% url 'course_delete' curso.pk %}" class="delete-button">Eliminar</a></li>
+                <li><a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="update-button">Actualizar</a></li>
             </ul>
             <hr>
         {% endfor %}
     </ul>
-    <a href="{% url 'course_create'%}">Crear Curso</a>
+    <div class="create-course-button-container">
+        <a href="{% url 'course_create'%}" class="create-course-button">Crear Curso</a>
+    </div>
+    
+    
 </body>
 </html>
+
+
+

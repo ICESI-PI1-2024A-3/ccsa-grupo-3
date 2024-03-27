@@ -1,0 +1,156 @@
+/* curso_confirm_delete.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.confirmation-box {
+    background-color: #fff;
+    width: 80%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.confirmation-box:hover {
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+}
+
+
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.course-details {
+    margin-bottom: 30px;
+}
+
+.course-details p {
+    margin: 10px 0;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+}
+
+.delete-button, .cancel-link {
+    display: inline-block;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+.delete-button {
+    background-color: #ff4d4d;
+    color: #fff;
+    margin-right: 20px;
+}
+
+.delete-button:hover {
+    background-color: #ff3333;
+}
+
+.cancel-link {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.cancel-link:hover {
+    background-color: #0056b3;
+}
+
+/* Agregar estilos para los iconos */
+i {
+    margin-right: 5px;
+}
+
+
+@keyframes slideUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.confirmation-box {
+    animation: slideUp 0.5s ease forwards;
+}
+
+
+
+
+/* revisar*/
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.delete-button:hover, .cancel-link:hover {
+    animation: pulse 1s infinite;
+}
+
+
+.delete-button:hover i, .cancel-link:hover i {
+    transform: translateX(2px);
+    transition: transform 0.3s ease;
+}
+
+
+.delete-button, .cancel-link {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+/*alinear texto*/
+
+
+.course-details {
+    display: table;
+    width: 15%;
+    margin-bottom: 30px;
+}
+
+.course-details p {
+    display: table-row;
+}
+
+.course-details p strong {
+    display: table-cell;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.course-details p span {
+    display: table-cell;
+    text-align: left;
+}

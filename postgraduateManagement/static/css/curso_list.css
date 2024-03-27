@@ -1,0 +1,133 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+li ul {
+    padding-left: 20px;
+}
+
+li ul li {
+    background: none;
+    box-shadow: none;
+    padding: 5px 0;
+}
+
+li ul li a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+li ul li a:hover {
+    color: #0056b3;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #eaeaea;
+    margin: 10px 0;
+}
+
+a {
+    display: inline-block;
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+a:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.delete-button{
+    background-color: #008cff; /* Azul */
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/*Color al tener el pulsor sobre el boton*/
+.delete-button:hover {
+    background-color: #b30000; /* Azul Oscuro */
+    transform: scale(1.05);
+}
+
+
+.update-button:hover {
+    background-color: #004d8c; /* Azul Oscuro */
+    transform: scale(1.05);
+}
+
+
+.update-button {
+    background-color: #008cff; /* Azul */
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+
+
+.create-course-button-container {
+    text-align: center; /* Alinea el contenido al centro */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.create-course-button {
+    display: inline-block; /* Mantener en línea con otros elementos */
+    background-color: #3bbdd7; /* Color verde */
+    color: white;
+    padding: 12px 24px; /* Aumentar el relleno */
+    text-decoration: none;
+    border-radius: 25px; /* Mayor redondez en los bordes */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave al pasar el cursor */
+    font-size: 18px;
+    border: none;
+    cursor: pointer; /* Cambiar el cursor al pasar el mouse */
+}
+
+.create-course-button:hover {
+    background-color: #626bc8; /* Verde oscuro al pasar el mouse */
+    transform: scale(1.05);
+}

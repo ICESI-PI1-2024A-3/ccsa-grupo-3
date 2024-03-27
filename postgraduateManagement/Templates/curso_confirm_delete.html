@@ -1,26 +1,42 @@
-<!-- curso_confirm_delete.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmar Eliminación</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/curso_confirm_delete.css' %}">
+  
+    {% block stylesheet %}{% endblock %}
+    
 </head>
 <body>
-    <h2>¿Estás seguro que deseas eliminar el curso?</h2>
-    <p>Detalles del curso:</p>
-    <ul>
-        <li>NRC: {{ object.nrc }}</li>
-        <li>Grupo: {{ object.grupo }}</li>
-        <li>Cupo: {{ object.cupo }}</li>
-        <li>Materia: {{ object.codigo_materia }}</li>
-        <!-- Agrega más campos según sea necesario -->
-    </ul>
+    <div class="confirmation-box">
+        <h2>¿Estás seguro que deseas eliminar el curso?</h2>
+        <div class="course-details">
+           
 
-    <form method="post">
-        {% csrf_token %}
-        <button type="submit">Confirmar Eliminación</button>
-        <a href="{% url 'subjectmanagment'%}">Cancelar</a>
-    </form>
+            
+                <p><strong>NRC:</strong> <span>{{ object.nrc }}</span></p>
+                <p><strong>Grupo:</strong> <span>{{ object.grupo }}</span></p>
+                <p><strong>Cupo:</strong> <span>{{ object.cupo }}</span></p>
+                <!-- Agrega más campos según sea necesario -->
+         
+            
+            
+            <!-- Agrega más campos según sea necesario -->
+        </div>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="button-group">
+                <button class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
+                <a class="cancel-link" href="{% url 'subjectmanagment'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

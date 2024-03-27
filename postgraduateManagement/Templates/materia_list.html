@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/materiaStyle.css' %}">
+    {% block stylesheet %}{% endblock %}
     <title>Materias</title>
 </head>
 <body>
     <h1>Materias</h1>
-    <ul class="list">
+    <div class="materia-container">
         {% for materia in object_list %}
-            <li>Código: {{ materia.codigo }}</li>
-            <li>Nombre: {{ materia.nombre }}</li>
-            <li>Créditos: {{ materia.creditos }}</li>
-           <li><a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a></li>
+        <div class="materia-box">
+            <img src="{% static materia.imagen %}" alt="Imagen de {{ materia.nombre }}">
+            <div class="materia-info">
+                <p><strong>Código:</strong> {{ materia.codigo }}</p>
+                <p><strong>Nombre:</strong> {{ materia.nombre }}</p>
+                <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
+                <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
+            </div>
+        </div>
         {% endfor %}
-    </ul>
+    </div>
 </body>
 </html>
