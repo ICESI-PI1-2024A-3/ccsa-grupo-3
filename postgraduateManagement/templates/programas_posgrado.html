@@ -1,11 +1,12 @@
-{% extends "base.html" %}
+{% extends "root.html" %}
 
 {% block title %}Programas de Posgrado{% endblock title %}
 {% load static %}
 
-{% block stylesheet %}
-<link rel="stylesheet" href="{% static 'CSS/Programs_style.css' %}">
-{% endblock stylesheet %}
+{% block static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'CSS/programs_styles.css' %}">
+{% endblock %}
 
 {% block content %}
 <h2>Programas de Posgrado</h2>
