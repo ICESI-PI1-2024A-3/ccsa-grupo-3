@@ -131,3 +131,94 @@ a:hover {
     background-color: #626bc8; /* Verde oscuro al pasar el mouse */
     transform: scale(1.05);
 }
+
+
+
+
+
+/*Cuando no hay cursos por mostrar*/
+
+/* Estilos para el mensaje de aviso */
+.no-courses-message {
+    text-align: center;
+    color: #FF5733; /* Color rojo */
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    animation: pulse 1s infinite alternate; /* Animación de pulso */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+
+
+/* Estilos para el mensaje de aviso */
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-courses-container {
+    margin-top: 50px;
+}
+
+.no-courses-message {
+    color: #FF5733; /* Color rojo */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+
+.courses-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+.course-item {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.course-info {
+    margin-bottom: 10px;
+}
+
+.course-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.course-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.no-courses-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.no-courses-message {
+    color: #FF5733;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
