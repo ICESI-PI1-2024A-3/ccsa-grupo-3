@@ -274,6 +274,7 @@ ul {
 
 .grid-container {
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
     gap: 2em;
     padding: 2em;
@@ -308,7 +309,62 @@ ul {
     text-overflow: ellipsis;
 }
 
+input[type="search"]:focus {
+    outline: none;
+}
+
 .form-row {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 2em;
+}
+
+.form-row .search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.form-row .search-bar .input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+.form-row .search-bar .input-group ion-icon {
+    margin-right: 10px;
+}
+
+.form-row .search-bar .input-group input {
+    flex-grow: 1;
+    border: none;
+}
+
+.form-row select {
+    width: 15%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    margin-right: 20px;
+}
+
+.form-row button {
+    width: 15%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-row button:hover {
+    background-color: #0056b3;
 }
