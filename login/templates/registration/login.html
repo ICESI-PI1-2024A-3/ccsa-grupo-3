@@ -7,55 +7,44 @@
     {% load static %}
 
     <meta charset="UTF-8"/>
-    <link rel="stylesheet" href="{% static 'css/loginStyle.css' %}"/>
-    
-
-    {% block stylesheet %} {% endblock%}
+    <link rel="stylesheet" href="{% static 'css/login_styles.css' %}"/>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <title>Login</title>
-
-    
-
+    <title>Login</title> 
 </head>
-
-
-
-
-<body class="pagina-especial">
-   
-       
-   
-
-    <div class="formulario">
-   
-      <h1>Iniciar sesión</h1>
-      <form  method="post">
-   
-        {% csrf_token %}
-   
-        <div class="username">
-           <input type="text" name="username" id="" placeholder="Nombre de usuario">
-           
-        </div>
-   
-      
-   
-        <div class="password">
-           <input type="password" name="password" id="" placeholder="Contraseña">
-           
-       </div>
-   
-        <div class="recordar">¿Olvidó su contraseña?</div>
-        <br>
-        <button type="submit">Iniciar</button>
+<body>
+    <div class="left-part">
+        <div class="login-container"> 
+            <div class="login-second-container">
+                <div class="login">
+                    <img src="{% static 'assets/logo-icesi-azul.png' %}" alt="">
+                    <form  method="post">
+               
+                    <fieldset class="clearfix">
+                        {% csrf_token %}
+               
+                        <div class="username">
+                            <span><ion-icon name="person"></ion-icon></span>
+                            <input type="text" name="username" placeholder="Nombre de usuario">
+                        </div>
+                
+                        <div class="password">
+                            <span><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" name="password" placeholder="Contraseña">
+                        </div>
+                
+                        <input type="submit" value="Iniciar Sesión">
         
-   
-   
-       </form>
-   
-   </body>
-   
-   </div>
+        
+                        <a class="forgot-password">¿Olvidó su contraseña?</a>
+        
+                    </fieldset>
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
