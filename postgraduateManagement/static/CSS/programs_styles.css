@@ -11,15 +11,33 @@ body {
     padding: 2rem 0 0rem 2rem;
 }
 
-.subcontainer {
+.subcontainer1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 1em;;
+    margin: 1em 0;
+}
+
+.subcontainer1 button {
+    width: 6rem;
+    height: 2rem;
+}
+
+.subcontainer2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
 }
 
+.subcontainer1-item {
+    display: flex;
+    justify-content: right;
+}
 
-.subcontainer h3 {
+.subcontainer2 h3 {
     text-align: left;
 }
 
@@ -51,7 +69,7 @@ body {
 }
 
 .left h3 {
-    margin: 1em 0 0 0;
+    margin: 0;
     font-size: 1.3em;
 }
 
@@ -129,5 +147,9 @@ body {
 }
 
 .right {
-    margin: 0 1em 0 1em;
+    margin: 0 0 0 1em;
+}
+
+.right h2{
+    margin-top: 0;
 }

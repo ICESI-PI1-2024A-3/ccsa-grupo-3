@@ -12,21 +12,32 @@
     <h2>Programas de Posgrado</h2>
 {% endblock %}
 
+{% block breadcrumb-items %} 
+              <li class="breadcrumb-item">
+                <a href="">Programas de Posgrado</a>
+              </li>
+{% endblock breadcrumb-items %}
+
 {% block content %}
 
     <div class="container">
         <div class="wrapperProgram">
             {% for programa in programas %}
-                <div type="button" onclick="showInfo('{{ programa.codigo }}')" class="program">
+                <div type="button" onclick="showInfo('{{ programa.codigo }}')"  class="program">
                     <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
 
-                    <div class="subcontainer">
-                        <div class="left">
-                            <h3>{{ programa.nombre }}</h3>
-                            <p>{{ programa.facultad }}</p>
+                    <div class="subcontainer1">
+                        <div class="subcontainer2">
+                            <div class="left">
+                                <h3>{{ programa.nombre }}</h3>
+                                <p>{{ programa.facultad }}</p>
+                            </div>
+                            <div class="right">
+                                <h2>✅</h2>
+                            </div>
                         </div>
-                        <div class="right">
-                            <h2>✅</h2>
+                        <div class="subcontainer1-item">
+                            <button>Detalles</button>
                         </div>
                     </div>
                     
