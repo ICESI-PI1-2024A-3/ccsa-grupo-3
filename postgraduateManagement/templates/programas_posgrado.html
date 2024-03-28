@@ -8,21 +8,29 @@
     <link rel="stylesheet" href="{% static 'CSS/programs_styles.css' %}">
 {% endblock %}
 
+{% block actual_patch %}
+    <h2>Programas de Posgrado</h2>
+{% endblock %}
+
 {% block content %}
-<h2>Programas de Posgrado</h2>
+
     <div class="container">
         <div class="wrapperProgram">
             {% for programa in programas %}
-                <button type="button" onclick="showInfo('{{ programa.codigo }}')" class="program" style="border: none;">
+                <div type="button" onclick="showInfo('{{ programa.codigo }}')" class="program">
                     <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
 
                     <div class="subcontainer">
-                        <div class="text"><h3><strong>{{ programa.nombre }}</strong></h3></div>
-
-                        <div class="text">{{ programa.facultad }}</div>
+                        <div class="left">
+                            <h3>{{ programa.nombre }}</h3>
+                            <p>{{ programa.facultad }}</p>
+                        </div>
+                        <div class="right">
+                            <h2>✅</h2>
+                        </div>
                     </div>
-                    <h2>✅</h2>
-                </button>
+                    
+                </div>
                 <div id="info{{ programa.codigo }}" class="info" style="display: none;">
                     <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
                     <h3>{{ programa.nombre }}</h3>
@@ -35,5 +43,5 @@
             <!-- Aquí se mostrará la información del programa seleccionado -->
         </div>
     </div>
-    <script src="{% static 'js/programs_script.js' %}"></script>
+    <script src="{% static 'js/programs_scripts.js' %}"></script>
 {% endblock %}

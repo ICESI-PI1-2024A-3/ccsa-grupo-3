@@ -18,5 +18,5 @@ function showInfo(codigo) {
         for (var i = 0; i < newChildren.length; i++) {
             newChildren[i].classList.add('visible');
         }
-    }, 500);
+    }, 100);
 }

@@ -1,16 +1,15 @@
 :root {
-  font-size: 16px;
-  font-family: 'Open Sans';
-  --text-primary: #b6b6b6;
-  --text-secondary: #ececec;
-  --bg-primary: #282F44;
-  --bg-secondary: #191D32;
-  --transition-speed: 600ms;
+  --color1: #FFFFFF;
+  --color2: #00589B;
+  --color3: #0F4176;
+  --color4: #0F284C;
+  --color5: #2c3338;
+  --transition-speed: .5s;
 }
 
 body {
   color: black;
-  background-color: white;
+  background-color: var(--color1);
   margin: 0;
   padding: 0;
 }
@@ -29,12 +28,11 @@ body::-webkit-scrollbar-thumb {
 
 main {
   margin-left: 5rem;
-  padding: 1rem;
 }
 
 .sidebar {
   position: fixed;
-  background-color: var(--bg-primary);
+  background-color: var(--color3);
   transition: width 600ms ease;
   overflow: hidden;
   z-index: 1000;
@@ -62,16 +60,31 @@ main {
   display: flex;
   align-items: center;
   height: 5rem;
-  color: var(--text-primary);
+  color: var(--color1);
   text-decoration: none;
-  filter: grayscale(100%) opacity(0.7);
   transition: var(--transition-speed);
+  background-color: var(--color3);
+}
+
+.nav-link-logo {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--color1);
+  text-decoration: none;
+  transition: var(--transition-speed);
+  background-color: var(--color2);
 }
 
 .nav-link:hover {
   filter: grayscale(0%) opacity(1);
-  background: var(--bg-secondary);
-  color: var(--text-secondary);
+  background: var(--color4);
+  color: var(--color1);
+}
+
+.nav-link-logo:hover {
+  filter: grayscale(0%) opacity(1);
+  background: var(--color4);
 }
 
 .link-text {
@@ -79,18 +92,18 @@ main {
   margin-left: 1rem;
 }
 
-.nav-link svg {
+.nav-link svg, .nav-link-logo svg{
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;
 }
 
 .fa-primary {
-  color: #0094C6;
+  color: var(--color1);
 }
 
 .fa-secondary {
-  color: #0094C6;
+  color: var(--color1);
 }
 
 .fa-primary,
@@ -102,8 +115,6 @@ main {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color: var(--text-secondary);
-  background: var(--bg-secondary);
   font-size: 1.5rem;
   letter-spacing: 0.3ch;
   width: 100%;
@@ -144,6 +155,10 @@ main {
   .nav-link {
       justify-content: center;
   }
+
+  .nav-link-logo {
+    justify-content: center;
+}
 
   main {
       margin: 0;
@@ -199,8 +214,15 @@ main {
 
 .header-content {
   margin-left: 5rem;
-  padding: 1rem;
   background-color: violet;
+  height: 5rem;
+  border-bottom: 2px solid #000000;
+  padding-left: 2rem;
+
+}
+
+.header-content h2 {
+  margin: 0;
 }
 
 .breadcrumb {
