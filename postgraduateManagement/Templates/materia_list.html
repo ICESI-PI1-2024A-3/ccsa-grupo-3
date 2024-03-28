@@ -3,7 +3,8 @@
 <head>
     {% load static %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/materiaStyle.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/materiaStyle2.css' %}">
     {% block stylesheet %}{% endblock %}
     <title>Materias</title>
 </head>
@@ -12,10 +13,9 @@
     <div class="materia-container">
         {% for materia in object_list %}
         <div class="materia-box">
-            <img src="{% static materia.imagen %}" alt="Imagen de {{ materia.nombre }}">
+            <p class="materia-title">{{ materia.nombre }}</p>
             <div class="materia-info">
                 <p><strong>Código:</strong> {{ materia.codigo }}</p>
-                <p><strong>Nombre:</strong> {{ materia.nombre }}</p>
                 <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
                 <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
             </div>
