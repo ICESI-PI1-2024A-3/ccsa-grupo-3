@@ -1,0 +1,125 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos para el título */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la lista de cursos */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Estilos para cada curso en la lista */
+li {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre un curso */
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la información del curso */
+.course-info {
+    margin-bottom: 10px;
+}
+
+/* Etiquetas de la información del curso */
+.course-label {
+    font-weight: bold;
+    color: #555;
+}
+
+/* Estilos para las acciones del curso */
+.course-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilos para el botón de eliminar */
+.delete-button {
+    background-color: #008cff;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre el botón de eliminar */
+.delete-button:hover {
+    background-color: #b30000;
+    transform: scale(1.05);
+}
+
+/* Estilos para el botón de actualizar */
+.update-button {
+    background-color: #008cff;
+    color: #fff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre el botón de actualizar */
+.update-button:hover {
+    background-color: #004d8c;
+    transform: scale(1.05);
+}
+
+/* Estilos para el mensaje de aviso cuando no hay cursos */
+.no-courses-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(230%);
+    text-align: center;
+}
+
+.no-courses-message {
+    color: #5d5350;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.create-course-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.create-course-button {
+    display: inline-block;
+    background-color: #3bbdd7;
+    color: white;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: background-color 0.3s, transform 0.2s;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Efecto al pasar el cursor sobre el botón de crear curso */
+.create-course-button:hover {
+    background-color: #626bc8;
+    transform: scale(1.05);
+}
