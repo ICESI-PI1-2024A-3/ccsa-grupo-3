@@ -1,6 +1,7 @@
 # Create your tests here.
 import unittest
 from django.test import TestCase
+from django.urls import reverse
 from postgraduateManagement.Views.CourseViews import *
 from postgraduateManagement.models import Departamento, Usuario, Periodo
 
@@ -59,6 +60,13 @@ class TestViews(TestCase):
         # Asegurar que solo los cursos con el código de materia correcto se muestran en la lista
         self.assertTrue(all(course.materia.codigo == 'MAT001' for course in response.context['object_list']))
 
+    def test_course_view_with_nonexistent_material_code(self):
+        response = self.client.get('/subjectmanagment/NO_EXISTE/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
+        # Asegurar que no se encuentren cursos en la lista
+        self.assertEqual(response.context['object_list'].count(), 0)
+
     def test_course_delete_view(self):
         response = self.client.post(reverse('course_delete', kwargs={'pk': self.curso.pk}))
         self.assertEqual(response.status_code, 302)
@@ -85,8 +93,31 @@ class TestViews(TestCase):
                                         'usuario': 999,  # ID de usuario no existente
                                         'periodo': '2023-10'  # Período inexistente
                                     })
-        self.assertEqual(response.status_code,
-                         200)  # Asegurar que la vista se renderiza de nuevo debido a datos inválidos
+        self.assertEqual(response.status_code, 200)
+
+    def test_duplicate_group_course_update_view(self):
+        # Crear otro curso con el mismo grupo
+        otro_curso = Curso.objects.create(
+            nrc="54321",
+            grupo="Nuevo Grupo Duplicado",
+            cupo=20,
+            materia=self.materia_prueba,
+            usuario=self.usuario_prueba,
+            periodo=self.periodo_prueba
+        )
+
+        # Intentar actualizar el curso existente con el mismo grupo que el curso recién creado
+        response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+                                    {
+                                        'grupo': 'Nuevo Grupo Duplicado',
+                                        'cupo': 40,
+                                        'usuario': self.usuario_prueba.pk,
+                                        'periodo': self.periodo_prueba.semestre
+                                    })
+
+        # Verificar que la vista redirige de nuevo al formulario de edición
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../editCourse.html')
 
     def test_course_create_view(self):
         response = self.client.post(reverse('course_create'), {
@@ -109,6 +140,20 @@ class TestViews(TestCase):
             'periodo': '2023-10'  # Período inexistente
         })
         self.assertEqual(response.status_code, 200)
+
+    def test_duplicate_course_create_view(self):
+        # Intentar crear una materia con la misma clave primaria que otra ya existente
+        response = self.client.post(reverse('course_create'), {
+            'materia': self.materia_prueba.pk,  # Utilizamos el ID de una materia ya existente
+            'nrc': '54321',
+            'grupo': 'Nuevo Grupo',
+            'cupo': 20,
+            'usuario': self.usuario_prueba.pk,
+            'periodo': self.periodo_prueba.semestre
+        })
+        # Verificar que la vista redirige a la misma página de creación
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../createCourse.html')
 
 
 if __name__ == '__main__':
