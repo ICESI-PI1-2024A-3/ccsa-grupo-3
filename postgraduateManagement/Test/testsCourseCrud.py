@@ -87,7 +87,6 @@ class TestViews(TestCase):
                                     })
         self.assertEqual(response.status_code,
                          200)  # Asegurar que la vista se renderiza de nuevo debido a datos inválidos
-        # También puedes verificar que se muestran mensajes de error en el HTML si tienes validaciones de formulario
 
     def test_course_create_view(self):
         response = self.client.post(reverse('course_create'), {
