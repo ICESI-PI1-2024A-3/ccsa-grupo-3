@@ -1,13 +1,8 @@
-from django.test import TestCase
-
 # Create your tests here.
-
-
 import unittest
-from django.urls import reverse
 from django.test import TestCase
-from .models import Curso, Departamento, Materia, Usuario, Periodo
 from postgraduateManagement.Views.CourseViews import *
+from postgraduateManagement.models import Departamento, Usuario, Periodo
 
 
 class TestViews(TestCase):
@@ -53,13 +48,24 @@ class TestViews(TestCase):
 
     def test_course_view(self):
         response = self.client.get(
-            '/subjectmanagment/MateriaCodigo/') 
+            '/subjectmanagment/MateriaCodigo/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../curso_list.html')
+        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
+
+    def test_course_view_with_material_code(self):
+        response = self.client.get('/subjectmanagment/MAT001/')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
+        # Asegurar que solo los cursos con el código de materia correcto se muestran en la lista
+        self.assertTrue(all(course.materia.codigo == 'MAT001' for course in response.context['object_list']))
 
     def test_course_delete_view(self):
         response = self.client.post(reverse('course_delete', kwargs={'pk': self.curso.pk}))
         self.assertEqual(response.status_code, 302)
+
+    def test_nonexistent_course_delete_view(self):
+        response = self.client.post(reverse('course_delete', kwargs={'pk': 999}))
+        self.assertEqual(response.status_code, 404)  # Asegurar que se devuelve un error 404 para el curso inexistente
 
     def test_course_update_view(self):
         response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
@@ -71,6 +77,18 @@ class TestViews(TestCase):
                                     })
         self.assertEqual(response.status_code, 200)
 
+    def test_invalid_course_update_view(self):
+        response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+                                    {
+                                        'grupo': '',  # Grupo vacío, lo que debería ser inválido
+                                        'cupo': -10,  # Cupo negativo, lo que debería ser inválido
+                                        'usuario': 999,  # ID de usuario no existente
+                                        'periodo': '2023-10'  # Período inexistente
+                                    })
+        self.assertEqual(response.status_code,
+                         200)  # Asegurar que la vista se renderiza de nuevo debido a datos inválidos
+        # También puedes verificar que se muestran mensajes de error en el HTML si tienes validaciones de formulario
+
     def test_course_create_view(self):
         response = self.client.post(reverse('course_create'), {
             'materia': self.materia_prueba.pk,
@@ -79,6 +97,17 @@ class TestViews(TestCase):
             'cupo': 20,
             'usuario': self.usuario_prueba.pk,
             'periodo': self.periodo_prueba.semestre
+        })
+        self.assertEqual(response.status_code, 200)
+
+    def test_invalid_course_create_view(self):
+        response = self.client.post(reverse('course_create'), {
+            'materia': 999,  # ID de materia no existente
+            'nrc': '',  # NRC vacío, lo que debería ser inválido
+            'grupo': 'Nuevo Grupo',
+            'cupo': -5,  # Cupo negativo, lo que debería ser inválido
+            'usuario': 999,  # ID de usuario no existente
+            'periodo': '2023-10'  # Período inexistente
         })
         self.assertEqual(response.status_code, 200)
 
