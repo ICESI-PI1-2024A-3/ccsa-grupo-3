@@ -1,9 +1,7 @@
-
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from postgraduateManagement.models import Curso, Materia
-
 
 
 class SubjectManagment(ListView):
