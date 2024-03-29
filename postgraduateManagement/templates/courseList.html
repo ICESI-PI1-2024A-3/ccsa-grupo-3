@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+     <!--Carga los estilos -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/courseListStyle.css' %}">
     {% block stylesheet %}{% endblock %}
@@ -17,6 +19,7 @@
                 {% for curso in object_list %}
                     <li class="course-item">
                         <div class="course-info">
+
                             <!-- Información del Curso -->
                             <span class="course-label">Materia:</span>
                             <span class="course-value">{{ curso.materia }}</span><br>
@@ -29,6 +32,7 @@
                         </div>
                         
                         <div class="course-actions">
+
                             <!-- Acciones del Curso -->
                             <a href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
                             <a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
@@ -37,7 +41,7 @@
                 {% endfor %}
             </ul>
             
-            <!-- Botón para Crear Nuevo Curso -->
+            <!-- Botón para crear nuevo curso -->
             <div class="create-course-button-container">
                 <a href="{% url 'course_create'%}" class="create-course-button">Crear Curso</a>
             </div>

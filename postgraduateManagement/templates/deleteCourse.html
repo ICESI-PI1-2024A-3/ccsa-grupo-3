@@ -7,8 +7,9 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+    <!--Carga los estilos -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/curso_confirm_delete.css' %}">
+    <link rel="stylesheet" href="{% static 'css/deleteCourseStyle.css' %}">
   
     {% block stylesheet %}{% endblock %}
     
@@ -17,17 +18,12 @@
     <div class="confirmation-box">
         <h2>¿Estás seguro que deseas eliminar el curso?</h2>
         <div class="course-details">
-           
 
-            
+                <!-- Información de los cursos-->
                 <p><strong>NRC:</strong> <span>{{ object.nrc }}</span></p>
                 <p><strong>Grupo:</strong> <span>{{ object.grupo }}</span></p>
                 <p><strong>Cupo:</strong> <span>{{ object.cupo }}</span></p>
                 
-         
-            
-            
-          
         </div>
 
         <form method="post">

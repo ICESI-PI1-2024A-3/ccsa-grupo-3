@@ -17,19 +17,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-import postgraduateManagement.Views.CourseViews
-from postgraduateManagement import Views
+import postgraduateManagement.views.courseViews
+from postgraduateManagement import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', postgraduateManagement.Views.CourseViews.SubjectManagment.as_view(), name='subjectmanagment'),
+    path('', postgraduateManagement.views.courseViews.SubjectManagment.as_view(), name='subjectmanagment'),
     path('subjectmanagment/<str:codigo_materia>/',
-         postgraduateManagement.Views.CourseViews.CourseView.as_view(), name='courseview'),
-    path('courses/<int:pk>/delete/', postgraduateManagement.Views.CourseViews.CourseDeleteView.as_view(),
+         postgraduateManagement.views.courseViews.CourseView.as_view(), name='courseview'),
+    path('courses/<int:pk>/delete/', postgraduateManagement.views.courseViews.CourseDeleteView.as_view(),
          name='course_delete'),
     path('courses/<str:codigo_materia>/<int:pk>/update/',
-         postgraduateManagement.Views.CourseViews.CourseUpdateView.as_view(), name='course_update'),
+         postgraduateManagement.views.courseViews.CourseUpdateView.as_view(), name='course_update'),
     path('courses/create/',
-         postgraduateManagement.Views.CourseViews.CourseCreateView.as_view(), name='course_create'),
+         postgraduateManagement.views.courseViews.CourseCreateView.as_view(), name='course_create'),
 
 ]

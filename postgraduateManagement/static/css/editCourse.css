@@ -1,3 +1,4 @@
+/* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
     background-color: #f8f9fa;
@@ -5,11 +6,13 @@ body {
     padding: 20px;
 }
 
+/* Contenedor principal */
 .container {
     max-width: 500px;
     margin: auto;
 }
 
+/* Encabezado */
 h1 {
     text-align: center;
     color: #343a40;
@@ -17,6 +20,7 @@ h1 {
     animation: fadeInDown 1s ease;
 }
 
+/* Animación de entrada del encabezado */
 @keyframes fadeInDown {
     0% {
         opacity: 0;
@@ -28,6 +32,7 @@ h1 {
     }
 }
 
+/* Formulario */
 .form {
     background-color: #fff;
     padding: 30px;
@@ -36,6 +41,7 @@ h1 {
     animation: slideInUp 1s ease;
 }
 
+/* Animación de entrada del formulario */
 @keyframes slideInUp {
     0% {
         opacity: 0;
@@ -47,10 +53,12 @@ h1 {
     }
 }
 
+/* Grupos de elementos del formulario */
 .form-group {
     margin-bottom: 20px;
 }
 
+/* Etiquetas */
 label {
     display: block;
     margin-bottom: 5px;
@@ -58,6 +66,7 @@ label {
     transition: color 0.3s ease;
 }
 
+/* Campos de entrada */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -72,6 +81,7 @@ select {
     transition: border-color 0.3s ease;
 }
 
+/* Estilos al enfocar los campos */
 input[type="text"]:focus,
 input[type="number"]:focus,
 input[type="email"]:focus,
@@ -80,6 +90,7 @@ select:focus {
     border-color: #007bff;
 }
 
+/* Botón de envío */
 input[type="submit"] {
     width: 100%;
     padding: 12px;
@@ -92,10 +103,12 @@ input[type="submit"] {
     animation: bounceIn 1s ease;
 }
 
+/* Estilos al pasar el cursor sobre el botón de envío */
 input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Animación de rebote para el botón de envío */
 @keyframes bounceIn {
     0% {
         transform: scale(0.9);

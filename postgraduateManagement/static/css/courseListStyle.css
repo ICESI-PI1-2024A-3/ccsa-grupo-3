@@ -93,30 +93,34 @@ li:hover {
     text-align: center;
 }
 
+/* Mensaje cuando no hay cursos */
 .no-courses-message {
-    color: #5d5350;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+    color: #5d5350; 
+    font-size: 24px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
 }
 
+/* Contenedor del botón para crear un curso */
 .create-course-button-container {
-    text-align: center;
-    margin-top: 20px;
+    text-align: center; 
+    margin-top: 20px; 
 }
 
+/* Estilos para el botón de crear curso */
 .create-course-button {
     display: inline-block;
-    background-color: #3bbdd7;
-    color: white;
-    padding: 12px 24px;
-    text-decoration: none;
-    border-radius: 25px;
+    background-color: #3bbdd7; 
+    color: white; 
+    padding: 12px 24px; 
+    text-decoration: none; 
+    border-radius: 25px; 
     transition: background-color 0.3s, transform 0.2s;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
+    font-size: 18px; 
+    border: none; 
+    cursor: pointer; 
 }
+
 
 /* Efecto al pasar el cursor sobre el botón de crear curso */
 .create-course-button:hover {
