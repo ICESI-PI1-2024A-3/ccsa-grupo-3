@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Modelo_Entidad-Realacion" id="2E29DD66-2E69-6A99-64DA-2B096BAED0C1" version="3.5">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:06:31 UTC</createdTime>
+<ownerDesignName>xTerminar</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>2E29DD66-2E69-6A99-64DA-2B096BAED0C1</designId>
+</OSDM_Design>
