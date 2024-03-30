@@ -49,19 +49,19 @@ class TestViews(TestCase):
 
     def test_course_view(self):
         response = self.client.get(
-            '/subjectmanagment/MateriaCodigo/')
+            '/subjects/subjectmanagment/MateriaCodigo/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
 
     def test_course_view_with_material_code(self):
-        response = self.client.get('/subjectmanagment/MAT001/')
+        response = self.client.get('/subjects/subjectmanagment/MAT001/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
         # Asegurar que solo los cursos con el código de materia correcto se muestran en la lista
         self.assertTrue(all(course.materia.codigo == 'MAT001' for course in response.context['object_list']))
 
     def test_course_view_with_nonexistent_material_code(self):
-        response = self.client.get('/subjectmanagment/NO_EXISTE/')
+        response = self.client.get('/subjects/subjectmanagment/NO_EXISTE/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
         # Asegurar que no se encuentren cursos en la lista
