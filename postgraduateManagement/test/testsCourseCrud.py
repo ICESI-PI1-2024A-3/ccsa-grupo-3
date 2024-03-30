@@ -2,7 +2,7 @@
 import unittest
 from django.test import TestCase
 from django.urls import reverse
-from postgraduateManagement.Views.CourseViews import *
+from postgraduateManagement.views.CourseViews import *
 from postgraduateManagement.models import Departamento, Usuario, Periodo
 
 
