@@ -1,0 +1,88 @@
+
+body {
+    font-family: 'Arial', sans-serif; 
+    background-color: #f9f9f9; 
+    margin: 0; /* Elimina */
+    padding: 0; 
+    text-align: center; /* Alinear contenido al centro */
+}
+
+/* Estilos para los encabezados */
+h1 {
+    color: #333; 
+    margin-top: 40px; 
+    font-size: 48px; 
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    margin-bottom: 30px; 
+}
+
+
+
+/* Contenedor para las materias */
+.materia-container {
+    display: flex; 
+    flex-wrap: wrap; /* Permitir que los elementos se envuelvan */
+    justify-content: center; 
+    padding: 20px; /* Añadir relleno interior */
+}
+
+/* Estilos para cada caja de materia */
+.materia-box {
+    width: 280px; 
+    height: 280px; 
+    margin: 20px; 
+    background-color: #fff; 
+    border-radius: 15px; /* Borde redondeado */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.3s ease; /* Transición suave al hacer hover */
+    overflow: hidden; /* Ocultar contenido que se desborda */
+    display: flex; /* Mostrar elementos en línea */
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+
+/* Estilos al hacer hover sobre las cajas de materia */
+.materia-box:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15), 0 0 0 4px #cfe6ff; 
+}
+
+/* Estilos para el título de la materia */
+.materia-title {
+    font-size: 21px; 
+    font-weight: bold; 
+    color: rgb(35, 28, 28); 
+    margin: 20px 0; 
+    text-align: center; 
+}
+
+/* Estilos para la información de la materia */
+.materia-info {
+    padding: 20px;
+}
+
+/* Estilos para los párrafos dentro de la información de la materia */
+.materia-info p {
+    margin: 10px 0; 
+    font-size: 16px; 
+    color: #555; 
+    text-align: left; 
+}
+
+/* Estilos para los enlaces dentro de la información de la materia */
+.materia-info a {
+    display: inline-block; 
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: #fff; 
+    text-decoration: none; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease; 
+    margin-top: 20px; 
+}
+
+/* Estilos al hacer hover sobre los enlaces */
+.materia-info a:hover {
+    background-color: #0056b3; 
+}
