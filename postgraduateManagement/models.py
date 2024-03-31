@@ -411,7 +411,7 @@ class Persona(models.Model):
     )
 
     def __str__(self):
-        return self.cedula
+        return f"{self.cedula} | {self.apellido} {self.nombre}"
 
     class Meta:
         abstract = True
