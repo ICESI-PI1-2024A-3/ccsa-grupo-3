@@ -47,6 +47,12 @@ class TestViews(TestCase):
             periodo=self.periodo_prueba
         )
 
+    def test_subject_list_view(self):
+        # Prueba que la vista de lista de materias carga correctamente y utiliza el template adecuado
+        response = self.client.get(reverse('subjectmanagment'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../subjectList.html')
+
     def test_course_view(self):
         response = self.client.get(
             '/subjects/subjectmanagment/MateriaCodigo/')

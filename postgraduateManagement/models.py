@@ -13,21 +13,9 @@ class Facultad(models.Model):
     id = models.AutoField(
         primary_key=True
     )
-    """
-    Modelo para representar las facultades.
-
-    Atributos:
-        id (IntegerField): Identificador único de la facultad.
-        nombre (CharField): Nombre descriptivo de la facultad.
-    """
-
-    id = models.AutoField(
-        primary_key=True
-    )
 
     nombre = models.CharField(
-        max_length=255
-        max_length=255
+        max_length=255,
     )
 
     def __str__(self):
@@ -44,23 +32,13 @@ class TipoPrograma(models.Model):
         id (IntegerField): Identificador único del tipo de programa.
         nombre (CharField): Nombre descriptivo del tipo de programa.
     """
-    """
-    Modelo para representar los tipos de programa de posgrado.
 
-    Atributos:
-        id (IntegerField): Identificador único del tipo de programa.
-        nombre (CharField): Nombre descriptivo del tipo de programa.
-    """
 
-    id = models.AutoField(
-        primary_key=True
     id = models.AutoField(
         primary_key=True
     )
 
     nombre = models.CharField(
-        max_length=60,
-        unique=True
         max_length=60,
         unique=True
     )
@@ -84,22 +62,9 @@ class Departamento(models.Model):
         primary_key=True,
         max_length=10
     )
-    """
-    Modelo para representar los departamentos académicos de la Universidad.
 
-    Atributos:
-        código (CharField): código único del departamento.
-        nombre (CharField): nombre único del departamento. 
-    """
-
-    codigo = models.CharField(
-        primary_key=True,
-        max_length=10
-    )
 
     nombre = models.CharField(
-        max_length=255,
-        unique=True
         max_length=255,
         unique=True
     )
@@ -122,29 +87,13 @@ class TipoContrato(models.Model):
         primary_key=True,
         max_length=16
     )
-    """
-    Modelo para representar los tipos de contratos que pueden haber.
-
-    Atributos:
-        código (CharField) = Código único de los tipos de contrato.
-        tipo (CharField) = Nombre descriptivo del tipo de contrato.
-    """
-
-    codigo = models.CharField(
-        primary_key=True,
-        max_length=16
-    )
 
     tipo = models.CharField(
-        max_length=80,
-        unique=True
         max_length=80,
         unique=True
     )
 
     def __str__(self):
-        return self.tipo
-
         return self.tipo
 
 
@@ -162,23 +111,8 @@ class EstadoContrato(models.Model):
         primary_key=True,
         max_length=1
     )
-    """
-    Modelo para representar los posibles estados que puede tener un contrato.
-
-    Atributos:
-        id (ChardField) = Identificador único del estado de un contrato.
-        nombre (ChardField) = Nombre descriptivo de un estado del contrato.
-
-    """
-
-    id = models.CharField(
-        primary_key=True,
-        max_length=1
-    )
 
     nombre = models.CharField(
-        max_length=20,
-        unique=True
         max_length=20,
         unique=True
     )
@@ -197,24 +131,12 @@ class Modalidad(models.Model):
         código (CharField) = Código único de las modalidades.
         nombre (CharField) = Nombre descriptivo de una modalidad.
     """
-    """
-    Modelo para representar las posibles modalidades que puede tener una clase
-
-    Atributos:
-        código (CharField) = Código único de las modalidades.
-        nombre (CharField) = Nombre descriptivo de una modalidad.
-    """
-
     codigo = models.CharField(
-        max_length=1,
-        primary_key=True
         max_length=1,
         primary_key=True
     )
 
     nombre = models.CharField(
-        max_length=20,
-        unique=True
         max_length=20,
         unique=True
     )
@@ -223,17 +145,6 @@ class Modalidad(models.Model):
         return self.nombre
 
 
-class Ciudad(models.Model):
-    """
-    Modelo que representa las ciudades
-
-    Atributos:
-        id (IntegerField) = Identificador único de la ciudad.
-        nombre (CharField) = Nombre descriptivo de la ciudad.
-    """
-
-    id = models.IntegerField(
-        primary_key=True
 
 class Ciudad(models.Model):
     """
@@ -249,8 +160,6 @@ class Ciudad(models.Model):
     )
 
     nombre = models.CharField(
-        max_length=20,
-        unique=True
         max_length=20,
         unique=True
     )
@@ -269,33 +178,20 @@ class Usuario(models.Model):
         nombre (CharField) = Nombre del usuario.
         apellido (CharField) = Apellido del usuario.
     """
-    """
-    Modelo que representa los usuarios de la oficina del CCSA
-
-    Atributos:
-        id (IntegerField) = Identificador único que da la universidad a sus trabajadores.
-        nombre (CharField) = Nombre del usuario.
-        apellido (CharField) = Apellido del usuario.
-    """
-
-    id = models.IntegerField(
-        primary_key=True
     id = models.IntegerField(
         primary_key=True
     )
 
     nombre = models.CharField(
         max_length=120
-        max_length=120
     )
 
     apellido = models.CharField(
         max_length=120
-        max_length=120
     )
 
     def __str__(self):
-        return f"{self.codigo} | {self.apellido} {self.nombre}"
+        return f"{self.id} | {self.apellido} {self.nombre}"
 
 
 class Espacio(models.Model):
@@ -313,15 +209,9 @@ class Espacio(models.Model):
     id_espacio = models.CharField(
         primary_key=True,
         max_length=4
-        primary_key=True,
-        max_length=4
     )
 
     id_subespacio = models.CharField(
-        max_length=2,
-        null=True,
-        blank=True,
-        default='00'
         max_length=2,
         null=True,
         blank=True,
@@ -331,13 +221,9 @@ class Espacio(models.Model):
     tipo = models.CharField(
         max_length=24,
         default="Salon"
-        max_length=24,
-        default="Salon"
     )
 
     capacidad = models.IntegerField(
-        blank=True,
-        default=0
         blank=True,
         default=0
     )
@@ -362,21 +248,8 @@ class Persona(models.Model):
         teléfono (IntegerField) = Número de teléfono de la persona.
         url_foto (URLField) = Dirección web de la foto de la persona.
     """
-    """
-    Modelo abstracto que representa las personas que pueden ser docentes o directores. 
-
-    Atributos:
-        cédula (CharField) = Cédula de la persona.
-        nombre (CharField) = Nombre de la persona.
-        apellido (CharField) = Apellido de la persona.
-        email (EmailField) = Correo electrónico de la persona.
-        teléfono (IntegerField) = Número de teléfono de la persona.
-        url_foto (URLField) = Dirección web de la foto de la persona.
-    """
 
     cedula = models.CharField(
-        primary_key=True,
-        max_length=32
         primary_key=True,
         max_length=32
     )
@@ -384,27 +257,20 @@ class Persona(models.Model):
 
     nombre = models.CharField(
         max_length=120
-        max_length=120
     )
 
     apellido = models.CharField(
-        max_length=120
         max_length=120
     )
 
     email = models.EmailField(
         max_length=120
-        max_length=120
     )
 
     telefono = models.IntegerField()
-    telefono = models.IntegerField()
 
     url_foto = models.URLField()
-    url_foto = models.URLField()
 
-    ciudad = models.ForeignKey(
-        Ciudad,
     ciudad = models.ForeignKey(
         Ciudad,
         on_delete=models.CASCADE,
@@ -423,10 +289,6 @@ class Director(Persona):
     """
     pass
 
-    """
-    Representa a los directores de programa de posgrado
-    """
-    pass
 
 
 class Docente(Persona):
@@ -436,27 +298,6 @@ class Docente(Persona):
     pass
 
 
-class Programa(models.Model):
-    """
-    Modelo para representar los programas académicos.
-
-    Atributos:
-        código (CharField): Código único del programa.
-        nombre (CharField): Nombre descriptivo del programa.
-        descripción (TextField): Descripción del programa.
-        facultad (ForeignKey): Facultad a la que pertenece el programa.
-        tipo_de_programa (ForeignKey): Tipo de programa.
-        director (ForeignKey): Director del programa.
-    """
-
-    codigo = models.CharField(
-        primary_key=True,
-        max_length=10
-    """
-    Representa a los docentes obtenidos people.net
-    """
-    pass
-
 
 class Programa(models.Model):
     """
@@ -499,53 +340,6 @@ class Programa(models.Model):
     )
 
 
-class Contrato(models.Model):
-    """
-    Modelo que representa los contratos almacenados de los docentes
-
-    codigo (AutoField) = Código único del contrato.
-    fecha_elaboración (DateField) = Fecha de elaboración del contrato.
-    tipo_contrato (ForeignKey) = Tipo de contrato.
-    estado_contrato (ForeignKey) = Estado del contrato.
-    docente (ForeignKey) = Docente al que pertenece el contrato.
-    """
-
-    codigo = models.AutoField(
-        primary_key=True
-    )
-
-    fecha_elaboracion = models.DateField()
-
-    tipo_contrato = models.ForeignKey(
-        "TipoContrato",
-        on_delete=models.CASCADE
-    )
-
-    estado_contrato = models.ForeignKey(
-        "EstadoContrato",
-        on_delete=models.CASCADE
-
-    nombre = models.CharField(
-        max_length=255
-
-    )
-
-    descripcion = models.TextField()
-
-    url_image = models.URLField()
-
-    facultad = models.ForeignKey(
-        'Facultad', on_delete=models.CASCADE
-    )
-
-    tipo_de_programa = models.ForeignKey(
-        'TipoPrograma', on_delete=models.CASCADE
-    )
-
-    director = models.ForeignKey(
-        'Director',
-        on_delete=models.CASCADE
-    )
 
 
 class Contrato(models.Model):
@@ -616,8 +410,6 @@ class Materia(models.Model):
     codigo = models.CharField(
         primary_key=True,
         max_length=88
-        primary_key=True,
-        max_length=88
     )
 
     nombre = models.CharField(
@@ -626,23 +418,13 @@ class Materia(models.Model):
 
     creditos = models.IntegerField()
 
-    departamento = models.ForeignKey(
-        Departamento,
-        on_delete=models.CASCADE,
-    nombre = models.CharField(
-        max_length=120
-    )
 
-    creditos = models.IntegerField()
 
     departamento = models.ForeignKey(
         Departamento,
         on_delete=models.CASCADE,
     )
 
-    programas = models.ManyToManyField(
-        Programa,
-        through='Pensum'
     programas = models.ManyToManyField(
         Programa,
         through='Pensum'
@@ -706,76 +488,13 @@ class Curso(models.Model):
         return f"{self.materia.nombre} - {self.grupo}"
 
 
-class DocentesCursos(models.Model):
-    """
-    Modelo que representa la relación entre los docentes y los cursos que dictan
-    def __str__(self):
-        return self.nombre
 
-
-class Curso(models.Model):
-    """
-    Representa un curso de una materia dictado por uno o mas docentes
-
-    Atributos:
-        nrc (CharField) = Número de registro del curso.
-        grupo (CharField) = Grupo al que pertenece el curso.
-        cupo (IntegerField) = Cantidad de maxima del curso.
-        materia (ForeignKey) = Materia a la que pertenece el curso.
-        usuario (ForeignKey) = Usuario que crea el curso.
-        periodo (ForeignKey) = Periodo académico al que pertenece el curso.
-        docente (ManyToManyField) = Docentes que pueden impartir el curso.
-
-    """
-    nrc = models.CharField(
-        primary_key=True,
-        max_length=6
-    )
-
-    grupo = models.CharField(
-        max_length=2,
-    )
-
-    cupo = models.IntegerField()
-
-    materia = models.ForeignKey(
-        Materia,
-        on_delete=models.CASCADE,
-    )
-
-    usuario = models.ForeignKey(
-        Usuario,
-        blank=True,
-        null=True,
-        on_delete=models.CASCADE,
-    )
-
-    periodo = models.ForeignKey(
-        Periodo,
-        on_delete=models.CASCADE
-    )
-
-    docente = models.ManyToManyField(
-        'Docente',
-        through='DocentesCursos'
-    )
-
-    class Meta:
-        unique_together = ('grupo', 'materia')
-
-    def __str__(self):
-        return f"{self.materia.nombre} - {self.grupo}"
 
 
 class DocentesCursos(models.Model):
     """
     Modelo que representa la relación entre los docentes y los cursos que dictan
 
-    Atributos:
-        curso (ForeignKey) = Curso que dicta el docente.
-        docente (ForeignKey) = Docente que puede impartir el curso.
-        prioridad (IntegerField) = Prioridad del docente en el curso.
-    """
     Atributos:
         curso (ForeignKey) = Curso que dicta el docente.
         docente (ForeignKey) = Docente que puede impartir el curso.
@@ -798,40 +517,7 @@ class DocentesCursos(models.Model):
         unique_together = [['docente', 'curso', 'prioridad']]
 
 
-class Clase(models.Model):
-    """
-    Modelo que representa una clase de un curso.
 
-    Atributos:
-        id (AutoField) = Identificador único de la clase.
-        fecha_inicio (DateTimeField) = Fecha y hora de inicio de la clase.
-        fecha_fin (DateTimeField) = Fecha y hora de fin de la clase.
-        curso (ForeignKey) = Curso al que pertenece la clase.
-        modalidad (ForeignKey) = Modalidad de enseñanza de la clase.
-        espacio (ForeignKey) = Espacio físico de la clase.
-        espacio_asignado (ForeignKey) = Espacio físico asignado para la clase.
-    """
-
-    id = models.AutoField(
-        primary_key=True
-    )
-
-    fecha_inicio = models.DateTimeField(
-        null=True
-    docente = models.ForeignKey(
-        'Docente',
-        on_delete=models.CASCADE
-    )
-
-    curso = models.ForeignKey(
-        'Curso',
-        on_delete=models.CASCADE
-    )
-
-    prioridad = models.IntegerField()
-
-    class Meta:
-        unique_together = [['docente', 'curso', 'prioridad']]
 
 
 class Clase(models.Model):
@@ -858,8 +544,6 @@ class Clase(models.Model):
 
     fecha_fin = models.DateTimeField(
         null=True
-    fecha_fin = models.DateTimeField(
-        null=True
     )
 
     curso = models.ForeignKey(
@@ -868,9 +552,6 @@ class Clase(models.Model):
 
     )
 
-    modalidad = models.ForeignKey(
-        'Modalidad',
-        on_delete=models.CASCADE,
 
     curso = models.ForeignKey(
         'Curso',
@@ -888,16 +569,8 @@ class Clase(models.Model):
         'Espacio',
         on_delete=models.CASCADE,
         related_name='espacio'
-    espacio = models.ForeignKey(
-        'Espacio',
-        on_delete=models.CASCADE,
-        related_name='espacio'
     )
 
-    espacio_asignado = models.ForeignKey(
-        'Espacio',
-        on_delete=models.CASCADE,
-        related_name='espacio_asignado'
     espacio_asignado = models.ForeignKey(
         'Espacio',
         on_delete=models.CASCADE,
@@ -915,49 +588,19 @@ class Pensum(models.Model):
         periodo (ForeignKey) = Periodo académico al que pertenece el pensum.
         semestre (IntegerField) = Semestre en el que se imparte la materia.
     """
-class Pensum(models.Model):
-    """
-    Modelo que representa el pensum de un programa de posgrado
-    Atributos:
-        programa (ForeignKey) = Programa al que pertenece la materia.
-        materia (ForeignKey) = Materia que se imparte en el programa.
-        periodo (ForeignKey) = Periodo académico al que pertenece el pensum.
-        semestre (IntegerField) = Semestre en el que se imparte la materia.
-    """
 
     programa = models.ForeignKey(
         'Programa',
-    programa = models.ForeignKey(
-        'Programa',
-        on_delete=models.CASCADE
     )
 
     materia = models.ForeignKey(
         'Materia',
-    materia = models.ForeignKey(
-        'Materia',
-        on_delete=models.CASCADE
     )
 
     periodo = models.ForeignKey(
         Periodo,
-    periodo = models.ForeignKey(
-        Periodo,
-        on_delete=models.CASCADE
     )
 
-    semestre = models.IntegerField()
-
-    class Meta:
-        constraints = [
-            models.UniqueConstraint(
-                fields=["materia", "programa", "semestre"],
-                name="unique_materia_programa_semestre",
-            )
-        ]
-
-    def __str__(self):
-        return f"{self.programa.nombre} - {self.materia.nombre} - {self.semestre}"
     semestre = models.IntegerField()
 
     class Meta:
