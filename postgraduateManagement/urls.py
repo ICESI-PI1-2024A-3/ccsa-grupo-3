@@ -1,10 +1,13 @@
-from django.contrib import admin
 from django.urls import path
+from . import views
+from .views import ProgramsView
 
 import postgraduateManagement.views.CourseViews
 from postgraduateManagement import views
 
 urlpatterns = [
+    path('home/', views.home, name='home'),
+    path('programas/', ProgramsView.as_view(), name='home')
     path('', postgraduateManagement.views.CourseViews.SubjectManagment.as_view(), name='subjectmanagment'),
     path('subjectmanagment/<str:codigo_materia>/',
          postgraduateManagement.views.CourseViews.CourseView.as_view(), name='courseview'),
