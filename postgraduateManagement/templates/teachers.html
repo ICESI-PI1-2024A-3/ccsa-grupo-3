@@ -1,7 +1,7 @@
 {% extends "root.html" %}
 
 {% block title %}
-    Profile Card
+    Docentes
 {% endblock %}
 
 {% load static %}
@@ -106,12 +106,16 @@
 
     {% endfor %}
     </div>
+
+    <script src="{% static 'js/teachers_script.js' %}"></script>
 {% endblock %}
 
-{% block test %}
-
-
-
-<script src="{% static 'js/teachers_script.js' %}"></script>
+{% block breadcrumb-items %}
+    <li class="breadcrumb-item">
+        <a href="{% url 'teachers' %}">Docentes</a>
+    </li>
+{% endblock %}
+{% block actual_patch %}
+    <h2>Docentes</h2>
 {% endblock %}
 
