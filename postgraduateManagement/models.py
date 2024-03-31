@@ -266,7 +266,7 @@ class Persona(models.Model):
     )
 
     def __str__(self):
-        return f"{self.cedula} | {self.apellido} {self.nombre}"
+        return self.cedula
 
     class Meta:
         abstract = True
@@ -371,7 +371,7 @@ class Periodo(models.Model):
     """
 
     semestre = models.CharField(
-        primary_key=True, 
+        primary_key=True,
         max_length=10
     )
 
@@ -546,6 +546,7 @@ class Clase(models.Model):
         on_delete=models.CASCADE,
         related_name='espacio_asignado'
     )
+
 
 class Pensum(models.Model):
     """

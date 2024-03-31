@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {%load static%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Progamacion de Posgrado{%endblock%}</title>
+    <link rel="stylesheet" href="{% static 'css/crudPosgraduates.css'%}">
+</head>
+<body>
+    {%block body%}
+
+    <section class="layout">
+        {%for p in programas%}
+
+        <div class ="rectangule">
+            <div class="img">
+                <img src="" alt="nose">
+            </div>
+            <h3><a href="verProgramacion/{{p.codigo}}" class = "enlace">{{p.nombre}}</a></h3>
+            <p>{{p.facultad}}</p> 
+
+        </div>
+        {% endfor %}
+
+        
+      </section>
+    
+    {% endblock %}
+    
+</body>
+</html>
