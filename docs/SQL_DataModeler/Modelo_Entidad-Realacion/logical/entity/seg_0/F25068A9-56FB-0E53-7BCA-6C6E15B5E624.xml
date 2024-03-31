@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F25068A9-56FB-0E53-7BCA-6C6E15B5E624" name="Curso">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:20:58 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="nrc" id="0E7A56D2-CD28-47F2-0ECA-B060DF0C999E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:21:02 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>6 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="grupo" id="54FE1E4F-38EF-3836-A17E-8A4689EE3C41">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:21:37 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>2 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cupo" id="E3DA7F9B-4B8E-E214-E3D2-E1259788322A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:22:00 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo" id="44505183-FB47-166C-1AC4-D07D88257923">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:22:36 UTC</createdTime>
+<generatorID>F8DC0FEA-88C8-8992-2A8F-7CAF00530A5D</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<referedAttribute>3CFCBBD7-FF6B-B44A-B99E-1C239844BCCF</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo1" id="D28228AB-B18C-DCA5-6B98-FDB8CA9C8BDC">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:38:41 UTC</createdTime>
+<generatorID>99376462-C6F9-8939-DCCE-98720B1F0A45</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<referedAttribute>B1348EC8-C44E-F90E-E8EE-D3F11E147F72</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="codigo2" id="D99BE25A-91F4-D7BC-4272-F1A47FE48700">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 02:33:05 UTC</createdTime>
+<generatorID>A3872113-28C1-7D87-E7D5-EA10B6D08015</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<referedAttribute>A0E11E86-903D-1672-F8DE-F4FC73021FF1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>10 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="C3DBA97E-4A0B-BE5C-4D94-D18D9E1AD1B8" name="Curso PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-10 23:21:35 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0E7A56D2-CD28-47F2-0ECA-B060DF0C999E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

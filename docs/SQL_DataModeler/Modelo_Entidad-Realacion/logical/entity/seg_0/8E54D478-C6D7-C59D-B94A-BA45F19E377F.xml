@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="8E54D478-C6D7-C59D-B94A-BA45F19E377F" name="EstadoSolicitud">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 15:14:11 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="4C99B47A-5A73-2194-211D-9C036DB16532">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 15:14:18 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="54510248-2A76-F3C7-2D77-E36F4395C425">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 15:14:28 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>80 CHAR</dataTypeSize>
+<ownDataTypeParameters>80 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="BD81D573-F3F7-D0A1-9979-E21BE519624B" name="EstadoSolicitud PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 15:14:44 UTC</createdTime>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<engineerTo>
+<item key="2EC0B1FA-C8F9-3F0D-2FDC-0F7003788003" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>4C99B47A-5A73-2194-211D-9C036DB16532</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

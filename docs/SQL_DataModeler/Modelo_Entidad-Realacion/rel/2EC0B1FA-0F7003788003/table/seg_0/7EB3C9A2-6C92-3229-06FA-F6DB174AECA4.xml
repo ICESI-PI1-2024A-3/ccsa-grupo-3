@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7EB3C9A2-6C92-3229-06FA-F6DB174AECA4" name="Materia">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>C8A180D2-7DCF-D741-6C1B-6048C73FD802</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="99CDE450-54F7-AD39-73EB-F965DE142F45">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>3CFCBBD7-FF6B-B44A-B99E-1C239844BCCF</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="48140133-148F-9EFB-1BCE-E52FB2908472">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>621C06B8-99BF-C021-8181-566208A92F61</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="creditos" id="85B8C5B3-BEB7-C88E-1529-5F7D812FF779">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>ED69D64E-B841-5821-960E-3FD524681C79</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Departamento_codigo" id="86F452A2-0E1E-1629-B261-475E21922902">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>1A4C1429-A95A-870F-6B59-1B600AA2C2E0</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C5321CC8-46F5-C0EF-FCA7-0EE49073BA54" referredColumn="A5FB4BB1-468B-731C-B2DA-CE8072CBFD97"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4345DE02-5BDA-0445-EAA8-4C719B20F5F8" name="Materia_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>3B0DFA10-E77A-094C-075B-08072EF93E5D</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="99CDE450-54F7-AD39-73EB-F965DE142F45"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BA2FFE38-6ADD-9A40-2780-5711D2D0D633" name="Relation_1">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>396FEA62-D8D5-47C9-C2DE-80A007DC851E</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="86F452A2-0E1E-1629-B261-475E21922902"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

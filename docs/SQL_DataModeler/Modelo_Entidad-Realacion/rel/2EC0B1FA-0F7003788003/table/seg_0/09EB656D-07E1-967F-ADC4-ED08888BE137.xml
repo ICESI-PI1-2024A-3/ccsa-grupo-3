@@ -1,0 +1,50 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="09EB656D-07E1-967F-ADC4-ED08888BE137" name="Departamento">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>D562722D-9FB4-58C6-6691-2DBABA55946D</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="A5FB4BB1-468B-731C-B2DA-CE8072CBFD97">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>8AC746B4-D170-BF1F-0F01-F512CF1E8B79</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="F34FAA08-39C3-3762-0CEC-C418D3DF7AE2">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>EC3B14BE-E036-C0AF-C9CA-DB0326F559D3</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B7320C93-F800-D241-C5AD-3B6767AAABA5" name="Departamento_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-11 17:39:44 UTC</createdTime>
+<generatorID>59763958-6EF3-B3C9-0707-2077A042F58C</generatorID>
+<ownerDesignName>Modelo_Entidad-Realacion</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A5FB4BB1-468B-731C-B2DA-CE8072CBFD97"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
