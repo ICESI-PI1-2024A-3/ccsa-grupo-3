@@ -1,0 +1,155 @@
+body {
+    overflow: hidden;
+}
+
+.container {
+    display: flex; 
+    flex-direction: row;;
+    width: calc(100vw - 5rem);
+    margin-right: 1rem;
+    justify-content: space-between;
+    padding: 2rem 0 0rem 2rem;
+}
+
+.subcontainer1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 1em;;
+    margin: 1em 0;
+}
+
+.subcontainer1 button {
+    width: 6rem;
+    height: 2rem;
+}
+
+.subcontainer2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.subcontainer1-item {
+    display: flex;
+    justify-content: right;
+}
+
+.subcontainer2 h3 {
+    text-align: left;
+}
+
+.wrapperProgram{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+    padding-right: 14px;
+    width: calc(43vw - 5rem); 
+    max-height: 87vh; 
+    overflow-y: auto;
+    margin-right: 7px;
+}
+
+.wrapperProgram::-webkit-scrollbar{
+    width: 0;
+}
+
+.program{
+    display: flex;
+    min-height: 140px;
+    min-width: 100%;
+    text-align: left;
+    background-color: #DDD;
+    margin-bottom: 10px;
+    position: relative;
+    border: none;
+    border-radius: 0 5px 5px 0;
+}
+
+.left h3 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+.left p {
+    margin: .5em 0 0 0;
+    font-size: 1em;
+}
+
+.program:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-out;
+}
+
+.wrapperInfo{
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    width: calc(55vw - 5rem); 
+    max-height: 90vw; 
+    overflow-y: auto;
+    background-color: #DDD;
+    margin-right: 4.5rem;
+    
+}
+
+.wrapperInfo * {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.wrapperInfo *.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.wrapperInfo::-webkit-scrollbar{
+    width: 0;
+}
+
+.wrapperInfo h3 {
+    text-align:justify;
+    padding: 5%;
+}
+
+.wrapperInfo .text {
+    width: 95%;
+    height: auto;
+    line-height: 1;
+    text-align:justify;
+    margin-bottom: 10px;
+}
+
+.wrapperInfo img {
+    margin-top: 10px;
+    width: 90%;
+    height: 20%;
+}
+
+
+
+.program img{
+    width: 25%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20%;
+    margin-right: 1em;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.program h2 {
+    margin-left: auto;
+}
+
+.right {
+    margin: 0 0 0 1em;
+}
+
+.right h2{
+    margin-top: 0;
+}

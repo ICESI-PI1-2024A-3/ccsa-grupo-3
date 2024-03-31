@@ -1,0 +1,50 @@
+<!-- class formulario -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    {% load static %}
+
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="{% static 'css/login_styles.css' %}"/>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title> 
+</head>
+<body>
+    <div class="left-part">
+        <div class="login-container"> 
+            <div class="login-second-container">
+                <div class="login">
+                    <img src="{% static 'assets/logo-icesi-azul.png' %}" alt="">
+                    <form  method="post">
+               
+                    <fieldset class="clearfix">
+                        {% csrf_token %}
+               
+                        <div class="username">
+                            <span><ion-icon name="person"></ion-icon></span>
+                            <input type="text" name="username" placeholder="Nombre de usuario">
+                        </div>
+                
+                        <div class="password">
+                            <span><ion-icon name="lock-closed"></ion-icon></span>
+                            <input type="password" name="password" placeholder="Contraseña">
+                        </div>
+                
+                        <input type="submit" value="Iniciar Sesión">
+        
+        
+                        <a class="forgot-password">¿Olvidó su contraseña?</a>
+        
+                    </fieldset>
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

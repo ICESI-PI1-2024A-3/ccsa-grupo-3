@@ -1,3 +1,5 @@
+# this is gerson file
+
 from django.shortcuts import render, redirect
 from .models import *
 from django.http import HttpResponseBadRequest, HttpResponseServerError
