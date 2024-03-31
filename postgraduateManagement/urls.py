@@ -23,7 +23,7 @@ from django.urls import path
 from .import views
 
 urlpatterns = [
-    path('', views.posgraduateP),
+    #path('', views.posgraduateP),
     path('verProgramacion/<codigo>/', views.viewProgramPosgraduates),
     path('editarProgramacion/<str:codigo>/',
          views.editarProgramacion, name='editar_programacion'),

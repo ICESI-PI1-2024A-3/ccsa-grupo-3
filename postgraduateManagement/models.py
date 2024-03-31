@@ -591,14 +591,17 @@ class Pensum(models.Model):
 
     programa = models.ForeignKey(
         'Programa',
+        on_delete=models.CASCADE,
     )
 
     materia = models.ForeignKey(
         'Materia',
+        on_delete=models.CASCADE,
     )
 
     periodo = models.ForeignKey(
         Periodo,
+        on_delete=models.CASCADE,
     )
 
     semestre = models.IntegerField()
