@@ -15,11 +15,13 @@ class Facultad(models.Model):
     )
 
     nombre = models.CharField(
-        max_length=255
+        max_length=255,
     )
 
     def __str__(self):
         return self.nombre
+
+
 
 
 class TipoPrograma(models.Model):
@@ -30,6 +32,7 @@ class TipoPrograma(models.Model):
         id (IntegerField): Identificador único del tipo de programa.
         nombre (CharField): Nombre descriptivo del tipo de programa.
     """
+
 
     id = models.AutoField(
         primary_key=True
@@ -42,6 +45,8 @@ class TipoPrograma(models.Model):
 
     def __str__(self):
         return self.nombre
+
+
 
 
 class Departamento(models.Model):
@@ -58,6 +63,7 @@ class Departamento(models.Model):
         max_length=10
     )
 
+
     nombre = models.CharField(
         max_length=255,
         unique=True
@@ -65,6 +71,7 @@ class Departamento(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 
 class TipoContrato(models.Model):
@@ -114,6 +121,8 @@ class EstadoContrato(models.Model):
         return self.nombre
 
 
+
+
 class Modalidad(models.Model):
     """
     Modelo para representar las posibles modalidades que puede tener una clase
@@ -122,7 +131,6 @@ class Modalidad(models.Model):
         código (CharField) = Código único de las modalidades.
         nombre (CharField) = Nombre descriptivo de una modalidad.
     """
-
     codigo = models.CharField(
         max_length=1,
         primary_key=True
@@ -135,6 +143,7 @@ class Modalidad(models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 
 class Ciudad(models.Model):
@@ -159,6 +168,7 @@ class Ciudad(models.Model):
         return self.nombre
 
 
+
 class Usuario(models.Model):
     """
     Modelo que representa los usuarios de la oficina del CCSA
@@ -168,7 +178,6 @@ class Usuario(models.Model):
         nombre (CharField) = Nombre del usuario.
         apellido (CharField) = Apellido del usuario.
     """
-
     id = models.IntegerField(
         primary_key=True
     )
@@ -182,7 +191,7 @@ class Usuario(models.Model):
     )
 
     def __str__(self):
-        return f"{self.codigo} | {self.apellido} {self.nombre}"
+        return f"{self.id} | {self.apellido} {self.nombre}"
 
 
 class Espacio(models.Model):
@@ -226,6 +235,7 @@ class Espacio(models.Model):
             return f"{self.id_espacio}"
 
 
+
 class Persona(models.Model):
     """
     Modelo abstracto que representa las personas que pueden ser docentes o directores. 
@@ -243,6 +253,7 @@ class Persona(models.Model):
         primary_key=True,
         max_length=32
     )
+
 
     nombre = models.CharField(
         max_length=120
@@ -279,6 +290,7 @@ class Director(Persona):
     pass
 
 
+
 class Docente(Persona):
     """
     Representa a los docentes obtenidos people.net
@@ -294,6 +306,7 @@ class Docente(Persona):
         choices=STATUS_CHOICES,
         default='activo'
     )
+
 
 
 class Programa(models.Model):
@@ -335,6 +348,8 @@ class Programa(models.Model):
         'Director',
         on_delete=models.CASCADE
     )
+
+
 
 
 class Contrato(models.Model):
@@ -381,7 +396,7 @@ class Periodo(models.Model):
     """
 
     semestre = models.CharField(
-        primary_key=True, 
+        primary_key=True,
         max_length=10
     )
 
@@ -412,6 +427,8 @@ class Materia(models.Model):
     )
 
     creditos = models.IntegerField()
+
+
 
     departamento = models.ForeignKey(
         Departamento,
@@ -481,6 +498,9 @@ class Curso(models.Model):
         return f"{self.materia.nombre} - {self.grupo}"
 
 
+
+
+
 class DocentesCursos(models.Model):
     """
     Modelo que representa la relación entre los docentes y los cursos que dictan
@@ -505,6 +525,9 @@ class DocentesCursos(models.Model):
 
     class Meta:
         unique_together = [['docente', 'curso', 'prioridad']]
+
+
+
 
 
 class Clase(models.Model):
@@ -539,6 +562,13 @@ class Clase(models.Model):
 
     )
 
+
+    curso = models.ForeignKey(
+        'Curso',
+        on_delete=models.CASCADE,
+
+    )
+
     modalidad = models.ForeignKey(
         'Modalidad',
         on_delete=models.CASCADE,
@@ -557,6 +587,8 @@ class Clase(models.Model):
         related_name='espacio_asignado'
     )
 
+
+
 class Pensum(models.Model):
     """
     Modelo que representa el pensum de un programa de posgrado
@@ -569,17 +601,17 @@ class Pensum(models.Model):
 
     programa = models.ForeignKey(
         'Programa',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     materia = models.ForeignKey(
         'Materia',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     periodo = models.ForeignKey(
         Periodo,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     semestre = models.IntegerField()
