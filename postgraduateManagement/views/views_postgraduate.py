@@ -1,7 +1,7 @@
 # this is gerson file
 
 from django.shortcuts import render, redirect
-from .models import *
+from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 # Create your views here.
 
