@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import ProgramsView
+from .views import ProgramsView, TeachersView
 
 import postgraduateManagement.views.CourseViews
 from postgraduateManagement import views
@@ -10,6 +10,7 @@ urlpatterns = [
     # cuando se incluya home, cambiar el name=home de "programas/", ademas de agregarle un path
     path('', ProgramsView.as_view(), name='home'),
 
+    path('teachers/', TeachersView.as_view(), name='home'),
     path('example/', postgraduateManagement.views.CourseViews.SubjectManagment.as_view(), name='subjectmanagment'),
     path('subjectmanagment/<str:codigo_materia>/',
          postgraduateManagement.views.CourseViews.CourseView.as_view(), name='courseview'),

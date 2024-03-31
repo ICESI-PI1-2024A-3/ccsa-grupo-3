@@ -16,7 +16,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='EstadoSolicitud',
             fields=[
-                ('codigo', models.CharField(max_length=1, primary_key=True, serialize=False)),
+                ('codigo', models.CharField(max_length=1,
+                 primary_key=True, serialize=False)),
                 ('nombre', models.CharField(max_length=20, unique=True)),
             ],
         ),
@@ -35,10 +36,14 @@ class Migration(migrations.Migration):
                 ('fecha_solicitud', models.DateField(auto_now_add=True)),
                 ('fecha_inicio', models.DateTimeField()),
                 ('fecha_fin', models.DateTimeField()),
-                ('espacio', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.espacio')),
-                ('estado_solicitud', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.estadosolicitud')),
-                ('programa', models.ManyToManyField(to='postgraduateManagement.programa')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.usuario')),
+                ('espacio', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.espacio')),
+                ('estado_solicitud', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.estadosolicitud')),
+                ('programa', models.ManyToManyField(
+                    to='postgraduateManagement.programa')),
+                ('usuario', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.usuario')),
             ],
             options={
                 'abstract': False,
@@ -52,11 +57,16 @@ class Migration(migrations.Migration):
                 ('fecha_solicitud', models.DateField(auto_now_add=True)),
                 ('presupuesto', models.IntegerField()),
                 ('cuenta_cobro', models.CharField(max_length=50)),
-                ('docente', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.docente')),
-                ('programa', models.ManyToManyField(to='postgraduateManagement.programa')),
-                ('usuario', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.usuario')),
-                ('estado_solicitud', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.estadosolicitud')),
-                ('tipo_contable', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.tipocontable')),
+                ('docente', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.docente')),
+                ('programa', models.ManyToManyField(
+                    to='postgraduateManagement.programa')),
+                ('usuario', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='postgraduateManagement.usuario')),
+                ('estado_solicitud', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.estadosolicitud')),
+                ('tipo_contable', models.ForeignKey(
+                    on_delete=django.db.models.deletion.CASCADE, to='requestsManagement.tipocontable')),
             ],
             options={
                 'abstract': False,
