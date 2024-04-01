@@ -8,6 +8,7 @@
 - [x] Crear un tipo de programa de prueba.
 - [x] Crear un director de prueba.
 - [x] Crear un programa de prueba.
+- [x] Crear un usuario para las pruebas.
 
 ### subject_list_view
 - [x] Prueba que la vista de lista de materias carga correctamente y utiliza el template adecuado.
@@ -102,3 +103,9 @@
 - [x] Prueba que la vista de edición de un director responde correctamente a una solicitud POST.
 - [x] Asegura que se devuelva el código de estado 302.
 - [x] Verifica que los datos del director se hayan actualizado correctamente en la base de datos.
+
+#### test_login_required
+- [x] Verificar que se pueda iniciar sesión con un usuario existente.
+
+#### test_login_with_nonexistent_user
+- [x] Verificar que no se pueda iniciar sesión con un usuario inexistente y que se redireccione al formulario de inicio de sesión.
