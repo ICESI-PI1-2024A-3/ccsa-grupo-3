@@ -1,5 +1,7 @@
 # Create your tests here.
 import unittest
+
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 from postgraduateManagement.views.views_course import *
@@ -19,8 +21,11 @@ class TestViews(TestCase):
         self.usuario_prueba = Usuario.objects.create(
             id=1,
             nombre="Nombre de Prueba",
-            apellido="Apellido de Prueba"
+            apellido="Apellido de Prueba",
         )
+
+        self.user = User.objects.create_superuser(username='testuser', password='12345')
+        self.client.force_login(self.user)
 
         # Crear un periodo de prueba
         self.periodo_prueba = Periodo.objects.create(
