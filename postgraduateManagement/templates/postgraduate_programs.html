@@ -1,0 +1,57 @@
+{% extends "root.html" %}
+{% block title %}Programas de Posgrado{% endblock title %}
+{% load static %}
+
+{% block static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'CSS/programs_styles.css' %}">
+{% endblock %}
+
+{% block actual_patch %}
+    <h2>Programas de Posgrado</h2>
+{% endblock actual_patch %}
+
+{% block breadcrumb-items %} 
+    <li class="breadcrumb-item">
+        <a href="">Programas de Posgrado</a>
+    </li>
+{% endblock breadcrumb-items %}
+
+{% block content %}
+<div class="container">
+    <div class="wrapperProgram">
+        {% for programa in programas %}
+            <div type="button" onclick="showInfo('{{ programa.codigo }}')" class="program">
+                <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
+                <div class="subcontainer1">
+                    <div class="subcontainer2">
+                        <div class="left">
+                            <h3>{{ programa.nombre }}</h3>
+                            <p>{{ programa.facultad }}</p>
+                        </div>
+                        <div class="right">
+                            <h2>✅</h2>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div id="info{{ programa.codigo }}" class="info" style="display: none;">
+                <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
+                <h3>{{ programa.nombre }}</h3>
+                <div class="text">{{ programa.descripcion }}</div>
+                <!-- Añade aquí más detalles del programa -->
+                
+                <a href="{% url 'subjectmanagment' %}" class = "button-link">Ver materias</a>
+                <a href="{{ programa.codigo }}" class="button-link">Programación</a>
+
+                
+            </div>
+        {% endfor %}
+    </div>
+    <div class="wrapperInfo" id="wrapperInfo">
+        <!-- Aquí se mostrará la información del programa seleccionado -->
+    </div>
+</div>
+<script src="{% static 'js/programs_scripts.js' %}"></script>
+{% endblock %}

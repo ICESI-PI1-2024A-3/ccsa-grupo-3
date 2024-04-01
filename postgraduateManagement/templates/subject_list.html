@@ -1,0 +1,40 @@
+{% extends "root.html" %}
+
+{% block title %}
+    Listado de Cursos
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Materias</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Listado de materias</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
+
+
+{% load static %}
+    <link rel="stylesheet" href="{% static 'css/subjectListStyle.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+
+<div class="materia-container">
+    {% for materia in object_list %}
+    <div class="materia-box">
+        <p class="materia-title">{{ materia.nombre }}</p>
+        <div class="materia-info">
+            <p><strong>Código:</strong> {{ materia.codigo }}</p>
+            <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
+            <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}

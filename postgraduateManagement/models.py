@@ -15,7 +15,7 @@ class Facultad(models.Model):
     )
 
     nombre = models.CharField(
-        max_length=255
+        max_length=255,
     )
 
     def __str__(self):
@@ -122,7 +122,6 @@ class Modalidad(models.Model):
         código (CharField) = Código único de las modalidades.
         nombre (CharField) = Nombre descriptivo de una modalidad.
     """
-
     codigo = models.CharField(
         max_length=1,
         primary_key=True
@@ -168,7 +167,6 @@ class Usuario(models.Model):
         nombre (CharField) = Nombre del usuario.
         apellido (CharField) = Apellido del usuario.
     """
-
     id = models.IntegerField(
         primary_key=True
     )
@@ -182,11 +180,10 @@ class Usuario(models.Model):
     )
 
     def __str__(self):
-        return f"{self.codigo} | {self.apellido} {self.nombre}"
+        return f"{self.id} | {self.apellido} {self.nombre}"
 
 
 class Espacio(models.Model):
-
     """
     Modelo que representa los espacios de la universidad
 
@@ -283,7 +280,17 @@ class Docente(Persona):
     """
     Representa a los docentes obtenidos people.net
     """
-    pass
+
+    STATUS_CHOICES = (
+        ('activo', 'Activo'),
+        ('inactivo', 'Inactivo')
+    )
+
+    estado = models.CharField(
+        max_length=8,
+        choices=STATUS_CHOICES,
+        default='activo'
+    )
 
 
 class Programa(models.Model):
@@ -371,7 +378,7 @@ class Periodo(models.Model):
     """
 
     semestre = models.CharField(
-        primary_key=True, 
+        primary_key=True,
         max_length=10
     )
 
@@ -529,6 +536,12 @@ class Clase(models.Model):
 
     )
 
+    curso = models.ForeignKey(
+        'Curso',
+        on_delete=models.CASCADE,
+
+    )
+
     modalidad = models.ForeignKey(
         'Modalidad',
         on_delete=models.CASCADE,
@@ -547,6 +560,7 @@ class Clase(models.Model):
         related_name='espacio_asignado'
     )
 
+
 class Pensum(models.Model):
     """
     Modelo que representa el pensum de un programa de posgrado
@@ -559,17 +573,17 @@ class Pensum(models.Model):
 
     programa = models.ForeignKey(
         'Programa',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     materia = models.ForeignKey(
         'Materia',
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     periodo = models.ForeignKey(
         Periodo,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
     )
 
     semestre = models.IntegerField()

@@ -1,0 +1,88 @@
+{% extends "root.html" %}
+
+{% block title %}
+    Programación
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Programación</li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Programación</h2>
+{% endblock actual_patch %}
+
+
+
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/viewProgramP.css'%}">
+{% block stylesheet %}{% endblock %}
+
+<section class="principal">
+    <div class="div1">
+        <div class="image">
+            <img src="https://media.istockphoto.com/id/1460853312/es/foto/puntos-y-l%C3%ADneas-conectados-abstractos-concepto-de-tecnolog%C3%ADa-de-ia-movimiento-del-flujo-de.jpg?s=612x612&w=0&k=20&c=IA_d2iqqxoxc8KrV4U0uAfjusAFP-DwWBd25AIZ5Vik=" class="imagenFondo" alt="khace">
+        </div>
+        <h2>{{programa.nombre}}</h2>
+        <div class="body2">
+
+        </div>
+        <div class="photo">
+            <img src="https://www.mundopsicologos.com/site/article/60606/50895/las-10-cualidades-de-una-persona-mas-valoradas-0_ai1.jpg" class="imagenFondo2" alt="hola">
+        </div>
+        <p class="nombreD">{{programa.director}}</p>
+        <a href="/eliminarPrograma/{{programa.codigo}}"> <button class="noselect"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button></a>
+    </div>
+    <div class="div2">
+        <div class="sub1">
+            <p><strong>Codigo:</strong> {{programa.codigo}}</p>
+            <p><strong>Facultad:</strong> {{programa.facultad}}</p>
+            <p><strong>Tipo de programa:</strong> {{programa.tipo_de_programa}}</p>
+            <div class="perfil">
+                <img class="perfilito" src="https://lh5.googleusercontent.com/proxy/9vqIPeIeHQHyGEo43DlSgD-DUtidieclv56O6UoAcYNGPXGNnZwFJL2V7oSodehCB1YT28jit7pMSVjNTnrBOnlBxW0CiRmOeH22FlPockzEbfdQPHLkDMPcgMwWdNfVHF1r2QpUk6W_aY_J87A9lFtYKMHf8_xhkMB7l_4=w1200-h630-p-k-no-nu" alt="">
+            </div>
+            <div class="botttt">
+                <a href="/editarProgramacion/{{ programa.codigo }}">
+                    <button class="botonEditar">Editar</button>
+                </a>
+            </div>
+        </div>
+        <div class="sub2">
+            <p><strong>Nombre:</strong> {{directors.codigo}} {{directors.apellido}}</p>
+            <p><strong>Email:</strong> {{directors.email}}</p>
+            <p><strong>Telefono:</strong> {{directors.telefono}}</p>
+            <div class="perfil">
+                <img class="perfilito" src="https://lh5.googleusercontent.com/proxy/9vqIPeIeHQHyGEo43DlSgD-DUtidieclv56O6UoAcYNGPXGNnZwFJL2V7oSodehCB1YT28jit7pMSVjNTnrBOnlBxW0CiRmOeH22FlPockzEbfdQPHLkDMPcgMwWdNfVHF1r2QpUk6W_aY_J87A9lFtYKMHf8_xhkMB7l_4=w1200-h630-p-k-no-nu" alt="">
+            </div>
+            <div class="botttt">
+                <a href="/editarDirector/{{ directors.cedula }}">
+                    <button class="botonEditar">Editar</button>
+                </a>
+            </div>
+        </div>
+        <div class="sub3">
+            <div class="son1">
+                <img class "icono" src="https://www.bing.com/images/search?view=detailV2&ccid=xwtbSwE3&id=1318799833E36F9027ACE8ACA7AF56056EBDB1B7&thid=OIP.xwtbSwE3oyHfGoGtSZ_8bQHaHa&mediaurl=https%3a%2f%2fimage.freepik.com%2ficonos-gratis%2fedicion_318-48594.jpg&cdnurl=https%3a%2f%2fth.bing.com%2fth%2fid%2fR.c70b5b4b0137a321df1a81ad499ffc6d%3frik%3dt7G9bgVWr6es6A%26pid%3dImgRaw%26r%3d0&exph=626&expw=626&q=icono+edicion&simid=608047102155314660&FORM=IRPRST&ck=EF796FE1EBDE0F6A73CB52475CCD8524&selectedIndex=0&itb=0" alt="">
+                <h3>Malla Curricular</h3>
+            </div>
+            <div class="son2">
+
+            </div>
+            <div class="son3">
+                <button class="download-button">
+                    <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line y2="13" x2="8" y1="13" x1="16"></line><line y2="17" x2="8" y1="17" x1="16"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Docs</div>
+                    <div class="download">
+                        <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
