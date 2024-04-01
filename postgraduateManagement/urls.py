@@ -1,13 +1,13 @@
 from django.urls import path
+from django.views.generic import RedirectView ##
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
-
 import postgraduateManagement.views.views_course
 
 urlpatterns = [
     # path('', views.home, name='home'),
     # cuando se incluya home, cambiar el name=home de "programas/", ademas de agregarle un path
-    path('', ProgramsView.as_view(), name='home'),
+    path('', RedirectView.as_view(pattern_name='programs', permanent=False)),  # Redirecciona a /programas/
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),

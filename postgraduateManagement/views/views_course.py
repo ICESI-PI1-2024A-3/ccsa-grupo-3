@@ -2,8 +2,10 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
 from postgraduateManagement.models import Curso, Materia
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
-
+@method_decorator(login_required, name='dispatch')
 class SubjectManagment(ListView):
     template_name = 'postgraduateManagement/../subject_list.html'
     model = Materia
@@ -17,7 +19,7 @@ class SubjectManagment(ListView):
             queryset = queryset.filter(programas__id=programa_id)
         return queryset
 
-
+@method_decorator(login_required, name='dispatch')
 class CourseView(ListView):
     template_name = 'postgraduateManagement/../course_list.html'
     model = Curso
@@ -30,13 +32,13 @@ class CourseView(ListView):
             queryset = queryset.filter(materia__codigo=codigo_materia)
         return queryset
 
-
+@method_decorator(login_required, name='dispatch')
 class CourseDeleteView(DeleteView):
     template_name = 'postgraduateManagement/../delete_course.html'
     model = Curso
     success_url = reverse_lazy('subjectmanagment')
 
-
+@method_decorator(login_required, name='dispatch')
 class CourseUpdateView(UpdateView):
     template_name = 'postgraduateManagement/../edit_course.html'
     model = Curso

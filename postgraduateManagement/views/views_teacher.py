@@ -3,10 +3,12 @@ from django.db.models.query import QuerySet
 from django.views.generic import ListView
 from django.shortcuts import render
 from postgraduateManagement.models import Docente, Ciudad
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 from django.views import View
 
-
+@method_decorator(login_required, name='dispatch')
 class TeachersView(View):
     @staticmethod
     def is_valid_queryparam(param):
