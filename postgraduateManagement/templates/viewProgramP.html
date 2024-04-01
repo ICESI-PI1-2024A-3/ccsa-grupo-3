@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {%load static%}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{%block title%}Ver Programacion{% endblock%}</title>
+{% extends "root.html" %}
+{% block title %}Ver programación{% endblock title %}
+
+{% block content  %}
+
+
+
+{% load static %}
     <link rel="stylesheet" href="{% static 'css/viewProgramP.css'%}">
-</head>
-<body>
-    {% block body  %}
+    {% block stylesheet %}{% endblock %}
+    
+
     <section class = "principal">
         <div class="div1">
             <div class = "image">
@@ -70,6 +71,4 @@
             </div>
         </div>
     </section>
-    {% endblock  %}
-</body>
-</html>
+{% endblock content%}
