@@ -2,7 +2,7 @@ from django.urls import path
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 
-import postgraduateManagement.views.CourseViews
+import postgraduateManagement.views.views_course
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -13,16 +13,16 @@ urlpatterns = [
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
-    path('example/', postgraduateManagement.views.CourseViews.SubjectManagment.as_view(),
+    path('example/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
     path('subjectmanagment/<str:codigo_materia>/',
-         postgraduateManagement.views.CourseViews.CourseView.as_view(), name='courseview'),
-    path('courses/<int:pk>/delete/', postgraduateManagement.views.CourseViews.CourseDeleteView.as_view(),
+         postgraduateManagement.views.views_course.CourseView.as_view(), name='courseview'),
+    path('courses/<int:pk>/delete/', postgraduateManagement.views.views_course.CourseDeleteView.as_view(),
          name='course_delete'),
     path('courses/<str:codigo_materia>/<int:pk>/update/',
-         postgraduateManagement.views.CourseViews.CourseUpdateView.as_view(), name='course_update'),
+         postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
     path('courses/create/',
-         postgraduateManagement.views.CourseViews.CourseCreateView.as_view(), name='course_create'),
+         postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
 
 
     path('editarProgramacion/<str:codigo>/',
