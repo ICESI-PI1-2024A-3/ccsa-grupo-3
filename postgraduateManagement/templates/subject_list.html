@@ -1,16 +1,13 @@
 {% extends "root.html" %}
+{% block title %}Materias{% endblock title %}
+
+{% block content %}
 
 
 {% load static %}
-{% block static %}
     <link rel="stylesheet" href="{% static 'css/subjectListStyle.css' %}">
-{% endblock %}
-    Materias
-{% block title %}
-    
-{% endblock  %}
+    {% block stylesheet %}{% endblock %}
 
-{% block content %}
 <div class="materia-container">
     {% for materia in object_list %}
     <div class="materia-box">
@@ -24,18 +21,3 @@
     {% endfor %}
 </div>
 {% endblock content %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-
-    <!--Carga los estilos -->
-    
-
-    <title>Materias</title>
-</head>
-<body>
-    
-</body>
-</html>
