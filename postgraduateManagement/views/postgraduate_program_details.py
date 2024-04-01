@@ -1,30 +1,34 @@
 # this is gerson file
 
+
+
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
 from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 # Create your views here.
 
-
+@login_required
 def viewProgramPosgraduates(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
     directors = programaP.director
 
     return render(request, "viewProgramP.html", {"programa": programaP, "directors": directors})
 
-
+@login_required
 def eliminarPrograma(request, codigo):
     progrmaP = Programa.objects.get(codigo=codigo)
     progrmaP.delete()
     return redirect('/')
 
-
+@login_required
 def editarDirector(request, cedula):
     directors = Director.objects.get(cedula=cedula)
     ciudad = Ciudad.objects.all()
     return render(request, "edit_director.html", {"director": directors, "ciudad": ciudad})
 
-
+@login_required
 def editingDirector(request):
     if request.method == 'POST':
         try:
@@ -50,14 +54,14 @@ def editingDirector(request):
         else:
             return HttpResponseBadRequest("Método no permitido")
 
-
+@login_required
 def editarProgramacion(request, codigo):
     progrmaP = Programa.objects.get(codigo=codigo)
     facultades = Facultad.objects.all()
     tipoProgramas = TipoPrograma.objects.all()
     return render(request, "edicion_programa.html", {"programa": progrmaP, "facultades": facultades, "tipoProgramas": tipoProgramas})
 
-
+@login_required
 def edicionPrograma(request):
     if request.method == 'POST':
         try:
