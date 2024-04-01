@@ -8,6 +8,14 @@ class SubjectManagment(ListView):
     template_name = 'postgraduateManagement/../subject_list.html'
     model = Materia
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        programa_id = self.request.GET.get('programa_id')  # Obtener el ID del programa de la consulta
+        if programa_id:
+            # Filtrar las materias por el programa dado
+            queryset = queryset.filter(programas__id=programa_id)
+        return queryset
+
 
 class CourseView(ListView):
     template_name = 'postgraduateManagement/../courseList.html'
