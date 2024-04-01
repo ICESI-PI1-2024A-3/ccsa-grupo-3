@@ -54,8 +54,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'postgraduateManagement/../subject_list.html')
 
     def test_course_view(self):
-        response = self.client.get(
-            'courseview/MateriaCodigo/')
+        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MateriaCodigo'}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 
@@ -116,9 +115,8 @@ class TestViews(TestCase):
                                         'periodo': self.periodo_prueba.semestre
                                     })
 
-        self.assertEqual(response.status_code,
-                         200)
-        self.assertTemplateNotUsed(response,'postgraduateManagement/../edit_course.html')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
 
     def test_course_create_view(self):
         response = self.client.post(reverse('course_create'), {

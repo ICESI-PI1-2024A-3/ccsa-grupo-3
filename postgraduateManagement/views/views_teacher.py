@@ -6,6 +6,7 @@ from postgraduateManagement.models import Docente, Ciudad
 
 from django.views import View
 
+
 class TeachersView(View):
     @staticmethod
     def is_valid_queryparam(param):
@@ -27,10 +28,10 @@ class TeachersView(View):
             teachers = teachers.filter(nombre__icontains=search_contains)
             # filtrar apellidos
             # reonocer si es numerico o no
-        
+
         if self.is_valid_queryparam(status):
             teachers = teachers.filter(estado=status)
-        
+
         if self.is_valid_queryparam(city):
             teachers = teachers.filter(ciudad=city)
 
