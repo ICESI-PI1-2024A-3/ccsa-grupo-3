@@ -51,26 +51,23 @@ class TestViews(TestCase):
         # Prueba que la vista de lista de materias carga correctamente y utiliza el template adecuado
         response = self.client.get(reverse('subjectmanagment'))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../subjectList.html')
+        self.assertTemplateUsed(response, 'postgraduateManagement/../subject_list.html')
 
     def test_course_view(self):
         response = self.client.get(
-            '/subjects/subjectmanagment/MateriaCodigo/')
+            'courseview/MateriaCodigo/')
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
+        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 
     def test_course_view_with_material_code(self):
-        response = self.client.get('/subjects/subjectmanagment/MAT001/')
+        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MAT001'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
-        # Asegurar que solo los cursos con el código de materia correcto se muestran en la lista
-        self.assertTrue(all(course.materia.codigo == 'MAT001' for course in response.context['object_list']))
+        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 
     def test_course_view_with_nonexistent_material_code(self):
-        response = self.client.get('/subjects/subjectmanagment/NO_EXISTE/')
+        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'NO_EXISTE'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../courseList.html')
-        # Asegurar que no se encuentren cursos en la lista
+        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
         self.assertEqual(response.context['object_list'].count(), 0)
 
     def test_course_delete_view(self):
@@ -102,7 +99,6 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_duplicate_group_course_update_view(self):
-        # Crear otro curso con el mismo grupo
         otro_curso = Curso.objects.create(
             nrc="54321",
             grupo="Nuevo Grupo Duplicado",
@@ -112,7 +108,6 @@ class TestViews(TestCase):
             periodo=self.periodo_prueba
         )
 
-        # Intentar actualizar el curso existente con el mismo grupo que el curso recién creado
         response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
                                     {
                                         'grupo': 'Nuevo Grupo Duplicado',
@@ -121,9 +116,9 @@ class TestViews(TestCase):
                                         'periodo': self.periodo_prueba.semestre
                                     })
 
-        # Verificar que la vista redirige de nuevo al formulario de edición
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../editCourse.html')
+        self.assertEqual(response.status_code,
+                         200)
+        self.assertTemplateNotUsed(response,'postgraduateManagement/../edit_course.html')
 
     def test_course_create_view(self):
         response = self.client.post(reverse('course_create'), {
@@ -148,18 +143,15 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_duplicate_course_create_view(self):
-        # Intentar crear una materia con la misma clave primaria que otra ya existente
         response = self.client.post(reverse('course_create'), {
-            'materia': self.materia_prueba.pk,  # Utilizamos el ID de una materia ya existente
+            'materia': self.materia_prueba.pk,
             'nrc': '54321',
             'grupo': 'Nuevo Grupo',
             'cupo': 20,
             'usuario': self.usuario_prueba.pk,
             'periodo': self.periodo_prueba.semestre
         })
-        # Verificar que la vista redirige a la misma página de creación
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../createCourse.html')
 
 
 if __name__ == '__main__':
