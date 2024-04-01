@@ -5,7 +5,7 @@ from postgraduateManagement.models import Curso, Materia
 
 
 class SubjectManagment(ListView):
-    template_name = 'postgraduateManagement/../subjectList.html'
+    template_name = 'postgraduateManagement/../subject_list.html'
     model = Materia
 
 

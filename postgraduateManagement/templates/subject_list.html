@@ -1,28 +1,41 @@
+{% extends "root.html" %}
+
+
+{% load static %}
+{% block static %}
+    <link rel="stylesheet" href="{% static 'css/subjectListStyle.css' %}">
+{% endblock %}
+    Materias
+{% block title %}
+    
+{% endblock  %}
+
+{% block content %}
+<div class="materia-container">
+    {% for materia in object_list %}
+    <div class="materia-box">
+        <p class="materia-title">{{ materia.nombre }}</p>
+        <div class="materia-info">
+            <p><strong>Código:</strong> {{ materia.codigo }}</p>
+            <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
+            <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 
     <!--Carga los estilos -->
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/subjectListStyle.css' %}">
-    {% block stylesheet %}{% endblock %}
+    
 
     <title>Materias</title>
 </head>
 <body>
-    <h1>Materias</h1>
-    <div class="materia-container">
-        {% for materia in object_list %}
-        <div class="materia-box">
-            <p class="materia-title">{{ materia.nombre }}</p>
-            <div class="materia-info">
-                <p><strong>Código:</strong> {{ materia.codigo }}</p>
-                <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
-                <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    
 </body>
 </html>
