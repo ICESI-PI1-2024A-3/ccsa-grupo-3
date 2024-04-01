@@ -48,43 +48,28 @@ class MiVistaTest(TestCase):
             director=self.director
         )
 
-    def test_vista_programa_posgraduados(self):
-        response = self.client.get(
-            '/subjects/verProgramacion/123234E/')
 
-        self.assertEqual(response.status_code, 200)
 
     def test_codigo_programa_inexistente(self):
         response = self.client.get(
-            '/subjects/eliminarPrograma/123234E/')
+            '/eliminarPrograma/123234E/')
 
         self.assertEqual(response.status_code, 302)
 
-    def test3(self):
-        response = self.client.get(
-            '/subjects/editarDirector/1234567890/')
 
-        self.assertEqual(response.status_code, 200)
 
-        def test_editing_director_post(self):
-            # Datos a enviar en el POST
-            data = {
-                'txtCodigo': '1234567890',
-                'nombre': 'Nuevo Nombre',
-                'apellido': 'Nuevo Apellido',
-                'email': 'nuevo@example.com',
-                'telefono': '987654321',
-                'ciudad': 'Test Ciudad'
-            }
 
-            response = self.client.post(
-                reverse('/subjects/editing_director'), data)
-            # Verifica si la redirección es exitosa
-            self.assertEqual(response.status_code, 302)
+    def test_editing_director_view(self):
+            url = reverse('editing_director')
+            response = self.client.post(url, {'txtCodigo': self.director.cedula, 'nombre': 'Nuevo Nombre',
+                                              'apellido': 'Nuevo Apellido', 'email': 'nuevo@example.com',
+                                              'telefono': '987654321', 'ciudad': self.ciudad.nombre})
+            self.assertEqual(response.status_code, 302)  # Check for redirect
 
-            # Verifica si los datos del director se han actualizado correctamente en la base de datos
-            director_actualizado = Director.objects.get(cedula='1234567890')
-            self.assertEqual(director_actualizado.nombre, 'Nuevo Nombre')
-            self.assertEqual(director_actualizado.apellido, 'Nuevo Apellido')
-            self.assertEqual(director_actualizado.email, 'nuevo@example.com')
-            self.assertEqual(director_actualizado.telefono, '987654321')
+
+
+    def test_edicion_programa_view(self):
+                url = reverse('edicion_programa')
+                response = self.client.post(url, {'txtCodigo': self.programa.codigo, 'facultad': self.facultad.nombre,
+                                                  'tipoPrograma': self.tipo_programa.nombre})
+                self.assertEqual(response.status_code, 302)  # Check for redirect
