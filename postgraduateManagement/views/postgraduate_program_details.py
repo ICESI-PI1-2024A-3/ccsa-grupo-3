@@ -6,16 +6,11 @@ from django.http import HttpResponseBadRequest, HttpResponseServerError
 # Create your views here.
 
 
-def posgraduateP(request):
-    programasPosgrado = Programa.objects.all()
-    return render(request, "posgraduatesProgram.html", {"programas": programasPosgrado})
-
-
 def viewProgramPosgraduates(request, codigo):
-    progrmaP = Programa.objects.get(codigo=codigo)
-    directors = Director.objects.get(cedula=progrmaP.director)
+    programaP = Programa.objects.get(codigo=codigo)
+    directors = programaP.director
 
-    return render(request, "viewProgramP.html", {"programa": progrmaP, "directors": directors})
+    return render(request, "viewProgramP.html", {"programa": programaP, "directors": directors})
 
 
 def eliminarPrograma(request, codigo):

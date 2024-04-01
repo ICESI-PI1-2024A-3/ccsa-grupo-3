@@ -1,9 +1,8 @@
 from django.urls import path
-from . import views
 from .views import ProgramsView, TeachersView
+from .views import postgraduate_program_details
 
 import postgraduateManagement.views.CourseViews
-from postgraduateManagement import views
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -12,6 +11,7 @@ urlpatterns = [
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
+    path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
     path('example/', postgraduateManagement.views.CourseViews.SubjectManagment.as_view(),
          name='subjectmanagment'),
@@ -24,13 +24,15 @@ urlpatterns = [
     path('courses/create/',
          postgraduateManagement.views.CourseViews.CourseCreateView.as_view(), name='course_create'),
 
-    path('verProgramacion/<codigo>/', views.viewProgramPosgraduates),
+
     path('editarProgramacion/<str:codigo>/',
-         views.editarProgramacion, name='editar_programacion'),
-    path('edicionPrograma/', views.edicionPrograma, name='edicion_programa'),
+         postgraduate_program_details.editarProgramacion, name='editar_programacion'),
+    path('edicionPrograma/', postgraduate_program_details.edicionPrograma,
+         name='edicion_programa'),
     path('eliminarPrograma/<str:codigo>/',
-         views.eliminarPrograma, name='eliminar_programa'),
+         postgraduate_program_details.eliminarPrograma, name='eliminar_programa'),
     path('editarDirector/<str:cedula>/',
-         views.editarDirector, name='editar_director'),
-    path('editingDirector/', views.editingDirector, name='editing_director'),
+         postgraduate_program_details.editarDirector, name='editar_director'),
+    path('editingDirector/', postgraduate_program_details.editingDirector,
+         name='editing_director'),
 ]
