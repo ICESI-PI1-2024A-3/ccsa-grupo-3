@@ -22,7 +22,7 @@ def eliminarPrograma(request, codigo):
 def editarDirector(request, cedula):
     directors = Director.objects.get(cedula=cedula)
     ciudad = Ciudad.objects.all()
-    return render(request, "editDirector.html", {"director": directors, "ciudad": ciudad})
+    return render(request, "edit_director.html", {"director": directors, "ciudad": ciudad})
 
 
 def editingDirector(request):
@@ -55,7 +55,7 @@ def editarProgramacion(request, codigo):
     progrmaP = Programa.objects.get(codigo=codigo)
     facultades = Facultad.objects.all()
     tipoProgramas = TipoPrograma.objects.all()
-    return render(request, "edicionPrograma.html", {"programa": progrmaP, "facultades": facultades, "tipoProgramas": tipoProgramas})
+    return render(request, "edicion_programa.html", {"programa": progrmaP, "facultades": facultades, "tipoProgramas": tipoProgramas})
 
 
 def edicionPrograma(request):
