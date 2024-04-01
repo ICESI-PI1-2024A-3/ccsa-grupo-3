@@ -13,7 +13,7 @@ urlpatterns = [
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
-    path('example/<str:programa_id>/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
+    path('example/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
     path('subjectmanagment/<str:codigo_materia>/',
          postgraduateManagement.views.views_course.CourseView.as_view(), name='courseview'),

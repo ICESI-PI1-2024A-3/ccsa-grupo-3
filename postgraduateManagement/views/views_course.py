@@ -10,7 +10,8 @@ class SubjectManagment(ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        programa_id = self.request.GET.get('programa_id')  # Obtener el ID del programa de la consulta
+        # Obtener el ID del programa de la consulta
+        programa_id = self.request.GET.get('programa_id')
         if programa_id:
             # Filtrar las materias por el programa dado
             queryset = queryset.filter(programas__id=programa_id)
@@ -18,11 +19,12 @@ class SubjectManagment(ListView):
 
 
 class CourseView(ListView):
-    template_name = 'postgraduateManagement/../courseList.html'
+    template_name = 'postgraduateManagement/../course_list.html'
     model = Curso
 
     def get_queryset(self):
-        codigo_materia = self.kwargs.get('codigo_materia')  # Obtén el código de materia de la URL
+        # Obtén el código de materia de la URL
+        codigo_materia = self.kwargs.get('codigo_materia')
         queryset = super().get_queryset()
         if codigo_materia:
             queryset = queryset.filter(materia__codigo=codigo_materia)
@@ -30,20 +32,20 @@ class CourseView(ListView):
 
 
 class CourseDeleteView(DeleteView):
-    template_name = 'postgraduateManagement/../deleteCourse.html'
+    template_name = 'postgraduateManagement/../delete_course.html'
     model = Curso
     success_url = reverse_lazy('subjectmanagment')
 
 
 class CourseUpdateView(UpdateView):
-    template_name = 'postgraduateManagement/../editCourse.html'
+    template_name = 'postgraduateManagement/../edit_course.html'
     model = Curso
     fields = ['grupo', 'cupo', 'usuario', 'periodo']
     success_url = reverse_lazy('subjectmanagment')
 
 
 class CourseCreateView(CreateView):
+    template_name = 'postgraduateManagement/../create_course.html'
     model = Curso
     fields = ['materia', 'nrc', 'grupo', 'cupo', 'usuario', 'periodo']
-    template_name = 'postgraduateManagement/../createCourse.html'
     success_url = reverse_lazy('subjectmanagment')
