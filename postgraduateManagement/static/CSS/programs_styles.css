@@ -4,7 +4,7 @@ body {
 
 .container {
     display: flex; 
-    flex-direction: row;;
+    flex-direction: row;
     width: calc(100vw - 5rem);
     margin-right: 1rem;
     justify-content: space-between;
@@ -16,7 +16,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    padding-right: 1em;;
+    padding-right: 1em;
     margin: 1em 0;
 }
 
@@ -129,8 +129,6 @@ body {
     height: 20%;
 }
 
-
-
 .program img{
     width: 25%;
     height: 100%;
@@ -139,7 +137,6 @@ body {
     margin-right: 1em;
     border-radius: 5px 0 0 5px;
     box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.1);
-
 }
 
 .program h2 {
@@ -152,4 +149,52 @@ body {
 
 .right h2{
     margin-top: 0;
+}
+
+.wrapperInfo button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.wrapperInfo button:hover {
+    background-color: #45a049;
+}
+
+.button-link {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.button-link:hover {
+    background-color: #45a049;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.buttons button,
+.buttons a {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.buttons button:hover,
+.buttons a:hover {
+    background-color: #45a049;
 }

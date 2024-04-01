@@ -18,5 +18,11 @@ function showInfo(codigo) {
         for (var i = 0; i < newChildren.length; i++) {
             newChildren[i].classList.add('visible');
         }
+
+        // Agregar el botón "Ver Materias"
+        var button = document.createElement('button');
+        button.textContent = 'Ver Materias';
+        button.setAttribute('onclick', 'verMaterias("' + codigo + '")');
+        wrapperInfo.appendChild(button);
     }, 100);
 }
