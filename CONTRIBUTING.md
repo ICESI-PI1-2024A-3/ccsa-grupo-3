@@ -8,6 +8,7 @@ Como contribuidor del proyecto debes tomar en cuenta las siguientes reglas.
   - [Notación de las clases](#class)
   - [Notación de los métodos](#methods)
 - [Estructura de los commits](#commits)
+- [Notacion de las ramas](#branches)
 
 Recuerde que todo lo que no sea visible para el usuario debe ser escrito en **INGLES** (cosas como: nombre de variables/clases/archivos, sintaxis de los commits, etc.) y todo lo que si pueda observar el cliente se debe redactar en **ESPAÑOL** (por colocar algunos ejemplos: alertas, models, documentación, etc.)
 
@@ -145,6 +146,25 @@ Esta campo es obligatorio solamente si el commit permite marcar una historia de 
 
 - **HU-00**: si lo que se completo fue una historia de usuario se debe colocar el identificador de la misma, este identificador debe ser de 2 dígitos (ejemplo: 01, 12, 05, 09)
 - **HU-00 | 00**: si lo se completo fue una instancia, estaba debe tener el identificador de la historia de usuario y su propio identificador, estos identificadores también deben ser de 2 dígitos.
+
+
+## <a name="branches"></a> Estrcturacion de las ramas
+
+
+Para las ramas se estaran usando 5 tipos de ramas dependiendo de su estructura divididas de las siguientes manera: 
+
+-**(HU)(#HU)-(Breve descripcion de la hu)**: estas seran las ramas por defecto donde se realizara el trabajo pertinente a las ramas especificadas
+
+
+-**(FIX)-(HU)(#HU)-(Breve descripcion de la hu)**: estas seran para correpciones sobre ramas cuya "situacion" haya sido cerrada previamente
+
+-**(Docs)**: esta rama se utilizara para registrar todo lo relacionado a la documentacion del proyecto 
+
+-**(dev)**: esta se utilizara para la integracion de las ramas del proyecto siendo esta una version previa a produccion donde se olucionaran 
+errores de fusion y se dara cierre a los casos de hu que dependan de las caracteristicas de la integracion
+
+
+-**(main)**: rama de produccion donde se utilizaran y se subiran las versiones estables del proyecto
 
 ##### Resumen
 
