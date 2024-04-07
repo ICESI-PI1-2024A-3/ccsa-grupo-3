@@ -16,12 +16,12 @@ class ModelTest(TestCase):
     def test_nombre_max_length(self):
         facultad = Facultad.objects.get(id=1)
         max_length = facultad._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 255)
+        self.assertEqual(max_length, 255)
 
     def test_creacion_facultad_nombre_max_length(self):
         facultad = Facultad.objects.get(id=1)
         nombre = facultad.nombre
-        self.assertEquals(nombre, 'Facultad de Ingeniería')
+        self.assertEqual(nombre, 'Facultad de Ingeniería')
 
     def test_creacion_facultad_nombre_duplicado(self):
         with self.assertRaises(Exception):
@@ -37,12 +37,12 @@ class TipoProgramaModelTest(TestCase):
     def test_nombre_max_length(self):
         tipo_programa = TipoPrograma.objects.get(id=1)
         max_length = tipo_programa._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 60)
+        self.assertEqual(max_length, 60)
 
     def test_creacion_tipo_programa_nombre_max_length(self):
         tipo_programa = TipoPrograma.objects.get(id=1)
         nombre = tipo_programa.nombre
-        self.assertEquals(nombre, 'Maestría')
+        self.assertEqual(nombre, 'Maestría')
 
     def test_creacion_tipo_programa_nombre_duplicado(self):
         with self.assertRaises(Exception):
@@ -58,17 +58,17 @@ class DepartamentoModelTest(TestCase):
     def test_codigo_max_length(self):
         departamento = Departamento.objects.get(codigo='DEP001')
         max_length = departamento._meta.get_field('codigo').max_length
-        self.assertEquals(max_length, 10)
+        self.assertEqual(max_length, 10)
 
     def test_nombre_max_length(self):
         departamento = Departamento.objects.get(codigo='DEP001')
         max_length = departamento._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 255)
+        self.assertEqual(max_length, 255)
 
     def test_creacion_departamento_nombre_max_length(self):
         departamento = Departamento.objects.get(codigo='DEP001')
         nombre = departamento.nombre
-        self.assertEquals(nombre, 'Departamento de Matemáticas')
+        self.assertEqual(nombre, 'Departamento de Matemáticas')
 
     def test_creacion_departamento_duplicado(self):
         with self.assertRaises(Exception):
@@ -84,17 +84,17 @@ class TipoContratoModelTest(TestCase):
     def test_codigo_max_length(self):
         tipo_contrato = TipoContrato.objects.get(codigo='TC001')
         max_length = tipo_contrato._meta.get_field('codigo').max_length
-        self.assertEquals(max_length, 16)
+        self.assertEqual(max_length, 16)
 
     def test_nombre_max_length(self):
         tipo_contrato = TipoContrato.objects.get(codigo='TC001')
         max_length = tipo_contrato._meta.get_field('tipo').max_length
-        self.assertEquals(max_length, 80)
+        self.assertEqual(max_length, 80)
 
     def test_creacion_tipo_contrato_nombre_max_length(self):
         tipo_contrato = TipoContrato.objects.get(codigo='TC001')
         nombre = tipo_contrato.tipo
-        self.assertEquals(nombre, 'Tiempo Completo')
+        self.assertEqual(nombre, 'Tiempo Completo')
 
     def test_creacion_tipo_contrato_duplicado(self):
         with self.assertRaises(Exception):
@@ -110,17 +110,17 @@ class EstadoContratoModelTest(TestCase):
     def test_id_max_length(self):
         estado_contrato = EstadoContrato.objects.get(id='A')
         max_length = estado_contrato._meta.get_field('id').max_length
-        self.assertEquals(max_length, 1)
+        self.assertEqual(max_length, 1)
 
     def test_nombre_max_length(self):
         estado_contrato = EstadoContrato.objects.get(id='A')
         max_length = estado_contrato._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 20)
+        self.assertEqual(max_length, 20)
 
     def test_creacion_estado_contrato_nombre_max_length(self):
         estado_contrato = EstadoContrato.objects.get(id='A')
         nombre = estado_contrato.nombre
-        self.assertEquals(nombre, 'Activo')
+        self.assertEqual(nombre, 'Activo')
 
     def test_creacion_estado_contrato_duplicado(self):
         with self.assertRaises(Exception):
@@ -136,17 +136,17 @@ class ModalidadModelTest(TestCase):
     def test_codigo_max_length(self):
         modalidad = Modalidad.objects.get(codigo='P')
         max_length = modalidad._meta.get_field('codigo').max_length
-        self.assertEquals(max_length, 1)
+        self.assertEqual(max_length, 1)
 
     def test_nombre_max_length(self):
         modalidad = Modalidad.objects.get(codigo='P')
         max_length = modalidad._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 20)
+        self.assertEqual(max_length, 20)
 
     def test_creacion_modalidad_nombre_max_length(self):
         modalidad = Modalidad.objects.get(codigo='P')
         nombre = modalidad.nombre
-        self.assertEquals(nombre, 'Presencial')
+        self.assertEqual(nombre, 'Presencial')
 
     def test_creacion_Modalidad_duplicado(self):
         with self.assertRaises(Exception):
@@ -162,12 +162,12 @@ class CiudadModelTest(TestCase):
     def test_nombre_max_length(self):
         ciudad = Ciudad.objects.get(id=1)
         max_length = ciudad._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 20)
+        self.assertEqual(max_length, 20)
 
     def test_creacion_ciudad_nombre_max_length(self):
         ciudad = Ciudad.objects.get(id=1)
         nombre = ciudad.nombre
-        self.assertEquals(nombre, 'Ciudad de Ejemplo')
+        self.assertEqual(nombre, 'Ciudad de Ejemplo')
 
     def test_creacion_ciudad_duplicada(self):
         with self.assertRaises(Exception):
@@ -183,22 +183,22 @@ class UsuarioModelTest(TestCase):
     def test_nombre_max_length(self):
         usuario = Usuario.objects.get(id=1)
         max_length = usuario._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_apellido_max_length(self):
         usuario = Usuario.objects.get(id=1)
         max_length = usuario._meta.get_field('apellido').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_creacion_usuario_nombre_max_length(self):
         usuario = Usuario.objects.get(id=1)
         nombre = usuario.nombre
-        self.assertEquals(nombre, 'Juan')
+        self.assertEqual(nombre, 'Juan')
 
     def test_creacion_usuario_apellido_max_length(self):
         usuario = Usuario.objects.get(id=1)
         apellido = usuario.apellido
-        self.assertEquals(apellido, 'Pérez')
+        self.assertEqual(apellido, 'Pérez')
 
     def test_creacion_usuario_duplicado(self):
         with self.assertRaises(Exception):
@@ -214,12 +214,12 @@ class EspacioModelTest(TestCase):
     def test_id_espacio_max_length(self):
         espacio = Espacio.objects.get(id_espacio='A001')
         max_length = espacio._meta.get_field('id_espacio').max_length
-        self.assertEquals(max_length, 4)
+        self.assertEqual(max_length, 4)
 
     def test_creacion_espacio_id_espacio_max_length(self):
         espacio = Espacio.objects.get(id_espacio='A001')
         id_espacio = espacio.id_espacio
-        self.assertEquals(id_espacio, 'A001')
+        self.assertEqual(id_espacio, 'A001')
 
     def test_creacion_espacio_duplicado(self):
         with self.assertRaises(Exception):
@@ -237,22 +237,22 @@ class DirectorModelTest(TestCase):
     def test_cedula_max_length(self):
         director = Director.objects.get(cedula='1234567890')
         max_length = director._meta.get_field('cedula').max_length
-        self.assertEquals(max_length, 32)
+        self.assertEqual(max_length, 32)
 
     def test_nombre_max_length(self):
         director = Director.objects.get(cedula='1234567890')
         max_length = director._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_apellido_max_length(self):
         director = Director.objects.get(cedula='1234567890')
         max_length = director._meta.get_field('apellido').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_email_max_length(self):
         director = Director.objects.get(cedula='1234567890')
         max_length = director._meta.get_field('email').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_creacion_director_duplicado(self):
         with self.assertRaises(IntegrityError):
@@ -272,22 +272,22 @@ class DocenteModelTest(TestCase):
     def test_cedula_max_length(self):
         docente = Docente.objects.get(cedula='1234567890')
         max_length = docente._meta.get_field('cedula').max_length
-        self.assertEquals(max_length, 32)
+        self.assertEqual(max_length, 32)
 
     def test_nombre_max_length(self):
         docente = Docente.objects.get(cedula='1234567890')
         max_length = docente._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_apellido_max_length(self):
         docente = Docente.objects.get(cedula='1234567890')
         max_length = docente._meta.get_field('apellido').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_email_max_length(self):
         docente = Docente.objects.get(cedula='1234567890')
         max_length = docente._meta.get_field('email').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_creacion_docente_duplicado(self):
         with self.assertRaises(IntegrityError):
@@ -312,12 +312,12 @@ class ProgramaModelTest(TestCase):
     def test_codigo_max_length(self):
         programa = Programa.objects.get(codigo='PRG01')
         max_length = programa._meta.get_field('codigo').max_length
-        self.assertEquals(max_length, 10)
+        self.assertEqual(max_length, 10)
 
     def test_nombre_max_length(self):
         programa = Programa.objects.get(codigo='PRG01')
         max_length = programa._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 255)
+        self.assertEqual(max_length, 255)
 
     def test_creacion_programa_duplicado(self):
         with self.assertRaises(IntegrityError):
@@ -368,7 +368,7 @@ class PeriodoModelTest(TestCase):
     def test_semestre_max_length(self):
         periodo = Periodo.objects.get(semestre='2024A')
         max_length = periodo._meta.get_field('semestre').max_length
-        self.assertEquals(max_length, 10)
+        self.assertEqual(max_length, 10)
 
     def test_creacion_periodo_duplicado(self):
         with self.assertRaises(IntegrityError):
@@ -395,12 +395,12 @@ class MateriaModelTest(TestCase):
     def test_codigo_max_length(self):
         materia = Materia.objects.get(codigo='MAT01')
         max_length = materia._meta.get_field('codigo').max_length
-        self.assertEquals(max_length, 88)
+        self.assertEqual(max_length, 88)
 
     def test_nombre_max_length(self):
         materia = Materia.objects.get(codigo='MAT01')
         max_length = materia._meta.get_field('nombre').max_length
-        self.assertEquals(max_length, 120)
+        self.assertEqual(max_length, 120)
 
     def test_creacion_materia_duplicada(self):
         with self.assertRaises(IntegrityError):
@@ -427,12 +427,12 @@ class CursoModelTest(TestCase):
     def test_nrc_max_length(self):
         curso = Curso.objects.get(nrc='123456')
         max_length = curso._meta.get_field('nrc').max_length
-        self.assertEquals(max_length, 6)
+        self.assertEqual(max_length, 6)
 
     def test_grupo_max_length(self):
         curso = Curso.objects.get(nrc='123456')
         max_length = curso._meta.get_field('grupo').max_length
-        self.assertEquals(max_length, 2)
+        self.assertEqual(max_length, 2)
 
     def test_creacion_curso_duplicado(self):
         with self.assertRaises(IntegrityError):

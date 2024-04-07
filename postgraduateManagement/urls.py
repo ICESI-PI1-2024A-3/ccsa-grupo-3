@@ -13,15 +13,15 @@ urlpatterns = [
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
-    path('example/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
+    path('subjectmanagment/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
-    path('subjectmanagment/<str:codigo_materia>/',
+    path('courseview/<str:codigo_materia>/',
          postgraduateManagement.views.views_course.CourseView.as_view(), name='courseview'),
     path('courses/<int:pk>/delete/', postgraduateManagement.views.views_course.CourseDeleteView.as_view(),
          name='course_delete'),
     path('courses/<str:codigo_materia>/<int:pk>/update/',
          postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
-    path('courses/create/',
+    path('courses/create/<str:codigo_materia>',
          postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
 
 

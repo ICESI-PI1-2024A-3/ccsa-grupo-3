@@ -386,6 +386,9 @@ class Periodo(models.Model):
 
     fecha_fin = models.DateField()
 
+    def __str__(self):
+        return self.semestre
+
 
 class Materia(models.Model):
     """
