@@ -1,14 +1,57 @@
-<!-- Muestra la información existente del docente -->
-<p>Cédula: {{ docente.cedula }}</p>
-<p>Nombre: {{ docente.nombre }}</p>
-<p>Apellido: {{ docente.apellido }}</p>
-<p>Email: {{ docente.email }}</p>
-<p>Teléfono: {{ docente.telefono }}</p>
-<p>URL de foto: {{ docente.url_foto }}</p>
+{% extends "root.html" %}
 
-<form method="post">
-  {% csrf_token %}
-  {{ form.estado }}  <!-- Solo muestra el campo de estado -->
-  <button type="submit">Guardar cambios</button>
-</form>
+{% block title %}
+Editar Estado del Docente
+{% endblock %}
 
+{% block breadcrumb-items %}
+    <li style="margin: 0 5px;">/</li>
+    <li>Editar Estado </li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Editar Estado</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/edit_state_teacher_style.css' %}">
+    {% block stylesheet %}{% endblock %}
+    
+    <div class="vertical-center-container">
+        <div class="container">
+            <section class="teacher-info-container">
+                <h2>Información del Docente</h2>
+                <article>
+                    <div class="info-item">
+                        <span class="info-label">Cédula:</span> <span class="info-value">{{ docente.cedula }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Nombre:</span> <span class="info-value">{{ docente.nombre }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Apellido:</span> <span class="info-value">{{ docente.apellido }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Email:</span> <span class="info-value">{{ docente.email }}</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Teléfono:</span> <span class="info-value">{{ docente.telefono }}</span>
+                    </div>
+                </article>
+            </section>
+
+            <section class="edit-form-container">
+                <h2>Editar Estado del Docente</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form.estado.label_tag }}
+                        {{ form.estado }}
+                    </div>
+                    <button type="submit" class="btn-submit">Guardar Cambios</button>
+                </form>
+            </section>
+        </div>
+    </div>
+{% endblock content %}
