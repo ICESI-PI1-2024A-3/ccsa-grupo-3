@@ -1,0 +1,14 @@
+<!-- Muestra la información existente del docente -->
+<p>Cédula: {{ docente.cedula }}</p>
+<p>Nombre: {{ docente.nombre }}</p>
+<p>Apellido: {{ docente.apellido }}</p>
+<p>Email: {{ docente.email }}</p>
+<p>Teléfono: {{ docente.telefono }}</p>
+<p>URL de foto: {{ docente.url_foto }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.estado }}  <!-- Solo muestra el campo de estado -->
+  <button type="submit">Guardar cambios</button>
+</form>
+
