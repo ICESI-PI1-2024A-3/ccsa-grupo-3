@@ -3,6 +3,9 @@ from django.views.generic import RedirectView ##
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
+from django.contrib.auth.views import LogoutView
+
+
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -35,4 +38,7 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+
+     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
+
 ]
