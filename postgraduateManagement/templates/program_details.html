@@ -4,6 +4,13 @@
     Programa: {{ programa.nombre }} | Universidad Icesi
 {% endblock title %}
 
+{% load static %}
+{% block static %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/program_details_styles.css' %}">
+{% endblock static %}
+
 {% block actual_patch %}
     {{ programa.nombre }}
 {% endblock actual_patch %}
