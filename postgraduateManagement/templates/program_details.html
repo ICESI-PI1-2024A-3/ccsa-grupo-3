@@ -24,7 +24,52 @@
         <li>Tercer elemento</li>
     </ul>
 
-    <div>
+    <div class = "program-detail">
+        <div class="program-director">
+            <h3>Director</h3>
+            <div class="director">
+                <div class="director-image">
+                    <img src="{{ directors.url_foto }}" alt="">
+                </div>
+
+                <div class="director-details">
+                    <div class="director-info">
+                        <p>Nombre: </p>
+                        <p>{{ directors.nombre }}</p>
+                    </div>
+                    
+                    <div class="director-info">
+                        <p>Email: </p>
+                        <p>{{ directors.email}}</p>
+                    </div>
         
+                    <div class="director-info">
+                        <p>Email: </p>
+                        <p>{{ directors.telefono}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="program-detail">
+            <div class="program-info">
+                <p>Facultad: </p>
+                <p>{{ programa.facultad }}</p>
+            </div>
+            <div class="program-info">
+                <p>Cursos Totales: </p>
+                <p style="color: red;">AGREGAR CONTADOR</p>
+            </div>
+            <div class="program-info">
+                <p>Tipo Programa: </p>
+                <p>{{ programa.tipo_de_programa }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="study-plan">
+        <h2 class="pensum">Plan de Estudios</h2>
+        <div class="pensum-detail">
+            
+        </div>
     </div>
 {% endblock content %}
