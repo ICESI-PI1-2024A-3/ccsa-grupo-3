@@ -11,7 +11,7 @@ urlpatterns = [
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
-    path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
+    path('programas/<codigo>/', postgraduate_program_details.view_program_details),
 
     path('example/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),

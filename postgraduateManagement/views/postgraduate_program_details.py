@@ -1,20 +1,15 @@
-# this is gerson file
-
-
-
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
 from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma
 from django.http import HttpResponseBadRequest, HttpResponseServerError
-# Create your views here.
 
 @login_required
-def viewProgramPosgraduates(request, codigo):
+def view_program_details(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
     directors = programaP.director
 
-    return render(request, "viewProgramP.html", {"programa": programaP, "directors": directors})
+    return render(request, "program_details.html", {"programa": programaP, "directors": directors})
 
 @login_required
 def eliminarPrograma(request, codigo):
