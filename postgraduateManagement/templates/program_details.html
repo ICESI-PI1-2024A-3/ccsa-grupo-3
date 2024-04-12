@@ -8,7 +8,7 @@
 {% block static %}
     {{ block.super }}
 
-    <link rel="stylesheet" href="{% static 'css/program_details_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/program_details.css' %}">
 {% endblock static %}
 
 {% block actual_patch %}
@@ -25,11 +25,14 @@
 {% endblock breadcrumb-items %}
 
 {% block content %}
-    <ul>
-        <li>Primer elemento</li>
-        <li>Segundo elemento</li>
-        <li>Tercer elemento</li>
-    </ul>
+    <div class="secondary-navigation">
+        <ul class = "top-navbar">
+            <li><a href="">Programa</a></li>
+            <li><a href="">Planificación</a></li>
+            <li><a href="">Docentes</a></li>
+            <li><a href="">Materias</a></li>
+        </ul>
+    </div>
 
     <div class = "program-detail">
         <div class="program-director">
