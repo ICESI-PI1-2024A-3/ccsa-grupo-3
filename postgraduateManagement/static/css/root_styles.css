@@ -118,8 +118,10 @@
 .sidebar.close .nav-links li a .link_name{
   opacity: 0;
   pointer-events: none;
-  .sidebar .nav-links li .sub-menu{
 }
+
+.sidebar .nav-links li .sub-menu{
+
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
   background: #1d1b31;
@@ -175,6 +177,7 @@
 .sidebar .nav-links li:hover .sub-menu.blank{
   top: 50%;
   transform: translateY(-50%);
+  background-color: var(--color2);
 }
 .sidebar .profile-details{
   position: fixed;
