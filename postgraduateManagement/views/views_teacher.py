@@ -7,6 +7,10 @@ from postgraduateManagement.models import Docente, Ciudad
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+from postgraduateManagement.models import Curso, Materia
+
+
+
 from django.views import View
 
 
@@ -63,10 +67,11 @@ class DocenteUpdateView(UpdateView):
 
 
 
+
 class teacherAssignCourse(UpdateView):
     model = Docente
     fields = ['estado'] 
-    template_name = 'postgraduateManagement/../assign_course_to_teacher.html'  # Nombre de tu template
+    template_name = 'postgraduateManagement/../assign_course_to_teacher.html'  # Nombre del template
     success_url = reverse_lazy('teachers')
 
     def get_object(self, queryset=None):
@@ -78,9 +83,11 @@ class teacherAssignCourse(UpdateView):
         context = super().get_context_data(**kwargs)
         # Agregar la instancia del docente al contexto para acceder a sus datos en el template
         context['docente'] = self.object
-        return context    
 
+        # Obtener todas las materias y agregarlas al contexto
+        context['materias'] = Materia.objects.all()
 
+        return context
 
 # Info del docente
 class teacherInfo(UpdateView):
