@@ -37,7 +37,14 @@ def view_program_teachers(request, codigo):
 @login_required
 def view_program_subjects(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
-    return render (request, "program_details_subjects.html", {"programa": programaP})
+    temp = Pensum.objects.filter(programa_id=programaP.codigo)
+
+    subjects = []
+
+    for i in temp:
+        subjects.append(i.materia) 
+
+    return render (request, "program_details_subjects.html", {"programa": programaP, "subjects": subjects})
 
 @login_required
 def eliminarPrograma(request, codigo):
