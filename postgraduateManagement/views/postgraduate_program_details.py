@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
-from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma, Pensum
+from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma, Pensum, Materia
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 
 @login_required
@@ -31,7 +31,11 @@ def view_program_planning(request, codigo):
 @login_required
 def view_program_teachers(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
-    return render (request, "program_details_teachers.html", {"programa": programaP})
+    pensum = Pensum.objects.filter(programa_id=programaP) # Materias del programa
+    subjects = [p.materia for p in pensum]
+    teacher_list = [docente for materia in subjects for docente in materia.docente.all()]
+
+    return render (request, "program_details_teachers.html", {"programa": programaP, "teacher_list": teacher_list})
 
 
 @login_required

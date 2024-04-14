@@ -1,1 +1,113 @@
 {% extends "program_details_root.html" %}
+
+{% load static %}
+{% block static %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/program_details_teachers.css' %}">
+{% endblock static %}
+
+{% block content %}
+    {{ block.super }}
+
+    <form method="GET" action="." class="form-row">
+
+            <div class="search-bar">
+                <div class="input-group">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="search" name="search_contains" placeholder="Buscar"/>
+                </div>
+            </div>
+        
+            <select name="status">
+                <option value = "activo" selected>Profesores Activos</option>
+                <option value = "inactivo">Profesores Inactivos</option>
+            </select>
+
+            <select name="city">
+                <option value = "" select>Cuidad</option>
+                {% for city in cities %}
+                    <option value="{{city.id}}">{{city.nombre}}</option>
+                {% endfor %}
+            </select>
+
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <div class="grid-container">
+
+        {% for teacher in teacher_list %}
+        
+        <div class="card">
+            <div class="image">
+                <img src="https://th.bing.com/th/id/OIP.pYdFHETEFknKbd54t2d42AHaLH?rs=1&pid=ImgDetMain" alt="image">
+            </div>
+            <div class="info">
+                <div class="name">
+                    <h2>{{teacher.nombre}} {{teacher.apellido}}</h2>
+                    <p>Docente, EN</p>
+                </div>
+                <div class="button">
+                    <a href="" class="trigger">
+                        <span class="open">More</span>
+                        <span class="close">Close</span>    
+                    </a>
+                </div>
+                <div class="details">
+                    <div class="left">
+                        <div class="about">
+                            <h3>About</h3>
+                            <div class="about-data">
+                                <ion-icon name="id-card-outline"></ion-icon>
+                                <button onclick="copy_teacher_id('{{teacher.cedula}}')">
+                                    <input type="text" value="{{teacher.cedula}}" id="{{teacher.cedula}}" readonly>
+                                </button>
+                            </div>
+                            <div class="about-data">
+                                <ion-icon name="mail-outline"></ion-icon>
+                                <button onclick="copy_teacher_email('{{teacher.cedula}}')">
+                                    <input type="text" value="{{teacher.email}}" id="{{teacher.cedula}}" readonly>
+                                </button>
+                            </div>
+                            <div class="about-data">
+                                <ion-icon name="call-outline"></ion-icon>
+                                <button onclick="copy_teacher_phone('{{teacher.cedula}}')">
+                                    <input type="text" value="{{teacher.telefono}}" id="{{teacher.cedula}}" readonly>
+                                </button> 
+                            </div>
+                            <div class="about-data">
+                                <ion-icon name="location-outline"></ion-icon>
+                                <button onclick="copy_teacher_city('{{teacher.cedula}}')">
+                                    <input type="text" value="{{teacher.ciudad}}" id="{{teacher.cedula}}" readonly>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="socials">
+                            <ul>
+                                <li><a href="#"><ion-icon name="logo-dribbble"></ion-icon></a></li>
+                                <li><a href="#"><ion-icon name="logo-behance"></ion-icon></a></li>
+                                <li><a href="#"><ion-icon name="logo-github"></ion-icon></a></li>
+                                <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                            </ul>
+                        </div>
+                        <div class="button">
+                            <a href="#"><span>Hire Me</span></a>
+                            <a href="#" class="light"><span>More of Me</span></a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+
+    <script src="{% static 'js/teachers_script.js' %}"></script>
+{% endblock %}
+
+{% block breadcrumb-items %}
+    {{ block.super }}
+    <li class="breadcrumb-item">
+        <a href="{% url 'teachers' %}">Docentes</a>
+    </li>
+{% endblock %}
