@@ -1,15 +1,43 @@
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
-from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma
+from postgraduateManagement.models import Programa, Director, Ciudad, Facultad, TipoPrograma, Pensum
 from django.http import HttpResponseBadRequest, HttpResponseServerError
 
 @login_required
-def view_program_details(request, codigo):
+def view_program_summary(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
     directors = programaP.director
 
-    return render(request, "program_details.html", {"programa": programaP, "directors": directors})
+    temp = Pensum.objects.filter(programa_id=programaP, periodo_id=1)
+    subjects_1 = []
+
+    for i in temp:
+        subjects_1.append(i.materia.nombre)
+
+    temp = Pensum.objects.filter(programa_id=programaP, periodo_id=2)
+    subjects_2 = []
+
+    for i in temp:
+        subjects_2.append(i.materia.nombre)
+
+    return render(request, "program_details_summary.html", {"programa": programaP, "directors": directors, "subjects_1": subjects_1, "subjects_2": subjects_2})
+
+@login_required
+def view_program_planning(request, codigo):
+    programaP = Programa.objects.get(codigo=codigo)
+    return render (request, "program_details_planning.html", {"programa": programaP})
+
+@login_required
+def view_program_teachers(request, codigo):
+    programaP = Programa.objects.get(codigo=codigo)
+    return render (request, "program_details_teachers.html", {"programa": programaP})
+
+
+@login_required
+def view_program_subjects(request, codigo):
+    programaP = Programa.objects.get(codigo=codigo)
+    return render (request, "program_details_subjects.html", {"programa": programaP})
 
 @login_required
 def eliminarPrograma(request, codigo):

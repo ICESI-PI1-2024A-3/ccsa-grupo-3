@@ -1,8 +1,4 @@
-{% extends "root.html" %}
-
-{% block title %}
-    Programa: {{ programa.nombre }} | Universidad Icesi
-{% endblock title %}
+{% extends "program_details_root.html" %}
 
 {% load static %}
 {% block static %}
@@ -11,29 +7,9 @@
     <link rel="stylesheet" href="{% static 'css/program_details.css' %}">
 {% endblock static %}
 
-{% block actual_patch %}
-    {{ programa.nombre }}
-{% endblock actual_patch %}
-
-{% block breadcrumb-items %}
-    <li class="breadcrumb-item">
-        <a href="{% url 'programs' %}">Programas</a>
-    </li>
-    <li class="breadcrumb-item">
-        <a href="{{ request.path }}">{{ programa.nombre|truncatechars:20 }}</a>
-    </li>
-{% endblock breadcrumb-items %}
-
 {% block content %}
-    <div class="secondary-navigation">
-        <ul class = "top-navbar">
-            <li><a href="">Programa</a></li>
-            <li><a href="">Planificación</a></li>
-            <li><a href="">Docentes</a></li>
-            <li><a href="">Materias</a></li>
-        </ul>
-    </div>
-
+    {{ block.super }}
+    
     <div class = "program-detail">
         <div class="program-director">
             <h3>Director</h3>
@@ -79,6 +55,33 @@
     <div class="study-plan">
         <h2 class="pensum">Plan de Estudios</h2>
         <div class="pensum-detail">
+            
+            <div class="subjects1">
+                <h3 class="semester">Semestre 1</h3>
+                <div class="subject-details">
+
+                    {% for materia in subjects_1 %}
+                        <div class="subject-breadcrumb">
+                            <p>{{ materia }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="subjects2">
+                <h3 class="semester">Semestre 2</h3>
+                <div class="subject-details">
+
+                    {% for materia in subjects_2 %}
+                        <div class="subject-breadcrumb">
+                            <p>{{ materia }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
             
         </div>
     </div>
