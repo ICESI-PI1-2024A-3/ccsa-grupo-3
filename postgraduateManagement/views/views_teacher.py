@@ -58,3 +58,42 @@ class DocenteUpdateView(UpdateView):
         # Agregar la instancia del docente al contexto para acceder a sus datos en el template
         context['docente'] = self.object
         return context
+    
+
+
+
+
+class teacherAssignCourse(UpdateView):
+    model = Docente
+    fields = ['estado'] 
+    template_name = 'postgraduateManagement/../assign_course_to_teacher.html'  # Nombre de tu template
+    success_url = reverse_lazy('teachers')
+
+    def get_object(self, queryset=None):
+        # Obtener el objeto Docente que se está actualizando utilizando la cédula de la URL
+        cedula = self.kwargs.get('cedula')
+        return Docente.objects.get(cedula=cedula)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Agregar la instancia del docente al contexto para acceder a sus datos en el template
+        context['docente'] = self.object
+        return context    
+
+
+
+# Info del docente
+class teacherInfo(UpdateView):
+    model = Docente
+    fields = '__all__'  # Puedes incluir todos los campos del modelo
+    template_name = 'postgraduateManagement/../show_teacher_info.html'
+    success_url = reverse_lazy('teachers')
+
+    def get_object(self, queryset=None):
+        cedula = self.kwargs.get('cedula')
+        return Docente.objects.get(cedula=cedula)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['docente'] = self.object  # Pasar el objeto del docente al contexto
+        return context

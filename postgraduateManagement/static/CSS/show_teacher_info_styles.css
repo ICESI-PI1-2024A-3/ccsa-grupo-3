@@ -1,0 +1,85 @@
+/* Estilos para la información del profesor */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #f7f7f77b;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.container:hover {
+    box-shadow: 0 8px 16px rgba(3, 67, 177, 0.2);
+    transform: translateY(-5px);
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+    text-align: center;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info-group {
+    width: 60%;
+}
+
+.info-item {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: bold;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.value {
+    margin-left: 10px;
+    color: #555;
+}
+
+.image-frame {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.teacher-image {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Ajusta la altura máxima según sea necesario */
+    border-radius: 8px;
+    border: 2px solid #ddd; /* Añade un borde alrededor de la imagen */
+    padding: 5px; /* Espaciado dentro del marco */
+}
+
+/* Media Query para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-group {
+        width: 100%;
+    }
+
+    .image-frame {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
