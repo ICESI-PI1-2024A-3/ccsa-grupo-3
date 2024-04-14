@@ -35,3 +35,54 @@
     text-decoration: none;
     color: black;
 }
+
+.program-detail {
+    margin-top: 28px;
+    width: 100%;
+    display: flex;
+}
+
+.program-detail .program-director, .program-detail .program-information {
+    width: calc(50% - 24px);
+}
+
+.program-detail .program-director {
+    margin-right: 24px;
+    border: black 1px solid;
+    padding: 12px 18px;
+}
+
+.program-director .director .director-image {
+    width: 18%;
+}
+
+.program-director .director .director-image img {
+    width: 72%;
+}
+
+.program-director .director-details .detail-breadcrumb {
+    display: flex;
+}
+
+.program-detail .program-information {
+    margin-left: 24px;
+    border: black 1px solid;
+    padding: 0px 18px;
+}
+
+.program-detail .director {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.program-detail .program-information .detail-breadcrumb {
+    display: flex;
+    margin: 22px 0;
+}
+
+.detail-breadcrumb .bold {
+    font-weight: bold;
+    padding-right: 8px;
+}
+

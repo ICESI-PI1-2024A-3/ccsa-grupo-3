@@ -43,34 +43,34 @@
                 </div>
 
                 <div class="director-details">
-                    <div class="director-info">
-                        <p>Nombre: </p>
-                        <p>{{ directors.nombre }}</p>
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Nombre: </p>
+                        <p>{{ directors.nombre }} {{ directors.apellido }}</p>
                     </div>
                     
-                    <div class="director-info">
-                        <p>Email: </p>
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Email: </p>
                         <p>{{ directors.email}}</p>
                     </div>
         
-                    <div class="director-info">
-                        <p>Email: </p>
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Teléfono: </p>
                         <p>{{ directors.telefono}}</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="program-detail">
-            <div class="program-info">
-                <p>Facultad: </p>
+        <div class="program-information">
+            <div class="detail-breadcrumb">
+                <p class="bold">Facultad: </p>
                 <p>{{ programa.facultad }}</p>
             </div>
-            <div class="program-info">
-                <p>Cursos Totales: </p>
+            <div class="detail-breadcrumb">
+                <p class="bold">Cursos Totales: </p>
                 <p style="color: red;">AGREGAR CONTADOR</p>
             </div>
-            <div class="program-info">
-                <p>Tipo Programa: </p>
+            <div class="detail-breadcrumb">
+                <p class="bold">Tipo Programa: </p>
                 <p>{{ programa.tipo_de_programa }}</p>
             </div>
         </div>

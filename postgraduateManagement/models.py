@@ -372,14 +372,19 @@ class Periodo(models.Model):
     Modelo para representar los periodos académicos.
 
     Atributos:
-        semestre (CharField): Identificador único del periodo académico.
+        id (IntegerField): Identificador único del periodo.
+        semestre (CharField): Periodo académico.
         fecha_inicio (DateField): Fecha de inicio del periodo.
         fecha_fin (DateField): Fecha de fin del periodo.
     """
 
-    semestre = models.CharField(
+    id = models.AutoField(
         primary_key=True,
-        max_length=10
+        default=1
+    )
+
+    semestre = models.CharField(
+        max_length=2
     )
 
     fecha_inicio = models.DateField()
@@ -568,7 +573,6 @@ class Pensum(models.Model):
         programa (ForeignKey) = Programa al que pertenece la materia.
         materia (ForeignKey) = Materia que se imparte en el programa.
         periodo (ForeignKey) = Periodo académico al que pertenece el pensum.
-        semestre (IntegerField) = Semestre en el que se imparte la materia.
     """
 
     programa = models.ForeignKey(
@@ -586,13 +590,12 @@ class Pensum(models.Model):
         on_delete=models.CASCADE,
     )
 
-    semestre = models.IntegerField()
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["materia", "programa", "semestre"],
-                name="unique_materia_programa_semestre",
+                fields=["materia", "programa"],
+                name="unique_materia_programa",
             )
         ]
 
