@@ -14,7 +14,8 @@ urlpatterns = [
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
-    #path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
+    
+    path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
 
     path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
 

@@ -61,8 +61,10 @@
 
             <div class="image-frame">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6bVl1LNZM8fCPLDyFu5uxCH0YtErbbV8As0UBf-qs2A&s" alt="Imagen del Docente" class="teacher-image">
-                 <!-- <img src="{{ docente.url_img }}" alt="Imagen del Docente" class="teacher-image"> -->
+                <!-- <img src="{{ docente.url_img }}" alt="Imagen del Docente" class="teacher-image"> -->
             </div>
         </div>
+
+        <a href="{% url 'teacher_assign_course' cedula=docente.cedula %}" class="light"><span>Asignar curso</span></a>
     </div>
 {% endblock content %}
