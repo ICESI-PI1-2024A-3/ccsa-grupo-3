@@ -5,6 +5,8 @@ from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
 from .views import teacherAssignCourse
 from .views import teacherInfo
+from .views import view_courses_for_teacher
+
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -14,8 +16,13 @@ urlpatterns = [
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
-    
+
     path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
+
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/', view_courses_for_teacher, name='view_courses_for_teacher'),
+
+   
+
 
     path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
 

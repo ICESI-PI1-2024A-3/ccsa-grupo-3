@@ -26,7 +26,8 @@
             <div class="materia-info">
                 <p><strong>Código:</strong> {{ materia.codigo }}</p>
                 <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
-                <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
+                <a href="{% url 'view_courses_for_teacher' cedula_docente=docente.cedula codigo_materia=materia.codigo %}">Ver Cursos</a>
+
             </div>
         </div>
         {% endfor %}

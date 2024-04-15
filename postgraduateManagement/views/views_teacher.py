@@ -6,8 +6,16 @@ from django.shortcuts import render
 from postgraduateManagement.models import Docente, Ciudad
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
 from postgraduateManagement.models import Curso, Materia
+from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import UpdateView
+
+from django.http import HttpResponse
+
+
+
+
+
 
 
 
@@ -88,6 +96,32 @@ class teacherAssignCourse(UpdateView):
         context['materias'] = Materia.objects.all()
 
         return context
+    
+
+
+@login_required
+def view_courses_for_teacher(request, cedula_docente, codigo_materia):
+    # Obtener el profesor y la materia
+    docente = get_object_or_404(Docente, cedula=cedula_docente)
+    materia = get_object_or_404(Materia, codigo=codigo_materia)
+    
+    # Obtener los cursos disponibles para esa materia
+    cursos_disponibles = Curso.objects.filter(materia=materia)
+    
+    context = {
+        'docente': docente,
+        'materia': materia,
+        'cursos_disponibles': cursos_disponibles,
+    }
+    return render(request, 'postgraduateManagement/../course_list_for_teacher.html', context)
+
+
+
+
+
+
+
+
 
 # Info del docente
 class teacherInfo(UpdateView):

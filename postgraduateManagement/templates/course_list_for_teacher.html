@@ -1,0 +1,79 @@
+
+{% extends "root.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block breadcrumb-items %}
+    <li style="margin: 0 5px;">/</li>
+    <li>Listado de cursos </li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Cursos</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/course_list_for_teacher_styles.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+
+
+<div class="courses-container">
+   
+
+    <div class="hList"> 
+        
+    <h1>Listado de Cursos</h1>
+      </div>  
+    
+        
+    {% if cursos_disponibles %}
+        <ul class="courses-list">
+            {% for curso in cursos_disponibles %}
+                <li class="course-item">
+                    <div class="course-info">
+
+                      <!-- Información del Curso -->
+                            <span class="course-label">Materia:</span>
+                            <span class="course-value">{{ curso.materia }}</span><br>
+
+                            <span class="course-label">NRC:</span>
+                            <span class="course-value">{{ curso.nrc }}</span><br>
+
+
+                            <span class="course-label">Código de Materia:</span>
+                            <span class="course-value">{{ curso.materia.codigo }}</span><br>
+
+                    </div>
+                    
+                    <div class="course-actions">
+
+                        <!--Asignar curso -->
+                            <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
+
+                           
+                     
+                   
+                        
+                       
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <!-- Mensaje cuando no hay cursos disponibles -->
+        <p>No hay cursos disponibles para esta materia.</p>
+    {% endif %}
+</div>
+
+</div>
+
+{% endblock content %}
+
+
