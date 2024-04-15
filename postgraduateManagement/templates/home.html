@@ -1,0 +1,35 @@
+{% extends "root.html" %}
+{% block title %}Inicio{% endblock title %}
+{% load static %}
+
+{% block static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'CSS/homeStyles.css' %}">
+{% endblock %}
+
+{% block actual_patch %}
+    <h2>Inicio</h2>
+{% endblock actual_patch %}
+
+{% block breadcrumb-items %} 
+    <li class="breadcrumb-item">
+        <a href="">Inicio</a>
+    </li>
+{% endblock breadcrumb-items %}
+
+{% block content %}
+<div class="container">
+    <div class="wrapperUser">
+        <img id="userImage" src="https://preview.redd.it/the-video-for-liberian-girl-is-a-wasted-opportunity-it-v0-wx9lrzbthdgc1.jpg?width=607&format=pjpg&auto=webp&s=e65d280e9da9542db4a608c3dfc3f28e2af590b3" alt="User Image">
+        <h2>Michael Jackson</h2>
+    </div>
+    <div class="wrapperActivities">
+        <div class="Information">
+            <h2>Michael Jackson</h2>
+        </div>
+        <div class="RecentActivity">
+            <h2>Michael Jackson</h2>
+        </div>
+    </div>
+</div>
+{% endblock %}
