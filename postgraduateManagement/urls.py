@@ -12,7 +12,7 @@ urlpatterns = [
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/resumen', postgraduate_program_details.view_program_summary, name = "program_summary"),
-    path('programas/<codigo>/planeacion', postgraduate_program_details.view_program_teachers, name = "program_planning"),
+    path('programas/<codigo>/planeacion', postgraduate_program_details.view_program_planning, name = "program_planning"),
     path('programas/<codigo>/docentes', postgraduate_program_details.view_program_teachers, name = "program_teachers"),
     path('programas/<codigo>/materias', postgraduate_program_details.view_program_subjects, name = "program_subjects"),
 

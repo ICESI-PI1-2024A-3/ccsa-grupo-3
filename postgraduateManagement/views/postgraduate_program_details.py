@@ -35,8 +35,29 @@ def view_program_teachers(request, codigo):
     subjects = [p.materia for p in pensum]
     teacher_list = [docente for materia in subjects for docente in materia.docente.all()]
 
-    return render (request, "program_details_teachers.html", {"programa": programaP, "teacher_list": teacher_list})
+    def is_valid_queryparam(param):
+        return param != '' and param is not None
 
+    def filter_teachers(request, teacher_list):
+        search_contains = request.GET.get('search_contains')
+        status = request.GET.get('status')
+        city = request.GET.get('city')        
+
+        if is_valid_queryparam(search_contains):
+            teacher_list = list(filter(lambda docente: search_contains.lower() in docente.nombre.lower(), teacher_list))
+
+        if is_valid_queryparam(status):
+            teacher_list = list(filter(lambda docente: docente.estado == status, teacher_list))
+
+        if is_valid_queryparam(city):
+            teacher_list = list(filter(lambda docente: docente.ciudad == city, teacher_list))
+
+        return teacher_list
+
+
+    teacher_list = filter_teachers(request, teacher_list)
+
+    return render (request, "program_details_teachers.html", {"programa": programaP, "teacher_list": teacher_list})
 
 @login_required
 def view_program_subjects(request, codigo):
