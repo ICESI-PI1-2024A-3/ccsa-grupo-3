@@ -601,3 +601,54 @@ class Pensum(models.Model):
 
     def __str__(self):
         return f"{self.programa.nombre} - {self.materia.nombre} - {self.semestre}"
+
+
+class Viatico(models.Model):
+    """
+    Modelo que representa las solicitudes de viáticos para los maestros.
+
+    Atributos:
+        codigo(AutoField): representa el idenficador unico del viatico
+        estado_viatico (CharField): representa el estado del viatico
+        descripcion(TextField): representa la descripcion del tipo del viatico
+        fecha_solicitud(DateField): representa la fecha en la que el viatico fue solicitado
+        presupuesto (IntegerField): Presupuesto asignado para los viáticos.
+        docente (ForeignKey): Docente al que se le asignarán los viáticos.
+        clase(ForeignKey): Clase a la que se le asigna el viatico
+    """
+    codigo = models.AutoField(
+        primary_key=True
+    )
+
+    STATUS_CHOICES = (
+        ('pendiente', 'Pendiente'),
+        ('aprobado', 'Aprobado'),
+        ('rechazado', 'Rechazado'),
+        ('finalizado', 'Finalizado')
+    )
+
+    estado_viatico = models.CharField(
+        max_length=15,
+        choices=STATUS_CHOICES,
+        default='Pendiente'
+    )
+
+    descripcion = models.TextField()
+
+    fecha_solicitud = models.DateField(
+        auto_now_add=True
+    )
+    presupuesto = models.IntegerField()
+
+    docente = models.ForeignKey(
+        Docente,
+        on_delete=models.CASCADE
+    )
+
+    clase = models.ForeignKey(
+        Curso,
+        on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f"{self.clase.materia,self.clase.nrc} - {self.docente.cedula}"

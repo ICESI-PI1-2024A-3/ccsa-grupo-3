@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% for viatico in object_list %}
+    <div class="materia-box">
+        <p class="materia-title">{{ viatico.codigo }}</p>
+        <div class="materia-info">
+            <p><strong>estado:</strong> {{ viatico.estado_viatico }}</p>
+            <p><strong>descripcion:</strong> {{ viatico.descripcion }}</p>
+            <a href="{% url 'actualizar_viatico' viatico.pk %}" class="action-button delete-button">Actualizar</a>
+            <a href="{% url 'eliminar_viatico' viatico.pk %}" class="action-button delete-button">Eliminar</a>
+        </div>
+    </div>
+    {% endfor %}
+ <a href="{% url 'crear_viatico'%}" class="create-course-button">Crear Viatico</a>
+</body>
+</html>

@@ -1,8 +1,10 @@
 from django.urls import path
-from django.views.generic import RedirectView ##
+from django.views.generic import RedirectView
+
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
+from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -12,6 +14,11 @@ urlpatterns = [
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
+
+    path('viaticos/', ViaticoListView.as_view(), name='lista_viaticos'),
+    path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),
+    path('viaticos/<int:pk>/editar/', ViaticoUpdateView.as_view(), name='actualizar_viatico'),
+    path('viaticos/<int:pk>/eliminar/', ViaticoDeleteView.as_view(), name='eliminar_viatico'),
 
     path('subjectmanagment/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
@@ -23,7 +30,6 @@ urlpatterns = [
          postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
     path('courses/create/<str:codigo_materia>',
          postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
-
 
     path('editarProgramacion/<str:codigo>/',
          postgraduate_program_details.editarProgramacion, name='editar_programacion'),
