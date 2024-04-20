@@ -3,6 +3,7 @@ from django.views.generic import RedirectView ##
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
+from .views import views_contract
 
 urlpatterns = [
     # path('', views.home, name='home'),
@@ -35,4 +36,10 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('viewContract/', views_contract.viewContract, name='ver_contratos'),
+    path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
+    path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
+
+    
+    
 ]
