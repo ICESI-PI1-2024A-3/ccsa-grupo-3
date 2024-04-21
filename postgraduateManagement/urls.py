@@ -15,7 +15,7 @@ urlpatterns = [
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
-    path('viaticos/', ViaticoListView.as_view(), name='lista_viaticos'),
+    path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
     path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),
     path('viaticos/<int:pk>/editar/', ViaticoUpdateView.as_view(), name='actualizar_viatico'),
     path('viaticos/<int:pk>/eliminar/', ViaticoDeleteView.as_view(), name='eliminar_viatico'),
