@@ -37,7 +37,7 @@ class TestViews(TestCase):
         self.client.force_login(self.user)
 
     def test_viatico_list_view(self):
-        response = self.client.get(reverse('lista_viaticos'))
+        response = self.client.get(reverse('viatic_list'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../viatic_list.html')
 

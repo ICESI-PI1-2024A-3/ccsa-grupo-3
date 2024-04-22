@@ -18,7 +18,7 @@ class ViaticoListView(ListView):
 @method_decorator(login_required, name='dispatch')
 class ViaticoCreateView(CreateView):
     model = Viatico
-    fields = ['estado_viatico', 'descripcion', 'presupuesto', 'presupuesto', 'docente', 'clase']
+    fields = ['estado_viatico', 'descripcion', 'presupuesto','docente', 'clase']
     template_name = 'postgraduateManagement/../create_viatic.html'
     success_url = reverse_lazy('viatic_list')
 
