@@ -27,8 +27,24 @@
         <div class="Information">
             <h2>Michael Jackson</h2>
         </div>
-        <div class="RecentActivity">
-            <h2>Michael Jackson</h2>
+        <div class="Notes">
+            <h2>Notas</h2>
+            <button id="btn-agregar">+</button>
+            <ul id="lista-notas">
+                {% for nota in notas %}
+                    <li data-id="{{ nota.id }}">
+                        <span class="titulo">{{ nota.titulo }}</span>
+                        <div class="contenido" style="display: none;">{{ nota.contenido }}</div>
+                    </li>
+                {% endfor %}
+            </ul>
+        
+            <div id="cuadro-nota" style="display: none;">
+                <input type="hidden" id="id-nota">
+                <input type="text" id="titulo-nota">
+                <textarea id="contenido-nota"></textarea>
+                <button id="btn-guardar">Guardar</button>
+            </div>
         </div>
     </div>
 </div>
