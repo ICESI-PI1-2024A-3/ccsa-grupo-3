@@ -20,7 +20,7 @@ class ViaticoCreateView(CreateView):
     model = Viatico
     fields = ['estado_viatico', 'descripcion', 'presupuesto', 'presupuesto', 'docente', 'clase']
     template_name = 'postgraduateManagement/../create_viatic.html'
-    success_url = reverse_lazy('lista_viaticos')
+    success_url = reverse_lazy('viatic_list')
 
     def form_valid(self, form):
         form.instance.fecha_solicitud = timezone.now()  # Asigna la fecha actual
@@ -32,11 +32,11 @@ class ViaticoUpdateView(UpdateView):
     model = Viatico
     fields = ['estado_viatico', 'descripcion', 'presupuesto']
     template_name = 'postgraduateManagement/../edit_viatic.html'
-    success_url = reverse_lazy('lista_viaticos')
+    success_url = reverse_lazy('viatic_list')
 
 
 @method_decorator(login_required, name='dispatch')
 class ViaticoDeleteView(DeleteView):
     model = Viatico
     template_name = 'postgraduateManagement/../delete_viatic.html'
-    success_url = reverse_lazy('lista_viaticos')
+    success_url = reverse_lazy('viatic_list')

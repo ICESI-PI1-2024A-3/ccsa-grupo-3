@@ -1,28 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
- <div class="confirmation-box">
-        <h2>¿Estás seguro que deseas eliminar el Viatico?</h2>
+{% extends "root.html" %}
+
+{% block title %}
+    Eliminar viático
+{% endblock %}
+
+{% block breadcrumb-items %}
+    <li style="margin: 0 5px;">/</li>
+    <li> Eliminar viático</li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2> Eliminar viático</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/delete_viatic_styles.css' %}">
+    <div class="confirmation-box">
+        <h2 style="text-align: center;" >¿Estás seguro que deseas eliminar el viático?</h2>
         <div class="course-details">
-
-                <!-- Información de los cursos-->
-                <p><strong>codigo:</strong> <span>{{ object.codigo }}</span></p>
-                <p><strong>descripcion:</strong> <span>{{ object.descripcion }}</span></p>
-                <p><strong>docente:</strong> <span>{{ object.docente }}</span></p>
-
+            <!-- Información del viático -->
+            <p><strong>Código:</strong> <span>{{ object.codigo }}</span></p>
+            <p><strong>Descripción:</strong> <span>{{ object.descripcion }}</span></p>
+            <p><strong>Docente:</strong> <span>{{ object.docente }}</span></p>
         </div>
-
         <form method="post">
             {% csrf_token %}
             <div class="button-group">
                 <button class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
-                <a class="cancel-link" href="{% url 'lista_viaticos'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
+                <a class="cancel-link" href="{% url 'viatic_list'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
             </div>
         </form>
- </div>>
-</body>
-</html>
+    </div>
+{% endblock %}

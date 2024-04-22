@@ -1,18 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
- <div class="container">
-        <h1>Edición de Curso</h1>
-        <form method="post" class="form">{% csrf_token %}
-            {{ form.as_p }}
+{% extends "root.html" %}
+
+{% block title %}
+Actualizar viático
+{% endblock %}
+
+{% block breadcrumb-items %}
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Actualizar viático</li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Viático</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/edit_viatic_styles.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+    <div class="container">
+        <h1 style="text-align: center; margin-bottom: 20px;">Actualizar viático</h1>
+        <form method="post" class="form">
+            {% csrf_token %}
             <div class="form-group">
-                <input type="submit" value="Guardar" class="submit-btn">
+                <label for="estado_viatico"><i class="fas fa-info-circle"></i> Estado de Viático:</label>
+                <select id="estado_viatico" name="estado_viatico" class="form-control">
+                    <option value="pendiente">Pendiente</option>
+                    <option value="aprobado">Aprobado</option>
+                    <option value="rechazado">Rechazado</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="descripcion"><i class="fas fa-pencil-alt"></i> Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" rows="5" placeholder="Ingrese una descripción"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="presupuesto"><i class="fas fa-dollar-sign"></i> Presupuesto:</label>
+                <input type="number" id="presupuesto" name="presupuesto" class="form-control" placeholder="Ingrese el presupuesto">
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="submit-btn"><i class="fas fa-save"></i> Guardar</button>
             </div>
         </form>
     </div>
-</body>
-</html>
+{% endblock %}

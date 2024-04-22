@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<div class="container">
-        <h1>Crear Curso</h1>
+{% extends "root.html" %}
+
+{% block title %}
+Crear viático
+{% endblock %}
+
+{% block breadcrumb-items %}
+
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Crear viático</li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Crear viático</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/create_viatic_styles.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+    <div class="container animated fadeInUp">
+        <h1 style="text-align: center;">Crear viático</h1>
+
         <form method="post" class="form">{% csrf_token %}
             {{ form.as_p }}
             <div class="form-group">
                 <input type="submit" value="Guardar" class="btn-submit">
             </div>
         </form>
-       </div>
-</body>
-</html>
+    </div>
+{% endblock content %}
