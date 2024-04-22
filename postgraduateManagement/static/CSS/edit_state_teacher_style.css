@@ -1,0 +1,84 @@
+/* edit_state_teacher.css */
+
+/* Estilos para centrar verticalmente el contenido */
+.vertical-center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+/* Estilos para los contenedores de información del docente y de edición */
+.container {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    flex-wrap: wrap; /* Permite que los contenedores se envuelvan en una nueva línea si no hay suficiente espacio horizontal */
+    margin-bottom: 240px
+}
+
+.teacher-info-container,
+.edit-form-container {
+    flex: 1;
+    margin: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+    width: 150%;
+}
+
+
+
+
+
+
+.teacher-info-container:hover,
+.edit-form-container:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.teacher-info-container h2,
+.edit-form-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #0c0c0c;
+}
+
+.info-item {
+    margin-bottom: 15px;
+    display: flex; /* Alinear elementos en un mismo eje */
+    align-items: baseline; /* Alinea los elementos en la base */
+}
+
+.info-label {
+    font-weight: bold;
+    color: #333;
+    width: 100px;
+    display: inline-block;
+}
+
+.info-value {
+    color: #666;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn-submit {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
