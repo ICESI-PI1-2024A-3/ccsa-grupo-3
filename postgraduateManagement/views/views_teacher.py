@@ -6,7 +6,7 @@ from django.shortcuts import render
 from postgraduateManagement.models import Docente, Ciudad
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from postgraduateManagement.models import Curso, Materia
+from postgraduateManagement.models import Curso, Materia, DocentesCursos
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView
 
@@ -114,6 +114,12 @@ def view_courses_for_teacher(request, cedula_docente, codigo_materia):
         'cursos_disponibles': cursos_disponibles,
     }
     return render(request, 'postgraduateManagement/../course_list_for_teacher.html', context)
+
+def assing_course_for_teacher(request,cedula_docente,codigo_materia):
+    docente = get_object_or_404(Docente, cedula=cedula_docente)
+    materia = get_object_or_404(Materia, codigo=codigo_materia)
+    
+    DocentesCursos.save
 
 
 

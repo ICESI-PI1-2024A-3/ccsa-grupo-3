@@ -40,6 +40,7 @@
                     <div class="course-info">
 
                       <!-- Información del Curso -->
+                      f
                             <span class="course-label">Materia:</span>
                             <span class="course-value">{{ curso.materia }}</span><br>
 
@@ -53,13 +54,11 @@
                     </div>
                     
                     <div class="course-actions">
-
-                        <!--Asignar curso -->
+                        
+                        <form method="POST" action="{% url 'assign_course_for_teacher' cedula_docente=cedula_docente codigo_materia=curso.materia.codigo %}">
+                            {% csrf_token %}
                             <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
-
-                           
-                     
-                   
+                        </form>
                         
                        
                     </div>
