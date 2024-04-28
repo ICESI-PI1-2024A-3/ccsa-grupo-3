@@ -1,9 +1,12 @@
 from django.urls import path
+from django.views.generic import RedirectView  ##
+from .views import ProgramsView, TeachersView, DocenteUpdateView
 from django.views.generic import RedirectView
 
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
+from .views import views_contract
 from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
 urlpatterns = [
@@ -13,6 +16,7 @@ urlpatterns = [
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
+    path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
@@ -41,4 +45,10 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('viewContract/', views_contract.viewContract, name='ver_contratos'),
+    path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
+    path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
+
+    
+    
 ]

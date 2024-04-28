@@ -1,12 +1,14 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, UpdateView
 from django.shortcuts import render
 from postgraduateManagement.models import Docente, Ciudad
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 from django.views import View
+
 
 @method_decorator(login_required, name='dispatch')
 class TeachersView(View):
@@ -38,3 +40,21 @@ class TeachersView(View):
             teachers = teachers.filter(ciudad=city)
 
         return teachers
+
+
+class DocenteUpdateView(UpdateView):
+    model = Docente
+    fields = ['estado']  # Solo incluir el campo de estado en el formulario
+    template_name = 'postgraduateManagement/../edit_state_teacher.html'  # Nombre de tu template
+    success_url = reverse_lazy('teachers')
+
+    def get_object(self, queryset=None):
+        # Obtener el objeto Docente que se está actualizando utilizando la cédula de la URL
+        cedula = self.kwargs.get('cedula')
+        return Docente.objects.get(cedula=cedula)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Agregar la instancia del docente al contexto para acceder a sus datos en el template
+        context['docente'] = self.object
+        return context
