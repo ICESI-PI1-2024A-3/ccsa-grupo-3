@@ -95,7 +95,7 @@ DATABASES = {
         'NAME': 'ncjgriux',  
         'USER': 'ncjgriux',  
         'PASSWORD': 'HxNEyBw2gMEOHWfznuQPNx53xCi2l561',
-        'HOST': 'salt.db.elephantsql.com',  
+        'HOST': 'flora.db.elephantsql.com',  
         'PORT': '5432',
     }
 }
