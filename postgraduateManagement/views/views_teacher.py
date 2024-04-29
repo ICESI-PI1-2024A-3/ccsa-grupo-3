@@ -6,6 +6,7 @@ from django.shortcuts import render
 from postgraduateManagement.models import Docente, Ciudad
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.http import HttpResponseRedirect
 
 from django.views import View
 
@@ -42,6 +43,9 @@ class TeachersView(View):
         return teachers
 
 
+
+
+
 class DocenteUpdateView(UpdateView):
     model = Docente
     fields = ['estado']  # Solo incluir el campo de estado en el formulario
@@ -58,3 +62,7 @@ class DocenteUpdateView(UpdateView):
         # Agregar la instancia del docente al contexto para acceder a sus datos en el template
         context['docente'] = self.object
         return context
+
+    def form_valid(self, form):
+        self.object = form.save()
+        return HttpResponseRedirect(self.success_url)
