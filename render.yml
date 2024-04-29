@@ -1,0 +1,26 @@
+services:
+  - type: web
+    plan: free
+    name: ccsa-modulo-programacion-academica
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python -m gunicorn ccsaProject.asgi:application -k uvicorn.workers.UvicornWorker"
+    envVars:
+      - key: SECRET_KEY
+        value: "e6740a20f427de877f241a59f3a51ef3"
+      - key: WEB_CONCURRENCY
+        value: 4
+      - key: ALLOWED_HOSTS
+        value: "ccsa-grupo-3.onrender.com localhost"
+      - key: DATABASE_HOST
+        value: "flora.db.elephantsql.com"
+      - key: DATABASE_NAME
+        value: "rahgcyeg"
+      - key: DATABASE_PASS
+        value: "MolUYc8GWnU4emIK8TBzb3CFPHkY4ORx"
+      - key: DATABASE_PORT
+        value: "5432"
+      - key: DATABASE_USER
+        value: "rahgcyeg"
+      - key: DEBUG
+        value: "True"
