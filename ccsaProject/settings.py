@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 import os
 import environ
+import dj_database_url
 
 from pathlib import Path
 
@@ -27,15 +28,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-# DEBUG = True
+# DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -104,6 +105,10 @@ DATABASES = {
         # 'PORT': env('DATABASE_PORT')
     }
 }
+
+LANGUAGE_CODE = 'es'
+    
+DATABASES['default'] = dj_database_url.parse("postgres://ccsa_grupo_3_db_user:912pLjAnNULWUTd4vLSh7rWaSj2SPuvu@dpg-conv5usf7o1s73ft1o20-a.oregon-postgres.render.com/ccsa_grupo_3_db")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
