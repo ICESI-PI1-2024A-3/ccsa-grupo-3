@@ -10,8 +10,8 @@ services:
         value: "e6740a20f427de877f241a59f3a51ef3"
       - key: WEB_CONCURRENCY
         value: 4
-      - key: ALLOWED_HOSTS
-        value: "ccsa-grupo-3.onrender.com localhost"
+      - key: ALLOWED_HOSTS 
+        value: "ccsa-modulo-programacion-academica.onrender.com localhost"
       - key: DATABASE_HOST
         value: "flora.db.elephantsql.com"
       - key: DATABASE_NAME
