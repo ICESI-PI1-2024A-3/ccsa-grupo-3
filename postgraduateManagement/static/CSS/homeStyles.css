@@ -1,135 +1,55 @@
-body {
-    overflow: hidden;
-}
-.container {
-    display: flex; 
-    flex-direction: column;
-    width: calc(100vw - 6rem);
-    height: 100vh;
-    justify-content: space-between;
-    padding: 2rem 0 0rem 0rem;
-    border-radius: 15px; /* Añade curvatura a los contenedores */
+.texto_general {
+    display: flex;
+    width: 50%;  
+    color: white; 
+    position: absolute;
+    top: 2.5%; 
+    left: 4%; 
+    z-index: -1; 
+    font-size: 5em;
+    font-family: 'Amaranth', sans-serif;
+
 }
 
-.wrapperUser{
-    display: flex; 
-    flex-direction: column; 
-    align-items: center;
-    padding-right: 14px;
+.img-fondo .fontImage {
     width: 100%; 
-    height: 40%; 
-    overflow-y: auto;
-    margin-right: 7px;
-    border-radius: 15px; /* Añade curvatura a los contenedores */
+    height: 80vh; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index: -1; 
 }
 
-.wrapperActivities{
-    display: flex; 
-    flex-direction: row;  
-    width: 100%; 
-    height: 60%; 
-    overflow-y: auto;
-    border-radius: 15px; /* Añade curvatura a los contenedores */
-}
-
-.Information, .Notes{
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
+.general_panel {
+    display: flex;
     width: 50%; 
-    height: 100%; 
-    overflow-y: auto;
-    background-color: #DDD;
-    margin: 0 5px;
-    border-radius: 15px; /* Añade curvatura a los contenedores */
+    height: 15vh; 
+    position: absolute; 
+    top: 73%; 
+    left: 25%;
+    background-color: rgba(26, 52, 250, 0.985);
+    border-radius: 15px;
+    justify-content: space-around;    
 }
 
-#userImage {
-    width: 30vh; /* Ajusta este valor según el tamaño que desees */
-    height: 30vh; /* Ajusta este valor según el tamaño que desees */
-    border-radius: 50%;
-}
-
-/* Estilo para el contenedor de las notas */
-.Notes {
-    display: flex; 
-    flex-direction: column; 
+.teacher_btn, .programs_btn, .contracts_btn {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    color: white; 
     align-items: center; 
-    width: 50%; 
-    height: 100%; 
-    overflow-y: auto;
-    background-color: #DDD;
-    margin: 0 5px;
-    border-radius: 15px; /* Añade curvatura a los contenedores */
-    position: relative; /* Añade posicionamiento relativo al contenedor de notas */
+    justify-content: center; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    border-radius: 15px;
+    
 }
 
-/* Estilo para el título de las notas */
-.Notes h2 {
-    text-align: center;
-    color: #000;
+a.teacher_btn, a.programs_btn, a.contracts_btn {
+    text-decoration: none; 
 }
 
-/* Estilo para la lista de notas */
-#lista-notas {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* Estilo para cada nota */
-#lista-notas li {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 18px;
-}
-
-/* Estilo para el botón de agregar nota */
-#btn-agregar {
-    position: absolute; /* Posiciona el botón de manera absoluta */
-    top: 0; /* Posiciona el botón en la esquina superior */
-    left: 0; /* Posiciona el botón en la esquina izquierda */
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Estilo para el cuadro de nota */
-#cuadro-nota {
-    display: none;
-    width: 100%;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    margin-top: 10px;
-}
-
-/* Estilo para el título de la nota en el cuadro de nota */
-#titulo-nota {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el contenido de la nota en el cuadro de nota */
-#contenido-nota {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-/* Estilo para el botón de guardar en el cuadro de nota */
-#btn-guardar {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 18px;
+.teacher_btn:hover, .programs_btn:hover, .contracts_btn:hover {
+    background-color: white; 
+    color: blue; 
 }

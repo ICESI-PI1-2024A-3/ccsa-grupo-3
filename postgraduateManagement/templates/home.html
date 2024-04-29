@@ -1,51 +1,23 @@
-{% extends "root.html" %}
-{% block title %}Inicio{% endblock title %}
-{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="static/CSS/homeStyles.css">
+</head>
+<body>
 
-{% block static %}
-    {{ block.super }}
-    <link rel="stylesheet" href="{% static 'CSS/homeStyles.css' %}">
-{% endblock %}
+    <div class="img-fondo">
+        <img class="fontImage" src="https://www.icesi.edu.co/facultad-ciencias-administrativas-economicas/images/posgrado/doctorado-economia-negocios/banner-doctorado-en-ciencias-administrativas.jpg" alt="ImagenDeFondo">
 
-{% block actual_patch %}
-    <h2>Inicio</h2>
-{% endblock actual_patch %}
-
-{% block breadcrumb-items %} 
-    <li class="breadcrumb-item">
-        <a href="">Inicio</a>
-    </li>
-{% endblock breadcrumb-items %}
-
-{% block content %}
-<div class="container">
-    <div class="wrapperUser">
-        <img id="userImage" src="https://preview.redd.it/the-video-for-liberian-girl-is-a-wasted-opportunity-it-v0-wx9lrzbthdgc1.jpg?width=607&format=pjpg&auto=webp&s=e65d280e9da9542db4a608c3dfc3f28e2af590b3" alt="User Image">
-        <h2>Michael Jackson</h2>
-    </div>
-    <div class="wrapperActivities">
-        <div class="Information">
-            <h2>Michael Jackson</h2>
-        </div>
-        <div class="Notes">
-            <h2>Notas</h2>
-            <button id="btn-agregar">+</button>
-            <ul id="lista-notas">
-                {% for nota in notas %}
-                    <li data-id="{{ nota.id }}">
-                        <span class="titulo">{{ nota.titulo }}</span>
-                        <div class="contenido" style="display: none;">{{ nota.contenido }}</div>
-                    </li>
-                {% endfor %}
-            </ul>
-        
-            <div id="cuadro-nota" style="display: none;">
-                <input type="hidden" id="id-nota">
-                <input type="text" id="titulo-nota">
-                <textarea id="contenido-nota"></textarea>
-                <button id="btn-guardar">Guardar</button>
-            </div>
+        <div class = "texto_general"> <p>CENTRO COMPARTIDO DE SERVICIOS ACADEMICOS</p>  </div>
+        <!-- Ejemplo de botones con enlaces -->
+        <div class="general_panel">
+            <a href="programas/" class="programs_btn">VISUALIZAR PROGRAMAS</a>
+            <a href="docentes/" class="teacher_btn">VISUALIZAR PROFESORES</a>
+            <a href="https://tu-url-3.com" class="contracts_btn">VISUALIZAR CONTRATOS</a>
         </div>
     </div>
-</div>
-{% endblock %}
+</body>
+</html>
