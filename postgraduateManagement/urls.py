@@ -6,6 +6,7 @@ import postgraduateManagement.views.views_course
 from .views import teacherAssignCourse
 from .views import teacherInfo
 from .views import view_courses_for_teacher
+from .views import views_teacher
 
 
 urlpatterns = [
@@ -51,4 +52,5 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/assingCourse/', views_teacher.assing_course_for_teacher),
 ]
