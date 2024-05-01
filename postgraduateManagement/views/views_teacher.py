@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 from postgraduateManagement.models import Curso, Materia, DocentesCursos
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseForbidden
 from django.views import View
 
 
@@ -111,8 +111,10 @@ def assing_course_for_teacher(request,cedula_docente,codigo_materia):
     docente = get_object_or_404(Docente, cedula=cedula_docente)
     materia = get_object_or_404(Materia, codigo=codigo_materia)
     prioridad = 2
-    asociacion  = DocentesCursos.objects.create(prioridad=prioridad, curso_id=1,docente_id=docente.cedula)
-    
+    if docente.estado != 'activo':
+        return HttpResponseForbidden("El docente no está activo.")
+    else:
+        asociacion  = DocentesCursos.objects.create(prioridad=prioridad, curso_id=1,docente_id=docente.cedula)
     return redirect('/')
 
 

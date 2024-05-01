@@ -50,15 +50,17 @@
 
                             <span class="course-label">Código de Materia:</span>
                             <span class="course-value">{{ curso.materia.codigo }}</span><br>
-
+                            
+                            
                     </div>
-                    
-                    <div class="course-actions">
+                    {%if docente.estado == "activo"%}
+                        <div class="course-actions">
                         
                         <form method="POST" action="assingCourse/">{% csrf_token %}
                             <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
                         </form>
-                        
+                    {% endif %}
+                     
                        
                     </div>
                 </li>
