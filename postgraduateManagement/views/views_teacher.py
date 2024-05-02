@@ -10,7 +10,7 @@ from django.utils.decorators import method_decorator
 from postgraduateManagement.models import Curso, Materia, DocentesCursos
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView
-from django.http import HttpResponse, HttpResponseForbidden
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views import View
 
 
@@ -112,9 +112,12 @@ def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
     docente = get_object_or_404(Docente, cedula=cedula_docente)
     curso = get_object_or_404(Curso, nrc=nrc_curso)
     prioridad = 2
-
-    asociacion  = DocentesCursos.objects.create(prioridad=prioridad, curso_id=curso.nrc,docente_id=docente.cedula)
-    return redirect('/')
+    
+    if DocentesCursos.objects.filter(curso=curso, docente=docente).exists():
+        return HttpResponseBadRequest("Este curso ya está asignado a este docente.")
+    else:
+        asociacion = DocentesCursos.objects.create(prioridad=prioridad, curso_id=curso.nrc, docente_id=docente.cedula)
+        return redirect('/')
 
 
 
