@@ -39,7 +39,7 @@
                 <li class="course-item">
                     <div class="course-info">
 
-                      <!-- Información del Curso -->
+                        <!-- Información del Curso -->
                       
                             <span class="course-label">Materia:</span>
                             <span class="course-value">{{ curso.materia }}</span><br>
@@ -53,15 +53,13 @@
                             
                             
                     </div>
-                    {%if docente.estado == "activo"%}
-                        <div class="course-actions">
-                        
-                        <form method="POST" action="assingCourse/">{% csrf_token %}
-                            <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
-                        </form>
-                    {% endif %}
-                     
-                       
+
+                    <div class="course-actions">
+                        {% if docente.estado != "inactivo"%}
+                            <form method="POST" action="assingCourse/{{curso.nrc}}/">{% csrf_token %}
+                                <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
+                            </form>
+                        {% endif %}
                     </div>
                 </li>
             {% endfor %}

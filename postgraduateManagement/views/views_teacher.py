@@ -107,14 +107,13 @@ def view_courses_for_teacher(request, cedula_docente, codigo_materia):
     }
     return render(request, 'postgraduateManagement/../course_list_for_teacher.html', context)
 
-def assing_course_for_teacher(request,cedula_docente,codigo_materia):
-    docente = get_object_or_404(Docente, cedula=cedula_docente)
+def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
     materia = get_object_or_404(Materia, codigo=codigo_materia)
+    docente = get_object_or_404(Docente, cedula=cedula_docente)
+    curso = get_object_or_404(Curso, nrc=nrc_curso)
     prioridad = 2
-    if docente.estado != 'activo':
-        return HttpResponseForbidden("El docente no está activo.")
-    else:
-        asociacion  = DocentesCursos.objects.create(prioridad=prioridad, curso_id=1,docente_id=docente.cedula)
+
+    asociacion  = DocentesCursos.objects.create(prioridad=prioridad, curso_id=curso.nrc,docente_id=docente.cedula)
     return redirect('/')
 
 
