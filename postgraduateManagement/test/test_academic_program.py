@@ -12,7 +12,6 @@ from django.contrib.auth.models import User
 
 class MiVistaTest(TestCase):
     def setUp(self):
-
         self.ciudad = Ciudad.objects.create(
             id=52,
             nombre="Prueba"
@@ -48,28 +47,21 @@ class MiVistaTest(TestCase):
             director=self.director
         )
 
-
-
     def test_codigo_programa_inexistente(self):
         response = self.client.get(
             '/eliminarPrograma/123234E/')
 
         self.assertEqual(response.status_code, 302)
 
-
-
-
     def test_editing_director_view(self):
-            url = reverse('editing_director')
-            response = self.client.post(url, {'txtCodigo': self.director.cedula, 'nombre': 'Nuevo Nombre',
-                                              'apellido': 'Nuevo Apellido', 'email': 'nuevo@example.com',
-                                              'telefono': '987654321', 'ciudad': self.ciudad.nombre})
-            self.assertEqual(response.status_code, 302)  # Check for redirect
-
-
+        url = reverse('editing_director')
+        response = self.client.post(url, {'txtCodigo': self.director.cedula, 'nombre': 'Nuevo Nombre',
+                                          'apellido': 'Nuevo Apellido', 'email': 'nuevo@example.com',
+                                          'telefono': '987654321', 'ciudad': self.ciudad.nombre})
+        self.assertEqual(response.status_code, 302)  # Check for redirect
 
     def test_edicion_programa_view(self):
-                url = reverse('edicion_programa')
-                response = self.client.post(url, {'txtCodigo': self.programa.codigo, 'facultad': self.facultad.nombre,
-                                                  'tipoPrograma': self.tipo_programa.nombre})
-                self.assertEqual(response.status_code, 302)  # Check for redirect
+        url = reverse('edicion_programa')
+        response = self.client.post(url, {'txtCodigo': self.programa.codigo, 'facultad': self.facultad.nombre,
+                                          'tipoPrograma': self.tipo_programa.nombre})
+        self.assertEqual(response.status_code, 302)  # Check for redirect
