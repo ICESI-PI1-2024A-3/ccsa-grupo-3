@@ -1,9 +1,16 @@
 from django.urls import path
 from django.views.generic import RedirectView
-from .views import ProgramsView, TeachersView
+from .views import ProgramsView, TeachersView, DocenteUpdateView
 from .views import postgraduate_program_details
 from .views import views_home
 import postgraduateManagement.views.views_course
+from .views import teacherAssignCourse
+from .views import teacherInfo
+from .views import view_courses_for_teacher
+from .views import views_teacher
+
+from .views import views_contract
+from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
 urlpatterns = [
     path('', views_home.homeView, name='home'),
@@ -13,7 +20,25 @@ urlpatterns = [
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
+    path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
+
+    path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
+
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/', view_courses_for_teacher, name='view_courses_for_teacher'),
+
+   
+
+
+    path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
+
+
+    
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
+
+    path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
+    path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),
+    path('viaticos/<int:pk>/editar/', ViaticoUpdateView.as_view(), name='actualizar_viatico'),
+    path('viaticos/<int:pk>/eliminar/', ViaticoDeleteView.as_view(), name='eliminar_viatico'),
 
     path('subjectmanagment/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
@@ -26,7 +51,6 @@ urlpatterns = [
     path('courses/create/<str:codigo_materia>',
          postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
 
-
     path('editarProgramacion/<str:codigo>/',
          postgraduate_program_details.editarProgramacion, name='editar_programacion'),
     path('edicionPrograma/', postgraduate_program_details.edicionPrograma,
@@ -37,4 +61,11 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/assingCourse/<str:nrc_curso>/', views_teacher.assing_course_for_teacher, name ='assing_course_for_teacher',),
+    path('viewContract/', views_contract.viewContract, name='ver_contratos'),
+    path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
+    path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
+
+    
+    
 ]
