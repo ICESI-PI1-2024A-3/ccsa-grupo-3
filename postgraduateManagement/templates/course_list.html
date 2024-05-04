@@ -36,6 +36,8 @@
                             <!-- Acciones del Curso -->
                             <a href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
                             <a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
+                            
+
                         </div>
                     </li>
                 {% endfor %}

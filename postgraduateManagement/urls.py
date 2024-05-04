@@ -6,6 +6,11 @@ from django.views.generic import RedirectView
 from .views import ProgramsView, TeachersView
 from .views import postgraduate_program_details
 import postgraduateManagement.views.views_course
+from .views import teacherAssignCourse
+from .views import teacherInfo
+from .views import view_courses_for_teacher
+from .views import views_teacher
+
 from .views import views_contract
 from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
@@ -17,6 +22,18 @@ urlpatterns = [
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
+
+    path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
+
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/', view_courses_for_teacher, name='view_courses_for_teacher'),
+
+   
+
+
+    path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
+
+
+    
     path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
 
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
@@ -45,6 +62,7 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/assingCourse/<str:nrc_curso>/', views_teacher.assing_course_for_teacher, name ='assing_course_for_teacher',),
     path('viewContract/', views_contract.viewContract, name='ver_contratos'),
     path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
     path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
