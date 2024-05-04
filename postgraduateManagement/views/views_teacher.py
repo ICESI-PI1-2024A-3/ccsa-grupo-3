@@ -1,4 +1,5 @@
 from typing import Any
+from venv import logger
 from django.db.models.query import QuerySet
 from django.urls import reverse_lazy
 from django.views.generic import ListView, UpdateView
@@ -9,16 +10,7 @@ from django.utils.decorators import method_decorator
 from postgraduateManagement.models import Curso, Materia, DocentesCursos
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView
-
-from django.http import HttpResponse
-
-
-
-
-
-
-
-
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views import View
 
 
@@ -115,12 +107,17 @@ def view_courses_for_teacher(request, cedula_docente, codigo_materia):
     }
     return render(request, 'postgraduateManagement/../course_list_for_teacher.html', context)
 
-def assing_course_for_teacher(request,cedula_docente,codigo_materia):
-    docente = get_object_or_404(Docente, cedula=cedula_docente)
+def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
     materia = get_object_or_404(Materia, codigo=codigo_materia)
+    docente = get_object_or_404(Docente, cedula=cedula_docente)
+    curso = get_object_or_404(Curso, nrc=nrc_curso)
+    prioridad = 2
     
-    DocentesCursos.save
-
+    if DocentesCursos.objects.filter(curso=curso, docente=docente).exists():
+        return HttpResponseBadRequest("Este curso ya está asignado a este docente.")
+    else:
+        asociacion = DocentesCursos.objects.create(prioridad=prioridad, curso_id=curso.nrc, docente_id=docente.cedula)
+        return redirect('/')
 
 
 

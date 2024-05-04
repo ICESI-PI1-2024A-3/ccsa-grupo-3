@@ -9,6 +9,7 @@ import postgraduateManagement.views.views_course
 from .views import teacherAssignCourse
 from .views import teacherInfo
 from .views import view_courses_for_teacher
+from .views import views_teacher
 
 from .views import views_contract
 from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
@@ -61,6 +62,7 @@ urlpatterns = [
          postgraduate_program_details.editarDirector, name='editar_director'),
     path('editingDirector/', postgraduate_program_details.editingDirector,
          name='editing_director'),
+    path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/assingCourse/<str:nrc_curso>/', views_teacher.assing_course_for_teacher, name ='assing_course_for_teacher',),
     path('viewContract/', views_contract.viewContract, name='ver_contratos'),
     path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
     path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
