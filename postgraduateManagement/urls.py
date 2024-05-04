@@ -1,10 +1,8 @@
 from django.urls import path
-from django.views.generic import RedirectView  ##
-from .views import ProgramsView, TeachersView, DocenteUpdateView
 from django.views.generic import RedirectView
-
-from .views import ProgramsView, TeachersView
+from .views import ProgramsView, TeachersView, DocenteUpdateView
 from .views import postgraduate_program_details
+from .views import views_home
 import postgraduateManagement.views.views_course
 from .views import teacherAssignCourse
 from .views import teacherInfo
@@ -15,9 +13,10 @@ from .views import views_contract
 from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
 urlpatterns = [
-    # path('', views.home, name='home'),
+    path('', views_home.homeView, name='home'),
     # cuando se incluya home, cambiar el name=home de "programas/", ademas de agregarle un path
-    path('', RedirectView.as_view(pattern_name='programs', permanent=False)),  # Redirecciona a /programas/
+    # Redirecciona a /programas/
+    path('', RedirectView.as_view(pattern_name='home', permanent=False)),
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
