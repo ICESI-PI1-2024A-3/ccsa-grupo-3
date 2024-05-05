@@ -19,7 +19,7 @@
 
 
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/course_list_for_teacher_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/course_list_for_teacher_style.css' %}">
     {% block stylesheet %}{% endblock %}
 
 
@@ -65,8 +65,10 @@
             {% endfor %}
         </ul>
     {% else %}
-        <!-- Mensaje cuando no hay cursos disponibles -->
-        <p>No hay cursos disponibles para esta materia.</p>
+    <div class="no-courses-container">
+        <p class="no-courses-message">¡No hay cursos disponibles en este momento!</p>
+        
+    </div>
     {% endif %}
 </div>
 
