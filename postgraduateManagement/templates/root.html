@@ -30,7 +30,7 @@
         </div>
         <ul class="nav-links">
           <li>
-            <a href="{% url 'programs' %}">
+            <a id="home" href="{% url 'programs' %}">
               <i class='bx bx-home'></i>
               <span class="link_name">Inicio</span>
             </a>
@@ -39,7 +39,7 @@
             </ul>
           </li>
           <li>
-            <a href="{% url 'programs' %}">
+            <a id="programas"href="{% url 'programs' %}">
               <i class='bx bx-folder-open' ></i>
               <span class="link_name">Programas</span>
             </a>
@@ -48,7 +48,7 @@
             </ul>
           </li>
           <li>
-            <a href="{% url "teachers" %}">
+            <a id="teacher" href="{% url 'teachers' %}">
               <i class='bx bx-group'></i>
               <span class="link_name">Docentes</span>
             </a>
@@ -84,7 +84,7 @@
         <div class="home-header-content">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{% url 'programs' %}">Inicio</a>
+              <a id="home" href="{% url 'programs' %}">Inicio</a>
             </li>
               {% block breadcrumb-items %}
                 <li class="breadcrumb-item">
