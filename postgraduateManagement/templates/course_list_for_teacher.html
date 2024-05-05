@@ -56,7 +56,7 @@
 
                     <div class="course-actions">
                         {% if docente.estado != "inactivo"%}
-                            <form method="POST" action="assingCourse/{{curso.nrc}}/">{% csrf_token %}
+                            <form id="assign-course-form" method="POST" action="assingCourse/{{curso.nrc}}/">{% csrf_token %}
                                 <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
                             </form>
                         {% endif %}
@@ -73,6 +73,35 @@
 </div>
 
 </div>
+
+
+
+<script>
+    document.getElementById('assign-course-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Si la respuesta es exitosa, redirige a la página de profesores
+                window.location.href = "{% url 'teachers' %}";
+            } else {
+                // Si hay un error, muestra el mensaje de error
+                return response.json();
+            }
+        })
+        .then(data => {
+            if (data.error) {
+                // Muestra el mensaje de error en algún elemento de tu HTML
+                alert(data.error); // Puedes cambiar esto por otro método de tu elección
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
 
 {% endblock content %}
 
