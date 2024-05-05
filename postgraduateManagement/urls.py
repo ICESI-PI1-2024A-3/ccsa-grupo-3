@@ -23,17 +23,13 @@ urlpatterns = [
     path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
 
     path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
-
     path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/', view_courses_for_teacher, name='view_courses_for_teacher'),
-
-   
-
-
     path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
-
-
-    
-    path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
+  
+    path('programas/<codigo>/resumen', postgraduate_program_details.view_program_summary, name = "program_summary"),
+    path('programas/<codigo>/planeacion', postgraduate_program_details.view_program_planning, name = "program_planning"),
+    path('programas/<codigo>/docentes', postgraduate_program_details.view_program_teachers, name = "program_teachers"),
+    path('programas/<codigo>/materias', postgraduate_program_details.view_program_subjects, name = "program_subjects"),
 
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
     path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),

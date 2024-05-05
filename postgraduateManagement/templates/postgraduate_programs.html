@@ -43,7 +43,7 @@
                 <!-- Añade aquí más detalles del programa -->
                 
                 <a href="{% url 'subjectmanagment' %}" class = "button-link">Ver materias</a>
-                <a href="{{ programa.codigo }}" class="button-link">Programación</a>
+                <a href="{% url 'program_summary' programa.codigo %}" class="button-link">Programación</a>
 
                 
             </div>

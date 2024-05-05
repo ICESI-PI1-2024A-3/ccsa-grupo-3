@@ -374,14 +374,19 @@ class Periodo(models.Model):
     Modelo para representar los periodos académicos.
 
     Atributos:
-        semestre (CharField): Identificador único del periodo académico.
+        id (IntegerField): Identificador único del periodo.
+        semestre (CharField): Periodo académico.
         fecha_inicio (DateField): Fecha de inicio del periodo.
         fecha_fin (DateField): Fecha de fin del periodo.
     """
 
-    semestre = models.CharField(
+    id = models.AutoField(
         primary_key=True,
-        max_length=10
+        default=1
+    )
+
+    semestre = models.CharField(
+        max_length=2
     )
 
     fecha_inicio = models.DateField()
@@ -423,6 +428,10 @@ class Materia(models.Model):
     programas = models.ManyToManyField(
         Programa,
         through='Pensum'
+    )
+
+    docente = models.ManyToManyField(
+        'Docente'
     )
 
     def __str__(self):
@@ -471,43 +480,16 @@ class Curso(models.Model):
         on_delete=models.CASCADE
     )
 
-    docente = models.ManyToManyField(
-        'Docente',
-        through='DocentesCursos'
+    docente = models.ForeignKey(
+        Docente,
+        on_delete=models.CASCADE
     )
 
     class Meta:
-        unique_together = ('grupo', 'materia')
+        unique_together = ('grupo', 'materia', 'docente')
 
     def __str__(self):
         return f"{self.materia.nombre} - {self.grupo}"
-
-
-class DocentesCursos(models.Model):
-    """
-    Modelo que representa la relación entre los docentes y los cursos que dictan
-
-    Atributos:
-        curso (ForeignKey) = Curso que dicta el docente.
-        docente (ForeignKey) = Docente que puede impartir el curso.
-        prioridad (IntegerField) = Prioridad del docente en el curso.
-    """
-
-    docente = models.ForeignKey(
-        'Docente',
-        on_delete=models.CASCADE
-    )
-
-    curso = models.ForeignKey(
-        'Curso',
-        on_delete=models.CASCADE
-    )
-
-    prioridad = models.IntegerField()
-
-    class Meta:
-        unique_together = [['docente', 'curso', 'prioridad']]
-
 
 class Clase(models.Model):
     """
@@ -573,7 +555,6 @@ class Pensum(models.Model):
         programa (ForeignKey) = Programa al que pertenece la materia.
         materia (ForeignKey) = Materia que se imparte en el programa.
         periodo (ForeignKey) = Periodo académico al que pertenece el pensum.
-        semestre (IntegerField) = Semestre en el que se imparte la materia.
     """
 
     programa = models.ForeignKey(
@@ -591,13 +572,12 @@ class Pensum(models.Model):
         on_delete=models.CASCADE,
     )
 
-    semestre = models.IntegerField()
 
     class Meta:
         constraints = [
             models.UniqueConstraint(
-                fields=["materia", "programa", "semestre"],
-                name="unique_materia_programa_semestre",
+                fields=["materia", "programa"],
+                name="unique_materia_programa",
             )
         ]
 
