@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Creación de Cursos</title>
+{% extends "root.html" %}
+
+{% block title %}
+   Crear curso
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Crear curso</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Crear curso</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
+  
     
     <!--Carga los estilos -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/createCourseStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/create_course_style.css' %}">
     {% block stylesheet %}{% endblock %}
    
 
-</head>
-<body>
+
     <div class="container">
-        <h1>Crear Curso</h1>
+        <h1>Creación de curso</h1>
         <form method="post" class="form">{% csrf_token %}
             {{ form.as_p }}
             <div class="form-group">
@@ -22,5 +36,5 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+ 
+{% endblock content %}

@@ -12,6 +12,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import UpdateView
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views import View
+from django.http import JsonResponse
+
 
 
 @method_decorator(login_required, name='dispatch')
@@ -45,7 +47,7 @@ class TeachersView(View):
 
         return teachers
 
-
+@method_decorator(login_required, name='dispatch')
 class DocenteUpdateView(UpdateView):
     model = Docente
     fields = ['estado']  # Solo incluir el campo de estado en el formulario
@@ -67,7 +69,7 @@ class DocenteUpdateView(UpdateView):
 
 
 
-
+@method_decorator(login_required, name='dispatch')
 class teacherAssignCourse(UpdateView):
     model = Docente
     fields = ['estado'] 
@@ -107,6 +109,9 @@ def view_courses_for_teacher(request, cedula_docente, codigo_materia):
     }
     return render(request, 'postgraduateManagement/../course_list_for_teacher.html', context)
 
+
+
+@login_required
 def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
     materia = get_object_or_404(Materia, codigo=codigo_materia)
     docente = get_object_or_404(Docente, cedula=cedula_docente)
@@ -114,10 +119,11 @@ def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
     prioridad = 2
     
     if DocentesCursos.objects.filter(curso=curso, docente=docente).exists():
-        return HttpResponseBadRequest("Este curso ya está asignado a este docente.")
+        return JsonResponse({'error': 'Este curso ya está asignado a este docente.'}, status=400)
+
     else:
         asociacion = DocentesCursos.objects.create(prioridad=prioridad, curso_id=curso.nrc, docente_id=docente.cedula)
-        return redirect('/')
+        return redirect('teachers')
 
 
 
@@ -127,6 +133,7 @@ def assing_course_for_teacher(request,cedula_docente, nrc_curso,codigo_materia):
 
 
 # Info del docente
+@method_decorator(login_required, name='dispatch')
 class teacherInfo(UpdateView):
     model = Docente
     fields = '__all__'  # Puedes incluir todos los campos del modelo
