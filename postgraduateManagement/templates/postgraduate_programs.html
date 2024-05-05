@@ -21,7 +21,7 @@
 <div class="container">
     <div class="wrapperProgram">
         {% for programa in programas %}
-            <div type="button" onclick="showInfo('{{ programa.codigo }}')" class="program">
+            <div id="button{{ programa.codigo }}" type="button" onclick="showInfo('{{ programa.codigo }}')" class="program">
                 <img src="{{ programa.url_image }}" alt="{{ programa.nombre }}">
                 <div class="subcontainer1">
                     <div class="subcontainer2">
@@ -42,8 +42,8 @@
                 <div class="text">{{ programa.descripcion }}</div>
                 <!-- Añade aquí más detalles del programa -->
                 
-                <a href="{% url 'subjectmanagment' %}" class = "button-link">Ver materias</a>
-                <a href="{{ programa.codigo }}" class="button-link">Programación</a>
+                <a id="subjects" href="{% url 'subjectmanagment' %}" class = "button-link">Ver materias</a>
+                <a id=" programation" href="{{ programa.codigo }}" class="button-link">Programación</a>
 
                 
             </div>

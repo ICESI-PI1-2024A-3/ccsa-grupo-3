@@ -1,0 +1,28 @@
+{% extends "program_details_root.html" %}
+
+{% load static %}
+{% block static %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/program_details_subjects.css' %}">
+{% endblock static %}
+
+
+{% block content %}
+    {{ block.super }}
+    
+    <div class="materia-container">
+        {% for subject in subjects %}
+        <div class="materia-box">
+            <p class="materia-title">{{ subject.nombre }}</p>
+            <div class="materia-info">
+                <p><strong>Código:</strong> {{ subject.codigo }}</p>
+                <p><strong>Créditos:</strong> {{ subject.creditos }}</p>
+                <div class= "info-2">
+                    <a href="">Ver Cursos</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

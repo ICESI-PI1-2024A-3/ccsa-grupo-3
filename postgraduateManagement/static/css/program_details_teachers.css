@@ -1,0 +1,353 @@
+:root{
+    --main-color: #ff5252;
+    --light-color: #c6c6c6;
+    --lighter-color: #edf2f4;
+    --dark-color: #2b2d42;
+
+    --font-smaller: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.card {
+    position: relative;
+    width: 252px;
+    height: 368px;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0 30px 60px -30px;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--lighter-color);
+}
+
+.image {
+    position: absolute;
+    height: 100%;
+    z-index: -1;
+}
+
+.image::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 80%;
+    bottom: 0;
+    background: linear-gradient(0deg, var(--dark-color) 50%, rgba(255, 255, 255,0) 100%);
+    z-index: 1;
+    opacity: .5;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-transform: scale(1.5) translateY(-10%);
+    transform: scale(1.5) translateY(-10%);
+    -webkit-transition: transform .3s;
+    transition: transform .3s;
+    filter: brightness(100%);
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    justify-content: center;;
+    flex-direction: column;
+    padding: 0 2.5em;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.name h2 {
+    font-size: 1.5em;
+}
+
+.info > .button {
+    display: flex;
+    justify-content: center;
+}
+
+.button a {
+    position: relative;
+    margin-top: 2em;
+    z-index: 2;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.button a span {
+    padding: 0 2em;
+    line-height: 34px;
+    border-radius: 25px;
+    font-size: var(--font-smaller);
+    color: white;
+    min-width: max-content;
+    background-color: var(--main-color);
+}
+
+.button a .close {
+    display: none;
+}
+
+.button a::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border-radius: 25px;
+    background-color: var(--main-color);
+    opacity: .25;
+    z-index: -1;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: transform .3s;
+    transition: transform .3s;
+}
+
+.button a:hover::before {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+.details {
+    background-color: white;
+    color: var(--dark-color);
+    padding: 2.5em;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.left h3 {
+    display: inline-block;
+    font-size: var(--font-smaller);
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--main-color);
+}
+
+
+.left .socials ul {
+    display: flex;
+    margin-top: .5em;
+}
+
+.left .socials ul li a {
+    display: flex;
+    padding: 0.5em;
+    font-size: 1.25em;
+    color: var(--light-color);
+    -webkit-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+
+
+.left .socials ul li a:hover {
+    color: var(--dark-color);
+}
+
+.left .button {
+    display: flex;
+}
+
+.left .button a {
+    margin: 1em 1em 0 0;
+}
+
+.left .button a:first-child span {
+    box-shadow: rgb(255 82 82 / 50%) 0 10px 20px;
+}
+
+.left .button a.light span {
+    color:  var(--main-color);
+    border: 1px solid var(--main-color);
+    background-color: white;
+    z-index: 2;
+}
+
+.info {
+    transform: translateY(50%);
+    transition: transform .3s;
+}
+
+.details {
+    transform: translateY(30%);
+    visibility: hidden;
+    opacity: 0;
+    transition: transform .3s, visibility .3s, opacity .3s;   
+}
+
+.info .details {
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.show :where(.info, .details) {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+}
+
+.show .image img {
+    transform: scale(1.25) translateY(-25%);
+    filter: brightness(50%);
+    transition: filter .3s, transform .3s;
+}
+
+
+.show .name {
+    align-items: flex-start;
+}
+
+.show .name p {
+    border-top: 1px solid var(--main-color);
+}
+
+.show .info > .button a {
+    margin: 0 0 -1.15em;
+}
+
+.show .info > .button a .close {
+    display: block;
+    background-color: var(--dark-color);
+    box-shadow: rgb(43 35 66 / 50%) 0 10px 20px;
+}
+
+.show .info > .button a .open {
+    display: none;
+}
+
+
+
+.about-data {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.about-data ion {
+    margin-right: 1em;
+    height: 100%;
+}
+
+.grid-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
+    gap: 2em;
+    padding: 2em;
+    justify-content: center;
+}
+
+.about {
+    display: grid;
+    gap: .5em;
+}
+
+.about-data button {
+    border: none;
+    padding-left: 5px;
+    background-color: white;
+}
+
+.about-data button input {
+    border: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.about-data button input:focus {
+    border: none;
+    outline: none;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+input[type="search"]:focus {
+    outline: none;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 28px;
+}
+
+.form-row .search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.form-row .search-bar .input-group {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+}
+
+.form-row .search-bar .input-group ion-icon {
+    margin-right: 10px;
+}
+
+.form-row .search-bar .input-group input {
+    flex-grow: 1;
+    border: none;
+}
+
+.form-row select {
+    width: 15%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    margin-right: 20px;
+}
+
+.form-row button {
+    width: 15%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-row button:hover {
+    background-color: #0056b3;
+}

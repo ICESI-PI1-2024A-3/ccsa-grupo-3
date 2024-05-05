@@ -1,10 +1,8 @@
 from django.urls import path
-from django.views.generic import RedirectView  ##
-from .views import ProgramsView, TeachersView, DocenteUpdateView
 from django.views.generic import RedirectView
-
-from .views import ProgramsView, TeachersView
+from .views import ProgramsView, TeachersView, DocenteUpdateView
 from .views import postgraduate_program_details
+from .views import views_home
 import postgraduateManagement.views.views_course
 from .views import teacherAssignCourse
 from .views import teacherInfo
@@ -15,26 +13,23 @@ from .views import views_contract
 from .views.views_viatic import ViaticoListView, ViaticoCreateView, ViaticoDeleteView, ViaticoUpdateView
 
 urlpatterns = [
-    # path('', views.home, name='home'),
+    path('', views_home.homeView, name='home'),
     # cuando se incluya home, cambiar el name=home de "programas/", ademas de agregarle un path
-    path('', RedirectView.as_view(pattern_name='programs', permanent=False)),  # Redirecciona a /programas/
+    # Redirecciona a /programas/
+    path('', RedirectView.as_view(pattern_name='home', permanent=False)),
     path('programas/', ProgramsView.as_view(), name='programs'),
 
     path('docentes/', TeachersView.as_view(), name='teachers'),
     path('docentes/<str:cedula>/', DocenteUpdateView.as_view(), name='state'),
 
     path('teacher/<str:cedula>/assign_course/', teacherAssignCourse.as_view(), name='teacher_assign_course'),
-
     path('profesor/<str:cedula_docente>/materia/<str:codigo_materia>/cursos/', view_courses_for_teacher, name='view_courses_for_teacher'),
-
-   
-
-
     path('docentes/<str:cedula>/información_docente/', teacherInfo.as_view(), name='teacher_info'),
-
-
-    
-    path('programas/<codigo>/', postgraduate_program_details.viewProgramPosgraduates),
+  
+    path('programas/<codigo>/resumen', postgraduate_program_details.view_program_summary, name = "program_summary"),
+    path('programas/<codigo>/planeacion', postgraduate_program_details.view_program_planning, name = "program_planning"),
+    path('programas/<codigo>/docentes', postgraduate_program_details.view_program_teachers, name = "program_teachers"),
+    path('programas/<codigo>/materias', postgraduate_program_details.view_program_subjects, name = "program_subjects"),
 
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
     path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),

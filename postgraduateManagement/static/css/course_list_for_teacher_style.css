@@ -67,3 +67,13 @@ ul.courses-list {
     background-color: #626bc8;
     transform: scale(1.05);
 }
+
+
+/* Estilos para el mensaje de aviso cuando no hay cursos */
+.no-courses-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(230%);
+    text-align: center;
+    font-size: 24px; /* Cambia el tamaño del texto según lo necesites */
+}
