@@ -1,0 +1,46 @@
+{% extends "root.html" %}
+{% block title %}Editar Contrato{% endblock title %}
+{% load static %}
+
+{% block static %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'css/editContract.css' %}">
+{% endblock %}
+
+
+{% block actual_patch %}
+    <h2>Editar Contratos</h2>
+{% endblock actual_patch %}
+
+{% block breadcrumb-items %} 
+    <li class="breadcrumb-item">
+        <a href="">Editar Contrato</a>
+    </li>
+{% endblock breadcrumb-items %}
+
+{% block content %} 
+<div class = "container">
+<form class="form" action="/editingContract/" method = "POST"> {%csrf_token%}
+    <div class="header">Editar</div>
+    <div class="inputs">
+        <input placeholder="txtCodigo" class="input" type="txtCodigo" name="txtCodigo" value="{{contract.codigo}}" readonly>
+        <input placeholder="fecha_elaboracion" class="input" type="date" name="fecha_elaboracion" value="{{ contract.fecha_elaboracion|date:'Y-m-d' }}">
+        <input  class="input" type="docente" name="docente" value="{{contract.docente.cedula}}" readonly>
+        <select id="tipo_contrato" name="tipo_contrato" type ="tipo_contrato" required>
+            <option value="">Selecciona el tipo de contrato</option>
+            {% for tContrato in tipoContrato %}
+                <option value="{{ tContrato.codigo }}">{{ tContrato.tipo }}</option>
+            {% endfor %}
+        </select>
+        
+        <select id="estado_contrato" name="estado_contrato" type ="estado_contrato" required>
+            <option value="">Selecciona el estado del contrato</option>
+            {% for estados in estado %}
+                <option value="{{ estados.id }}">{{ estados.nombre }}</option>
+            {% endfor %}
+        </select>
+    <button class="sigin-btn">Enviar</button>
+    </div>
+</form>
+</div>
+{% endblock %}

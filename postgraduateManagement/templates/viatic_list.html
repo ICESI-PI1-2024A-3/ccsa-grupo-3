@@ -1,0 +1,40 @@
+{% extends "root.html" %}
+
+{% block title %}
+    Listado de Viáticos
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Viáticos</li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+<h2 style="">Listado de Viáticos</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/viatic_list_styles.css' %}">
+{% block stylesheet %}{% endblock %}
+
+<div class="viaticos-container">
+    {% for viatico in object_list %}
+        <div class="viatico-box">
+            <p class="viatico-title">Código: {{ viatico.codigo }}</p>
+            <div class="viatico-info">
+                <p><strong>Estado:</strong> {{ viatico.estado_viatico }}</p>
+                <p><strong>Descripción:</strong> {{ viatico.descripcion }}</p>
+
+                <div class="viatico-actions">
+                    <a href="{% url 'actualizar_viatico' viatico.pk %}" class="action-button update-button">Actualizar</a>
+                    <a href="{% url 'eliminar_viatico' viatico.pk %}" class="action-button delete-button">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<a href="{% url 'crear_viatico' %}" class="create-viatico-button">Crear viático</a>
+{% endblock %}

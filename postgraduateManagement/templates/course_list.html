@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "root.html" %}
+
+{% block title %}
+    Listado de Cursos
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Cursos</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Listado de cursos</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
 
      <!--Carga los estilos -->
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/course_list_style.css' %}">
     {% block stylesheet %}{% endblock %}
     
-    <meta charset="UTF-8">
-    <title>Listado de Cursos</title>
-</head>
+ 
+
 <body>
     <div class="content">
         <h1>Listado de Cursos</h1>
@@ -17,7 +33,11 @@
         {% if object_list %}
             <ul class="courses-list">
                 {% for curso in object_list %}
-                    <li class="course-item">
+
+                <li class="course-item custom-li"> 
+                   
+            
+            
                         <div class="course-info">
 
                             <!-- Información del Curso -->
@@ -57,5 +77,5 @@
             </div>
         {% endif %}
     </div>
-</body>
-</html>
+
+{% endblock content %}
