@@ -14,8 +14,6 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbid
 from django.views import View
 from django.http import JsonResponse
 
-
-
 @method_decorator(login_required, name='dispatch')
 class TeachersView(View):
     @staticmethod
@@ -23,7 +21,8 @@ class TeachersView(View):
         return param != '' and param is not None
 
     def get(self, request):
-        teacher_list = self.filter_teachers(request)
+        # teacher_list = self.filter_teachers(request)
+        teacher_list = Docente.objects.all()
         cities = Ciudad.objects.all()
         return render(request, 'teachers.html', {"teacher_list": teacher_list, "cities": cities})
 
