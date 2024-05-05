@@ -124,7 +124,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
 
     def test_course_create_view(self):
-        response = self.client.post(reverse('course_create'), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
             'nrc': '54321',
             'grupo': 'Nuevo Grupo',
@@ -135,7 +135,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_invalid_course_create_view(self):
-        response = self.client.post(reverse('course_create'), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
             'materia': 999,  # ID de materia no existente
             'nrc': '',  # NRC vacío, lo que debería ser inválido
             'grupo': 'Nuevo Grupo',
@@ -146,7 +146,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_duplicate_course_create_view(self):
-        response = self.client.post(reverse('course_create'), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
             'nrc': '54321',
             'grupo': 'Nuevo Grupo',
