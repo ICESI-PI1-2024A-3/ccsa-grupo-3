@@ -140,4 +140,10 @@ class teacherInfo(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['docente'] = self.object  # Pasar el objeto del docente al contexto
+        
+        docentes_cursos = DocentesCursos.objects.filter(docente=self.object)
+        context['docentes_cursos'] = docentes_cursos
+        
+        # Pasa también el objeto del docente al contexto
+        context['docente'] = self.object  
         return context
