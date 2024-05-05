@@ -1,7 +1,7 @@
 {% extends "root.html" %}
 
 {% block title %}
-    Listado de Cursos
+    Listado de Materias
 {% endblock %}
 
 {% block breadcrumb-items %}
@@ -27,12 +27,12 @@
 
 <div class="materia-container">
     {% for materia in object_list %}
-    <div class="materia-box">
+    <div id="{{ materia.codigo }}" class="materia-box">
         <p class="materia-title">{{ materia.nombre }}</p>
         <div class="materia-info">
             <p><strong>Código:</strong> {{ materia.codigo }}</p>
             <p><strong>Créditos:</strong> {{ materia.creditos }}</p>
-            <a href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
+            <a id= "buttton{{ materia.codigo }}"href="{% url 'courseview' codigo_materia=materia.codigo %}">Ver Cursos</a>
         </div>
     </div>
     {% endfor %}

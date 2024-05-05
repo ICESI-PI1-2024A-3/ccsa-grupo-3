@@ -1,3 +1,4 @@
+from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
 
@@ -411,7 +412,9 @@ class Materia(models.Model):
         max_length=120
     )
 
-    creditos = models.IntegerField()
+    creditos = models.IntegerField( validators=[
+            MinValueValidator(0),
+            MaxValueValidator(99)])
 
     departamento = models.ForeignKey(
         Departamento,
@@ -443,14 +446,18 @@ class Curso(models.Model):
     """
     nrc = models.CharField(
         primary_key=True,
-        max_length=6
+        max_length=6,
     )
 
     grupo = models.CharField(
         max_length=2,
     )
 
-    cupo = models.IntegerField()
+    cupo = models.IntegerField(
+        validators=[
+            MinValueValidator(0),
+            MaxValueValidator(99)]
+    )
 
     materia = models.ForeignKey(
         Materia,

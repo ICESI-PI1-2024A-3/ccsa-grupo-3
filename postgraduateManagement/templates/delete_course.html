@@ -23,14 +23,13 @@
                 <p><strong>NRC:</strong> <span>{{ object.nrc }}</span></p>
                 <p><strong>Grupo:</strong> <span>{{ object.grupo }}</span></p>
                 <p><strong>Cupo:</strong> <span>{{ object.cupo }}</span></p>
-                
         </div>
 
         <form method="post">
             {% csrf_token %}
             <div class="button-group">
-                <button class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
-                <a class="cancel-link" href="{% url 'subjectmanagment'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
+                <button id="delete" class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
+                <a id="cancel" class="cancel-link" href="{% url 'subjectmanagment'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
             </div>
         </form>
     </div>

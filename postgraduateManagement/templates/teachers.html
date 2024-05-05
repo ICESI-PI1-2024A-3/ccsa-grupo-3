@@ -36,7 +36,7 @@
                 {% endfor %}
             </select>
 
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button id="submit" type="submit" class="btn btn-primary">Search</button>
     </form>
 
     <div class="grid-container">
@@ -48,7 +48,7 @@
                 <img src="https://th.bing.com/th/id/OIP.pYdFHETEFknKbd54t2d42AHaLH?rs=1&pid=ImgDetMain" alt="image">
             </div>
             <div class="info">
-                <div class="name">
+                <div id="teacher{{ teacher.cedula}}"class="name">
                     <h2>{{teacher.nombre}} {{teacher.apellido}}</h2>
                     <p>Docente, EN</p>
                 </div>
