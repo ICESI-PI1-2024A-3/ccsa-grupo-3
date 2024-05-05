@@ -26,12 +26,12 @@
             <option value="inactivo">Profesores Inactivos</option>
         </select>
 
-        <select name="city">
-            <option value="" select>Cuidad</option>
+        <input class="city_selector" list="cities" name="city" placeholder="Ciudad">
+        <datalist id="cities">
             {% for city in cities %}
-                <option value="{{city.id}}">{{city.nombre}}</option>
+            <option value="{{city.nombre}}">
             {% endfor %}
-        </select>
+        </datalist>
 
         <button type="submit" class="btn btn-primary">Buscar</button>
     </form>

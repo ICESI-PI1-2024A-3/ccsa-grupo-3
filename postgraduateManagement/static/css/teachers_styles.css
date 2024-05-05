@@ -356,6 +356,14 @@ input[type="search"]:focus {
     margin-right: 20px;
 }
 
+.city_selector {
+    width: 15%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    margin-right: 20px;
+}
+
 .form-row button {
     width: 15%;
     padding: 10px;

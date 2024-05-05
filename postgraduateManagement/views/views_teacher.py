@@ -21,8 +21,7 @@ class TeachersView(View):
         return param != '' and param is not None
 
     def get(self, request):
-        # teacher_list = self.filter_teachers(request)
-        teacher_list = Docente.objects.all()
+        teacher_list = self.filter_teachers(request)
         cities = Ciudad.objects.all()
         return render(request, 'teachers.html', {"teacher_list": teacher_list, "cities": cities})
 
