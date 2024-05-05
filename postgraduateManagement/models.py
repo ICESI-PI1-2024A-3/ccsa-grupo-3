@@ -480,16 +480,41 @@ class Curso(models.Model):
         on_delete=models.CASCADE
     )
 
-    docente = models.ForeignKey(
-        Docente,
-        on_delete=models.CASCADE
+    docente = models.ManyToManyField(
+        'Docente',
+        through='DocentesCursos'
     )
 
     class Meta:
-        unique_together = ('grupo', 'materia', 'docente')
+        unique_together = ('grupo', 'materia')
 
     def __str__(self):
         return f"{self.materia.nombre} - {self.grupo}"
+
+class DocentesCursos(models.Model):
+    """
+    Modelo que representa la relación entre los docentes y los cursos que dictan
+    Atributos:
+        curso (ForeignKey) = Curso que dicta el docente.
+        docente (ForeignKey) = Docente que puede impartir el curso.
+        prioridad (IntegerField) = Prioridad del docente en el curso.
+    """
+
+    docente = models.ForeignKey(
+        'Docente',
+        on_delete=models.CASCADE
+    )
+
+    curso = models.ForeignKey(
+        'Curso',
+        on_delete=models.CASCADE
+    )
+
+    prioridad = models.IntegerField()
+
+    class Meta:
+        unique_together = [['docente', 'curso', 'prioridad']]
+
 
 class Clase(models.Model):
     """
@@ -580,10 +605,6 @@ class Pensum(models.Model):
                 name="unique_materia_programa",
             )
         ]
-
-    def __str__(self):
-        return f"{self.programa.nombre} - {self.materia.nombre} - {self.semestre}"
-
 
 class Viatico(models.Model):
     """
