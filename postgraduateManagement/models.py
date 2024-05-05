@@ -606,10 +606,6 @@ class Pensum(models.Model):
             )
         ]
 
-    def __str__(self):
-        return f"{self.programa.nombre} - {self.materia.nombre} - {self.semestre}"
-
-
 class Viatico(models.Model):
     """
     Modelo que representa las solicitudes de viáticos para los maestros.
