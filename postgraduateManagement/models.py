@@ -253,7 +253,9 @@ class Persona(models.Model):
         max_length=120
     )
 
-    telefono = models.IntegerField()
+    telefono = models.CharField(
+        max_length=16
+    )
 
     url_foto = models.URLField()
 
