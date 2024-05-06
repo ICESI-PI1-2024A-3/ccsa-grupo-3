@@ -57,7 +57,7 @@
                     <div class="course-actions">
                         {% if docente.estado != "inactivo"%}
                             <form id="assign-course-form" method="POST" action="assingCourse/{{curso.nrc}}/">{% csrf_token %}
-                                <button type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
+                                <button id="button{{curso.nrc}}" type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
                             </form>
                         {% endif %}
                     </div>

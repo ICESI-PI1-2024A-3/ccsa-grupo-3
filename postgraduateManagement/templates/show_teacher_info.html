@@ -14,7 +14,7 @@
     <div class="info-group">
       <div class="info-item">
         <div class="label">Nombre:</div>
-        <div class="value">{{ docente.nombre }}</div>
+        <div id="nombre{{ docente.cedula }}" class="value">{{ docente.nombre }}</div>
       </div>
 
       <div class="info-item">
@@ -51,7 +51,7 @@
         <div class="label">Cursos:</div>
         {% for docente_curso in docentes_cursos %} 
             {% if docente_curso.docente_id == docente.cedula %}
-                <div class="value" style="display: flex; flex-direction: row;">NRC:{{ docente_curso.curso_id }}</div>
+                <div id="curso{{ docente.cedula }}{{ docente_curso.curso_id }}" class="value" style="display: flex; flex-direction: row;">NRC:{{ docente_curso.curso_id }}</div>
                 </div>
             {% endif %} 
         {% endfor %}
@@ -68,6 +68,7 @@
   </div>
 
   <a
+    id="asignarcurso"
     href="{% url 'teacher_assign_course' cedula=docente.cedula %}"
     class="light"
     ><span>Asignar curso</span></a
