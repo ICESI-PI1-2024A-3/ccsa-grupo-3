@@ -54,7 +54,7 @@
                         <div class="course-actions">
 
                             <!-- Acciones del Curso -->
-                            <a id="delete{{ curso.pk }}" href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
+                            <a id="delete{{ curso.pk }}" href="{{ curso.pk }}/eliminar" class="action-button delete-button">Eliminar</a>
                             <a id="update{{ curso.pk }}"href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
                         </div>
                     </li>
