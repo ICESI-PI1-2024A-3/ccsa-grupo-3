@@ -1,0 +1,88 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0582B3EC-D947-6FCA-820E-2ACE4C395704" name="DocentesCursos">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<ordsAlias>relation_14</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Curso_nrc" id="0CB71F37-7159-57BC-15AF-B533E8D6A77A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C876412-85A0-C049-D4AE-A2436473562D" referredColumn="68E91E8B-1112-FDDE-EB6A-1DD34CFDE7C9"/>
+</associations>
+</Column>
+<Column name="Docente_cedula" id="A2D6D6C0-C955-751A-6FF4-F357AB393D18">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A2673F94-C939-1E02-25AB-4FB3778F26FE" referredColumn="8159F704-2E99-A070-53F0-1CBB1560460C"/>
+</associations>
+</Column>
+<Column name="prioridad" id="C71E7A0D-A043-D5C3-A88B-C7E5F0CB82B7">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 23:38:08 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="60798FA4-696E-AB3F-3263-FA416E23763A" name="Relation_14_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CB71F37-7159-57BC-15AF-B533E8D6A77A"/>
+<colUsage columnID="A2D6D6C0-C955-751A-6FF4-F357AB393D18"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CE1B5E2F-7031-963C-7FE7-279A15C849AE" name="Relation_14_Curso_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>F7DE3961-222A-F2B8-0A28-B0567C5AD74B</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CB71F37-7159-57BC-15AF-B533E8D6A77A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="FA3D1E84-1983-F99D-7CC3-00F3C07D03AE" name="Relation_14_Docente_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>F7DE3961-222A-F2B8-0A28-B0567C5AD74B</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2D6D6C0-C955-751A-6FF4-F357AB393D18"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

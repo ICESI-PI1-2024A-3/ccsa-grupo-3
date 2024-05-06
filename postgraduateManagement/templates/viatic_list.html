@@ -23,18 +23,18 @@
 <div class="viaticos-container">
     {% for viatico in object_list %}
         <div class="viatico-box">
-            <p class="viatico-title">Código: {{ viatico.codigo }}</p>
-            <div class="viatico-info">
+            <p id="codigo{{viatico.codigo}}"class="viatico-title">Código: {{ viatico.codigo }}</p>
+            <div id="viaticoinfo" class="viatico-info">
                 <p><strong>Estado:</strong> {{ viatico.estado_viatico }}</p>
                 <p><strong>Descripción:</strong> {{ viatico.descripcion }}</p>
 
                 <div class="viatico-actions">
-                    <a href="{% url 'actualizar_viatico' viatico.pk %}" class="action-button update-button">Actualizar</a>
-                    <a href="{% url 'eliminar_viatico' viatico.pk %}" class="action-button delete-button">Eliminar</a>
+                    <a id="actualizar{{viatico.codigo}}"href="{% url 'actualizar_viatico' viatico.pk %}" class="action-button update-button">Actualizar</a>
+                    <a id="eliminar{{viatico.codigo}}"href="{% url 'eliminar_viatico' viatico.pk %}" class="action-button delete-button">Eliminar</a>
                 </div>
             </div>
         </div>
     {% endfor %}
 </div>
-<a href="{% url 'crear_viatico' %}" class="create-viatico-button">Crear viático</a>
+<a id="crear"href="{% url 'crear_viatico' %}" class="create-viatico-button">Crear viático</a>
 {% endblock %}

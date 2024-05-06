@@ -1,0 +1,88 @@
+{% extends "program_details_root.html" %}
+
+{% load static %}
+{% block static %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'css/program_details.css' %}">
+{% endblock static %}
+
+{% block content %}
+    {{ block.super }}
+    
+    <div class = "program-detail">
+        <div class="program-director">
+            <h3>Director</h3>
+            <div class="director">
+                <div class="director-image">
+                    <img src="{{ directors.url_foto }}" alt="">
+                </div>
+
+                <div class="director-details">
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Nombre: </p>
+                        <p>{{ directors.nombre }} {{ directors.apellido }}</p>
+                    </div>
+                    
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Email: </p>
+                        <p>{{ directors.email}}</p>
+                    </div>
+        
+                    <div class="detail-breadcrumb">
+                        <p class="bold">Teléfono: </p>
+                        <p>{{ directors.telefono}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="program-information">
+            <div class="detail-breadcrumb">
+                <p class="bold">Facultad: </p>
+                <p>{{ programa.facultad }}</p>
+            </div>
+            <!--<div class="detail-breadcrumb">
+                <p class="bold">Cursos Totales: </p>
+                <p style="color: red;">AGREGAR CONTADOR</p>>
+            </div>-->
+            <div class="detail-breadcrumb">
+                <p class="bold">Tipo Programa: </p>
+                <p>{{ programa.tipo_de_programa }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="study-plan">
+        <h2 class="pensum">Plan de Estudios</h2>
+        <div class="pensum-detail">
+            
+            <div class="subjects1">
+                <h3 class="semester">Semestre 1</h3>
+                <div class="subject-details">
+
+                    {% for materia in subjects_1 %}
+                        <div class="subject-breadcrumb">
+                            <p>{{ materia }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            <div class="subjects2">
+                <h3 class="semester">Semestre 2</h3>
+                <div class="subject-details">
+
+                    {% for materia in subjects_2 %}
+                        <div class="subject-breadcrumb">
+                            <p>{{ materia }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+{% endblock content %}

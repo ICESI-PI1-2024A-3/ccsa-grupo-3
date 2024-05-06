@@ -1,0 +1,77 @@
+{% extends "root.html" %} {% block title %} Información {% endblock %} {% block breadcrumb-items %}
+<li style="margin: 0 5px">/</li>
+<li>Información</li>
+{% endblock breadcrumb-items %} {% block actual_patch %}
+<h2>Información del Docente</h2>
+{% endblock actual_patch %} {% block content %} {% load static %}
+<link rel="stylesheet" href="{% static 'css/show_teacher_info_styles.css' %}" />
+{% block stylesheet %}{% endblock %}
+
+<div class="container">
+  <h1>Perfil del Docente</h1>
+
+  <div class="content-wrapper">
+    <div class="info-group">
+      <div class="info-item">
+        <div class="label">Nombre:</div>
+        <div id="nombre{{ docente.cedula }}" class="value">{{ docente.nombre }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Apellido:</div>
+        <div class="value">{{ docente.apellido }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Cédula:</div>
+        <div class="value">{{ docente.cedula }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Email:</div>
+        <div class="value">{{ docente.email }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Teléfono:</div>
+        <div class="value">{{ docente.telefono }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Ciudad:</div>
+        <div class="value">{{ docente.ciudad }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Estado:</div>
+        <div class="value">{{ docente.estado }}</div>
+      </div>
+
+      <div class="info-item">
+        <div class="label">Cursos:</div>
+        {% for docente_curso in docentes_cursos %} 
+            {% if docente_curso.docente_id == docente.cedula %}
+                <div id="curso{{ docente.cedula }}{{ docente_curso.curso_id }}" class="value" style="display: flex; flex-direction: row;">NRC:{{ docente_curso.curso_id }}</div>
+                </div>
+            {% endif %} 
+        {% endfor %}
+    </div>
+
+    <div class="image-frame">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6bVl1LNZM8fCPLDyFu5uxCH0YtErbbV8As0UBf-qs2A&s"
+        alt="Imagen del Docente"
+        class="teacher-image"
+      />
+      <!-- <img src="{{ docente.url_img }}" alt="Imagen del Docente" class="teacher-image"> -->
+    </div>
+  </div>
+
+  <a
+    id="asignarcurso"
+    href="{% url 'teacher_assign_course' cedula=docente.cedula %}"
+    class="light"
+    ><span>Asignar curso</span></a
+  >
+</div>
+{% endblock content %}

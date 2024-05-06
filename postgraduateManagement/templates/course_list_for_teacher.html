@@ -1,0 +1,108 @@
+
+{% extends "root.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block breadcrumb-items %}
+    <li style="margin: 0 5px;">/</li>
+    <li>Listado de cursos </li>
+{% endblock breadcrumb-items %}
+
+{% block actual_patch %}
+    <h2>Cursos</h2>
+{% endblock actual_patch %}
+
+{% block content %}
+
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/course_list_for_teacher_style.css' %}">
+    {% block stylesheet %}{% endblock %}
+
+
+
+<div class="courses-container">
+   
+
+    <div class="hList"> 
+        
+    <h1>Listado de Cursos</h1>
+      </div>  
+    
+        
+    {% if cursos_disponibles %}
+        <ul class="courses-list">
+            {% for curso in cursos_disponibles %}
+                <li class="course-item">
+                    <div class="course-info">
+
+                        <!-- Información del Curso -->
+                      
+                            <span class="course-label">Materia:</span>
+                            <span class="course-value">{{ curso.materia }}</span><br>
+
+                            <span class="course-label">NRC:</span>
+                            <span class="course-value">{{ curso.nrc }}</span><br>
+
+
+                            <span class="course-label">Código de Materia:</span>
+                            <span class="course-value">{{ curso.materia.codigo }}</span><br>
+                            
+                            
+                    </div>
+
+                    <div class="course-actions">
+                        {% if docente.estado != "inactivo"%}
+                            <form id="assign-course-form" method="POST" action="assingCourse/{{curso.nrc}}/">{% csrf_token %}
+                                <button id="button{{curso.nrc}}" type="submit" class="action-assign-course-to-teacher">Asignar Curso</button>
+                            </form>
+                        {% endif %}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+    <div class="no-courses-container">
+        <p class="no-courses-message">¡No hay cursos disponibles en este momento!</p>
+        
+    </div>
+    {% endif %}
+</div>
+
+</div>
+
+
+
+<script>
+    document.getElementById('assign-course-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this)
+        })
+        .then(response => {
+            if (response.ok) {
+                // Si la respuesta es exitosa, redirige a la página de profesores
+                window.location.href = "{% url 'teachers' %}";
+            } else {
+                // Si hay un error, muestra el mensaje de error
+                return response.json();
+            }
+        })
+        .then(data => {
+            if (data.error) {
+                // Muestra el mensaje de error en algún elemento de tu HTML
+                alert(data.error); // Puedes cambiar esto por otro método de tu elección
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+
+
+{% endblock content %}
+
+

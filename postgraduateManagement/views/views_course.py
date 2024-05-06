@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from postgraduateManagement.models import Curso, Materia
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -45,7 +45,20 @@ class CourseView(ListView):
 class CourseDeleteView(DeleteView):
     template_name = 'postgraduateManagement/../delete_course.html'
     model = Curso
-    success_url = reverse_lazy('subjectmanagment')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['codigo'] = self.kwargs.get('codigo')
+        context['codigo_materia'] = self.kwargs.get('codigo_materia')
+        return context
+
+    def get_success_url(self):
+        # Obtén el código de materia de la URL
+        materia_codigo = self.kwargs.get('codigo_materia')
+        # Aquí asumimos que 'codigo' es otro parámetro en tu URL
+        codigo = self.kwargs.get('codigo')
+        # Construye la URL de redirección
+        return reverse('courseview', args=[codigo, materia_codigo])
 
 
 @method_decorator(login_required, name='dispatch')
@@ -53,7 +66,14 @@ class CourseUpdateView(UpdateView):
     template_name = 'postgraduateManagement/../edit_course.html'
     model = Curso
     fields = ['grupo', 'cupo', 'usuario', 'periodo']
-    success_url = reverse_lazy('subjectmanagment')
+    
+    def get_success_url(self):
+        # Obtén el código de materia de la URL
+        materia_codigo = self.kwargs.get('codigo_materia')
+        # Aquí asumimos que 'codigo' es otro parámetro en tu URL
+        codigo = self.kwargs.get('codigo')
+        # Construye la URL de redirección
+        return reverse('courseview', args=[codigo, materia_codigo])
 
 
 @method_decorator(login_required, name='dispatch')
@@ -61,7 +81,6 @@ class CourseCreateView(CreateView):
     template_name = 'postgraduateManagement/../create_course.html'
     model = Curso
     fields = ['nrc', 'grupo', 'cupo', 'usuario', 'periodo']
-    success_url = reverse_lazy('subjectmanagment')
 
     def form_valid(self, form):
         # Obtén el código de materia de la URL
@@ -79,3 +98,11 @@ class CourseCreateView(CreateView):
         materia = get_object_or_404(Materia, codigo=materia_codigo)
         kwargs['initial'] = {'materia': materia}
         return kwargs
+    
+    def get_success_url(self):
+        # Obtén el código de materia de la URL
+        materia_codigo = self.kwargs.get('codigo_materia')
+        # Aquí asumimos que 'codigo' es otro parámetro en tu URL
+        codigo = self.kwargs.get('codigo')
+        # Construye la URL de redirección
+        return reverse('courseview', args=[codigo, materia_codigo])

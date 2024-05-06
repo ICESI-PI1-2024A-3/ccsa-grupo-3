@@ -1,21 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "root.html" %}
+
+{% block title %}
+   Eliminar curso
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Eliminar curso</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Eliminar curso</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
+ 
     <title>Confirmar Eliminación</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <h1>Eliminar curso</h1>
+
+    <div class="page-container"> <!-- Contenedor principal -->
 
     <!--Carga los estilos -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/deleteCourseStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/deleteCourseStyles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   
     {% block stylesheet %}{% endblock %}
     
-</head>
-<body>
+
     <div class="confirmation-box">
+        
         <h2>¿Estás seguro que deseas eliminar el curso?</h2>
         <div class="course-details">
 
@@ -23,16 +42,15 @@
                 <p><strong>NRC:</strong> <span>{{ object.nrc }}</span></p>
                 <p><strong>Grupo:</strong> <span>{{ object.grupo }}</span></p>
                 <p><strong>Cupo:</strong> <span>{{ object.cupo }}</span></p>
-                
         </div>
 
         <form method="post">
             {% csrf_token %}
             <div class="button-group">
-                <button class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
-                <a class="cancel-link" href="{% url 'subjectmanagment'%}"><i class="fas fa-times-circle"></i> Cancelar</a>
+                <button id="delete" class="delete-button" type="submit"><i class="fas fa-trash-alt"></i> Confirmar Eliminación</button>
+                <a id="cancel" class="cancel-link" href="{% url 'courseview' codigo codigo_materia %}"><i class="fas fa-times-circle"></i> Cancelar</a>
             </div>
         </form>
     </div>
-</body>
-</html>
+</div>
+{% endblock content %}

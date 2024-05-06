@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edición de Cursos</title>
+{% extends "root.html" %}
 
+{% block title %}
+   Editar Curso
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Editar Curso</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Editar Curso</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
     <!--Carga los estilos -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/editCourse.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_course_style.css' %}">
     {% block stylesheet %}{% endblock %}
-</head>
-<body>
+
     <div class="container">
         <h1>Edición de Curso</h1>
         <form method="post" class="form">{% csrf_token %}
@@ -20,6 +32,5 @@
             </div>
         </form>
     </div>
-</body>
-</html>
 
+{% endblock content %}
