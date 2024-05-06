@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AEF5C7D2-C686-49A6-4660-3D1E9E07E39C" name="SolicitudPrograma">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<ordsAlias>relation_39</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Programa_codigo" id="771342DB-8D28-FCE2-C232-DF837B235D2F">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DA19DE7D-8873-A077-242F-5E7EE4AAB41E" referredColumn="29CD663E-48A1-DBF2-490D-740C32566CC4"/>
+</associations>
+</Column>
+<Column name="Solicitud_codigo" id="07730FF6-BDDC-6D47-8AB8-DA2368267187">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7DA9DC31-A35B-EE6A-A0EF-5BA243FF4013" referredColumn="AB9B25FB-2901-BC8A-DBFE-42A6F25C3FE8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B9D37EA6-540E-401D-CBA2-0BF992025679" name="Relation_39_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="771342DB-8D28-FCE2-C232-DF837B235D2F"/>
+<colUsage columnID="07730FF6-BDDC-6D47-8AB8-DA2368267187"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A1ADCC8A-EE2E-D48D-B92F-8FA22D067C64" name="Relation_39_Programa_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>FB70F9A9-0B8E-2270-77B7-61BFFB642779</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="771342DB-8D28-FCE2-C232-DF837B235D2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="6BBE8DA3-801E-54A2-977E-05299303B631" name="Relation_39_Solicitud_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>FB70F9A9-0B8E-2270-77B7-61BFFB642779</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07730FF6-BDDC-6D47-8AB8-DA2368267187"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

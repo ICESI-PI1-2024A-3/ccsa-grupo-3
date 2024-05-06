@@ -1,0 +1,79 @@
+/* Estilos para la lista de cursos */
+ul.courses-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: auto;
+}
+
+
+.hList{
+    text-align: center;
+}
+
+/* Estilos para cada curso en la lista */
+.course-item {
+    background-color: #fff;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor sobre un curso */
+.course-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para la información del curso */
+.course-info {
+    margin-bottom: 10px;
+}
+
+/* Etiquetas de la información del curso */
+.course-label {
+    font-weight: bold;
+    color: #555;
+}
+
+
+
+/* Estilos para las acciones del curso */
+.course-actions {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilos para el botón de asignar curso */
+.action-assign-course-to-teacher {
+    background-color: #3bbdd7;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block; /* Para que el botón respete el espacio */
+    border: none; /* Quitar el borde */
+}
+
+
+
+
+/* Efecto al pasar el cursor sobre el botón de asignar curso */
+.action-assign-course-to-teacher:hover {
+    background-color: #626bc8;
+    transform: scale(1.05);
+}
+
+
+/* Estilos para el mensaje de aviso cuando no hay cursos */
+.no-courses-container {
+    position: relative;
+    top: 50%;
+    transform: translateY(230%);
+    text-align: center;
+    font-size: 24px; /* Cambia el tamaño del texto según lo necesites */
+}
