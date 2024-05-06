@@ -62,3 +62,38 @@ class LiveServerTestCase(LiveServerTestCase):
         buttonsubmit.click()
         docente = driver.find_element(By.ID, "teacher57-596-5887")
         assert docente.text.__contains__("Mano")
+
+    def test_teacher_information(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys('mrzen')
+        password.send_keys('1026')
+        submit.click()
+        driver.execute_script("document.getElementById('docentes').click();")
+        driver.execute_script("document.getElementById('info69-399-0990').click();")
+        assert "Informacion" in driver.title
+        docente = driver.find_element(By.ID, "nombre69-399-0990")
+        assert docente.text.__contains__("Lon")
+
+    def test_teacher_assigned_course(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys('mrzen')
+        password.send_keys('1026')
+        submit.click()
+        driver.execute_script("document.getElementById('docentes').click();")
+        driver.execute_script("document.getElementById('info69-399-0990').click();")
+        driver.execute_script("document.getElementById('asignarcurso').click();")
+        driver.execute_script("document.getElementById('cursoPM-1').click();")
+        driver.execute_script("document.getElementById('button35').click();")
+        assert "Docentes" in driver.title
+        driver.execute_script("document.getElementById('info69-399-0990').click();")
+        cursos = driver.find_element(By.ID, "curso69-399-099035")
+        assert cursos.text.__contains__("NRC:35")
+
+
+
