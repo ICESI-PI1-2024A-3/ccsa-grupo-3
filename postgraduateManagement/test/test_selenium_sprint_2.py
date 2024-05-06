@@ -272,6 +272,43 @@ class LiveServerTestCase(LiveServerTestCase):
         guardar = driver.find_element(By.CLASS_NAME, "delete-button")
         guardar.click()
         assert "Listado de Viáticos" in driver.title
+        
+    def test_view_contract(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys('mrzen')
+        password.send_keys('1026')
+        submit.click()
+        driver.execute_script("document.getElementById('contratos').click();")
+        self.assertIn("Ver Contratos", self.selenium.title)
+        contract_cards = self.selenium.find_elements(By.CLASS_NAME, "card")
+        self.assertTrue(len(contract_cards) > 0)
+        
+    def test_edit_contract(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys('mrzen')
+        password.send_keys('1026')
+        submit.click()
+        driver.execute_script("document.getElementById('contratos').click();")
+        driver.execute_script("document.getElementById('send').click();")
+        self.assertIn("Editar Contrato", self.selenium.title)
+        codigo_field = self.selenium.find_element(By.NAME, "txtCodigo")
+        self.assertIsNotNone(codigo_field)
+        fecha_elaboracion_field = self.selenium.find_element(By.NAME, "fecha_elaboracion")
+        self.assertIsNotNone(fecha_elaboracion_field)
+        tipo_contrato_field = self.selenium.find_element(By.NAME, "tipo_contrato")
+        self.assertIsNotNone(tipo_contrato_field)
+        estado_contrato_field = self.selenium.find_element(By.NAME, "estado_contrato")
+        self.assertIsNotNone(estado_contrato_field)
+        docente_field = self.selenium.find_element(By.NAME, "docente")
+        self.assertIsNotNone(docente_field)
+
+        
 
 
 
