@@ -32,7 +32,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        assert "Programas de Posgrado" in driver.title
+        assert "Inicio" in driver.title
 
     def test_Login_incorrect(self):
         driver = self.scrap()
