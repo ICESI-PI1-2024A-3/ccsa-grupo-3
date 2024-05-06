@@ -10,7 +10,7 @@ from django.http import HttpResponseBadRequest, HttpResponseServerError
 def viewContract(request):
     contracts= Contrato.objects.all()
     teacher= Docente.objects.all()
-    return render(request, "viewContract.html", {"contract": contracts, "person":teacher})
+    return render(request, "viewcontract.html", {"contract": contracts, "person":teacher})
 
 @login_required
 def editContract(request, codigo):
