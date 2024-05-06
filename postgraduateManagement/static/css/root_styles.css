@@ -260,6 +260,7 @@
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: rgb(225, 225, 225);
+  z-index: 100;
 }
 .home-section .home-header .bx-menu,
 .home-section .home-header .text{
