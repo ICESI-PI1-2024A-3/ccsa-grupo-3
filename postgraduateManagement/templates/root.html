@@ -30,7 +30,7 @@
         </div>
         <ul class="nav-links">
           <li>
-            <a id="home" href="{% url 'programs' %}">
+            <a id="home" href="{% url 'home' %}">
               <i class='bx bx-home'></i>
               <span class="link_name">Inicio</span>
             </a>
@@ -56,18 +56,40 @@
               <li><a class="link_name" href="#">Docentes</a></li>
             </ul>
           </li>
-            
+          <li>
+            <a id="viaticos" href="{% url 'viatic_list' %}">
+                <i class='bx bx-money'></i>
+                <span class="link_name">Viáticos</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Viáticos</a></li>
+              </ul>
+        </li>  
           <li>
         <div class="profile-details">
           <div class="profile-content">
-            <!-- Aqui debe ir una imagen de perfil -->
+            <!-- Aquí debe ir una imagen de perfil -->
             <img src="../static/assets/profile.jpg" alt="profileImg">
           </div>
           <div class="name-job">
             <div class="profile_name">Prem Shahi</div>
             <div class="job">Web Desginer</div>
           </div>
-          <i class='bx bx-log-out' ></i>
+          <!-- 
+<li class="nav-item">
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="nav-link">Salir</button>
+            </form>
+          </li>
+
+          -->
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="nav-link">
+              <i class='bx bx-log-out' ></i>
+            </button>
+          </form>
         </div>
       </li>
     </ul>

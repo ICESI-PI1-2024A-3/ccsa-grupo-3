@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="F9768699-0DD0-D02B-7B0D-7D3F1C83C48A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:19:56 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

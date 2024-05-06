@@ -1,0 +1,140 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E31BC3AA-206F-D42B-D39F-3632EA9BBC52" name="Clase">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>BD944D52-A9D3-81E8-B876-3EB2F418E589</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="90AF52AD-B1CC-8484-DC74-A8FDE1354C4C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>47EDE97A-AB50-5386-9BFF-AFDA93B36913</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_inicio" id="14D47FA7-2755-A985-96C5-F8215B309E1D">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>03BD6F0C-CC57-594D-08ED-EF0C758927D8</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_fin" id="F03EFE73-F16A-C67F-CBC4-7D63F88685AB">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>32397013-DB25-67B7-A9AC-B43BD8F6FC63</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Curso_nrc" id="B239A6EC-179C-081E-D8DE-56E0BB0C240B">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>516CEB3F-F852-2A3D-054B-3F3DC10FC9F9</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>6 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8B86ACCB-A566-ADD8-91B0-FC9D0FC8CB6F" referredColumn="68E91E8B-1112-FDDE-EB6A-1DD34CFDE7C9"/>
+</associations>
+</Column>
+<Column name="Modalidad_codigo" id="349896A4-480B-9301-30D8-8E7B3F617940">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>54C9A2FC-EAE0-A1B1-60E0-7EA5F4456E12</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="800443C7-41EC-5195-4BC4-D71C9A4D1C7A" referredColumn="C4DB1A80-6B07-E08D-9804-239B72F2948C"/>
+</associations>
+</Column>
+<Column name="Espacio_id_espacio" id="5A1E5EAB-9E08-8F46-E895-2D1F46AD40A4">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>DC4C9532-6219-2190-DC9A-B09785A1618C</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="92339BED-1593-CFCF-117C-DEE1D7F0E021" referredColumn="49CC197E-E70A-A7FD-BF54-5A2432B89517"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BC358639-D762-FF54-433E-4112B5D63F7E" name="Clase_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>6EFD8BF1-9D2A-212F-E05B-31C673F76B81</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="90AF52AD-B1CC-8484-DC74-A8FDE1354C4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="58EDA0C3-5609-0DB5-7648-8F7D82A44185" name="Relation_3">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>DCFB82CA-128A-4375-77D5-77AF454636A6</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B239A6EC-179C-081E-D8DE-56E0BB0C240B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D5C7148-028D-61D3-92CD-03153563585A" name="Relation_40">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>1500EF79-DF85-96AA-9CC4-621A35931004</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5A1E5EAB-9E08-8F46-E895-2D1F46AD40A4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="646544E0-8C43-2A0F-BEF3-E782AA174B47" name="Relation_5">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>679B927A-7C0D-38C5-685C-CE762BC690BB</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="349896A4-480B-9301-30D8-8E7B3F617940"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

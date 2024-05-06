@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="9241A51A-B80B-950F-E810-DC058080985C" mainViewID="5CF4F7BE-0308-36E9-68FC-E30EDB99E9E8">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:19:56 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

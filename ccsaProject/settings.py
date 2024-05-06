@@ -27,15 +27,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-# DEBUG = True
+#DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
-# ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -155,3 +155,15 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
+
+# Configuración del correo electrónico para Gmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'juanc29072907@gmail.com'  
+EMAIL_HOST_PASSWORD = 'uydjoqcqaopjtbdv'  # contraseña para la app
+
+#diseño del correo electronico
+PASSWORD_RESET_EMAIL_TEMPLATE = 'registration/password_reset_email.html'
+
