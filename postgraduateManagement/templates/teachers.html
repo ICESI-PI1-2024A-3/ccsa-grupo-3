@@ -92,7 +92,7 @@
                             </ul>
                         </div>
                         <div class="button">
-                            <a href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
+                            <a id="changestate{{ teacher.cedula}}" href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
                             <a href="#" class="light"><span>More of Me</span></a>
                         </div>
                     </div> 
