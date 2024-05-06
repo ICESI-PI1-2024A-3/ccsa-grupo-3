@@ -54,8 +54,8 @@
                         <div class="course-actions">
 
                             <!-- Acciones del Curso -->
-                            <a id="delete{{ curso.pk }}" href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
-                            <a id="update{{ curso.pk }}"href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
+                            <a id="delete{{ curso.pk }}" href="{{ curso.pk }}/eliminar" class="action-button delete-button">Eliminar</a>
+                            <a id="update{{ curso.pk }}"href="{{ curso.pk }}/actualizar" class="action-button update-button">Actualizar</a>
                         </div>
                     </li>
                 {% endfor %}
@@ -63,7 +63,7 @@
             
             <!-- Botón para crear nuevo curso -->
             <div class="create-course-button-container">
-                <a id="createbutton"href="{% url 'course_create' codigo_materia=codigo_materia %}" class="create-course-button">Crear Curso</a>
+                <a id="createbutton"href="nuevo_curso" class="create-course-button">Crear Curso</a>
             </div>
         {% else %}
             <!-- Mensaje cuando no hay cursos -->

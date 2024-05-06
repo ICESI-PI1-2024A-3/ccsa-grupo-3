@@ -19,7 +19,6 @@ env = environ.Env()
 environ.Env.read_env()
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -92,7 +91,7 @@ WSGI_APPLICATION = 'ccsaProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DATABASE_NAME'),
         'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASS'),
@@ -108,7 +107,8 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es'
 
-DATABASES['default'] = dj_database_url.parse("postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
+DATABASES['default'] = dj_database_url.parse(
+    "postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -147,7 +147,7 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-if not DEBUG:    
+if not DEBUG:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
