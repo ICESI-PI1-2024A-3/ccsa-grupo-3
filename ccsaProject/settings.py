@@ -155,3 +155,15 @@ if not DEBUG:
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
+
+# Configuración del correo electrónico para Gmail
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'juanc29072907@gmail.com'  
+EMAIL_HOST_PASSWORD = 'uydjoqcqaopjtbdv'  # contraseña para la app
+
+#diseño del correo electronico
+PASSWORD_RESET_EMAIL_TEMPLATE = 'registration/password_reset_email.html'
+
