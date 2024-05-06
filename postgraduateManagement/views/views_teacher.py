@@ -14,8 +14,6 @@ from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbid
 from django.views import View
 from django.http import JsonResponse
 
-
-
 @method_decorator(login_required, name='dispatch')
 class TeachersView(View):
     @staticmethod

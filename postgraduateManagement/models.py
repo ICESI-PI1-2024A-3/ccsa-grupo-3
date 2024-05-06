@@ -396,7 +396,7 @@ class Periodo(models.Model):
 
     def __str__(self):
         return self.semestre
-
+    
 
 class Materia(models.Model):
     """
