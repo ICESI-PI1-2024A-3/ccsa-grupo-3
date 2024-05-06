@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B88ADD2B-7D9C-4DEB-7FE7-81C2BD68DB24" containerWithKeyObject="590058C8-A9F5-B151-7DD0-79811D9CE41D" localFKIndex="E888E695-3268-B1E7-E9E7-11B4D5A553DF" name="Relation_2">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>FDF11AEF-DFCD-0825-5191-749F329F8E05</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<referredTableLongName>Materia</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>6A8ECCD9-5D20-00FD-C312-10840E73F545</referredTableID>
+<keyObject>21848BAC-38EE-6DD7-8324-6F1FB53073AC</keyObject>
+<referredKeyID>21848BAC-38EE-6DD7-8324-6F1FB53073AC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>codigo</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

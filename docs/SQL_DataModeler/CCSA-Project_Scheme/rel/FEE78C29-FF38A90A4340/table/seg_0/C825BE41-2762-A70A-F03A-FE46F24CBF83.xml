@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C825BE41-2762-A70A-F03A-FE46F24CBF83" name="Espacio">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>ABFD30C4-BAC6-4E87-DF2D-23A65E3E17C9</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_espacio" id="49CC197E-E70A-A7FD-BF54-5A2432B89517">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>190D271E-CEFC-F57C-E1F5-17BDA3DB25F6</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4 CHAR</dataTypeSize>
+<ownDataTypeParameters>4 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_subespacio" id="80C53714-4F6B-BAEE-A4DE-A6703A51FDA0">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>45315F5F-F818-BF78-CEBF-1BA47CD7F7B2</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2 CHAR</dataTypeSize>
+<ownDataTypeParameters>2 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="tipo" id="C430B9B1-15AE-B386-4AAA-9ADD78BD53E4">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>AAA63ACC-BBB4-1289-99D4-6B01C2313863</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>24 CHAR</dataTypeSize>
+<ownDataTypeParameters>24 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="capacidad" id="C1033C00-791B-613C-0273-D1EC597642DF">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>9D10137D-51AD-C225-E65A-8266800FB907</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="530C6766-70EA-5277-5F71-8CB015E585E2" name="Espacio_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>05B62D86-8BF6-BBB9-B121-841DE063FD10</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="49CC197E-E70A-A7FD-BF54-5A2432B89517"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

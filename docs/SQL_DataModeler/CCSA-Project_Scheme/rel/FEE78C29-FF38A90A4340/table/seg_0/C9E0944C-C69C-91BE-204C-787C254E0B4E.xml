@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9E0944C-C69C-91BE-204C-787C254E0B4E" name="Pensum">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<ordsAlias>relation_35</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="94FF615A-18AB-C704-653D-DE141D2E9507">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 15:54:23 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="semestre" id="F8D9E8F0-84B9-B2E7-35CC-9FC4172BA442">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 15:55:00 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Programa_codigo" id="76A7EFAD-2EC0-AA31-C516-204AEB3F71E1">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="682CE784-4177-8DB0-4792-41164780B27A" referredColumn="29CD663E-48A1-DBF2-490D-740C32566CC4"/>
+</associations>
+</Column>
+<Column name="Materia_codigo" id="44C02131-DB7C-6F57-4717-1F75F9B49CA7">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8E4D05BC-0C4A-C651-EC66-DDB757BF313D" referredColumn="B54C2289-8A66-54BA-5614-F0474E193C89"/>
+</associations>
+</Column>
+<Column name="Periodo_semestre" id="2572ECFA-D969-0E60-307F-E14F18A6644D">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 15:51:04 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="376DA2C7-36AC-5A74-7A3F-467CC5D90F4C" referredColumn="67AB0211-FE36-16D7-C904-2A58C475FCFD"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B3436D1-41FC-F5CF-7BEC-EAF1A935BB33" name="Relation_35_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="76A7EFAD-2EC0-AA31-C516-204AEB3F71E1"/>
+<colUsage columnID="44C02131-DB7C-6F57-4717-1F75F9B49CA7"/>
+<colUsage columnID="2572ECFA-D969-0E60-307F-E14F18A6644D"/>
+<colUsage columnID="94FF615A-18AB-C704-653D-DE141D2E9507"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="48090C29-2826-62B2-1536-0DBC3E70C1ED" name="Relation_35_Programa_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>8ACFE50C-3270-9487-DB98-873341EE4208</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="76A7EFAD-2EC0-AA31-C516-204AEB3F71E1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A0B80B0C-B604-E07D-312F-DC3F17A1D43E" name="Relation_35_Materia_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>8ACFE50C-3270-9487-DB98-873341EE4208</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="44C02131-DB7C-6F57-4717-1F75F9B49CA7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C8C9A66C-D01D-5348-7424-799186667F15" name="Pensum_Periodo_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 15:51:04 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2572ECFA-D969-0E60-307F-E14F18A6644D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

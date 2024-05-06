@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5C81F62E-D757-F1DD-36F7-08F734C65D28" name="Contable">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>ED7A4D08-8F85-AD63-D051-4C0676EF84B8</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="codigo" id="5AAA0BE6-B93D-3831-F0A7-3A4E6AA7C926">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>732FA95D-BFE2-7404-0395-3A7D407A7789</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="presupuesto" id="2484C0A4-0F0F-C270-F199-7B4FABC885B9">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>CEE2CCF8-438B-895C-7DBC-017542BF9A24</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cuenta_cobro" id="D82444A1-B627-569B-AE71-E295429A1BD7">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>DD231A01-B8EB-7338-3BE0-7E90002DA216</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 CHAR</dataTypeSize>
+<ownDataTypeParameters>50 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id" id="91CD03A5-00D6-726D-071E-D50368E53965">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<generatorID>3314FF22-31E0-2528-758D-120884DCBC77</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>DE87B29E-1A07-5AA3-6E23-ED2097DE112E</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<referedAttribute>B1846A4F-6B5A-7857-9505-AB288316C70A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>1 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cedula" id="43E9887D-C6B6-3495-9B5F-5FA7449AE8C5">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<generatorID>C49A0E56-603F-D7FF-4407-E7E0BD3652E5</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>C4E4ED89-D433-5250-3050-C03E2C56F7CB</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<referedAttribute>1DB397B5-26CA-355D-5E96-E78B5C1642C1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8BFC319B-4895-F21A-EAA6-44E3F5249CA3" name="Contable PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>5AAA0BE6-B93D-3831-F0A7-3A4E6AA7C926</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="376DA2C7-36AC-5A74-7A3F-467CC5D90F4C" containerWithKeyObject="C9E0944C-C69C-91BE-204C-787C254E0B4E" localFKIndex="C8C9A66C-D01D-5348-7424-799186667F15" name="Pensum_Periodo_FK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 15:51:04 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<referredTableLongName>Periodo</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1C9BF46C-E927-DC30-B672-99CE790FF2EF</referredTableID>
+<keyObject>9FC885D4-3652-9CC7-413D-E4DC511AF6CC</keyObject>
+<referredKeyID>9FC885D4-3652-9CC7-413D-E4DC511AF6CC</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>semestre</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

@@ -1,0 +1,112 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="94E739A1-76CD-08C2-47B5-FB46F7715F91" name="Solicitud">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>ED7A4D08-8F85-AD63-D051-4C0676EF84B8</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="codigo" id="AB9B25FB-2901-BC8A-DBFE-42A6F25C3FE8">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>173FE35C-FDC5-A77D-296B-1C62E649F93B</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8 CHAR</dataTypeSize>
+<ownDataTypeParameters>8 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="descripcion" id="01E2F8EC-8C9C-DB97-0047-76989F24CF6F">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>15F9B257-B410-C846-7E7F-8404C6CA5B24</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fecha_solicitud" id="B27F869B-CBF9-481C-49AA-BB86AFB09B1C">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>344AD605-D0F2-572D-64AE-D098A132D48B</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Usuario_id" id="EB74C90C-5AA7-CF94-E000-3D7B6AA5EE2E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>2F754BBE-13FF-D07D-1D6D-3494BD8B7C86</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A31C1CBF-494A-7320-7CD6-354E3FC1A198" referredColumn="D0822699-0DA2-0479-706A-AB5A2CCDF58D"/>
+</associations>
+</Column>
+<Column name="EstadoSolicitud_id" id="0F268792-69D6-3319-CE24-922FE1A63F2E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>51B3BF05-611D-92A7-6C2E-F8F5B78F98D4</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F06D6E5C-EF3C-F945-0393-775445A55A48" referredColumn="B9C18571-DA71-FF5E-C3A0-5991FE92C5FF"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="24004F4B-2F65-02A8-E58F-ACBF411E4B2D" name="Solicitud_PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>32A9EBF5-506A-68D6-2390-E285E7B07408</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AB9B25FB-2901-BC8A-DBFE-42A6F25C3FE8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="53063A41-8C66-7D8F-2E03-92F93565CF6C" name="Relation_10">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>604BB463-D28E-3E60-5B01-77F4908494EC</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EB74C90C-5AA7-CF94-E000-3D7B6AA5EE2E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="365AA5F5-10B6-4CDF-EEAB-43F55E76EA06" name="Relation_36">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>367CD43A-9754-F0B4-CCBA-B1F2E7EC126B</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0F268792-69D6-3319-CE24-922FE1A63F2E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
