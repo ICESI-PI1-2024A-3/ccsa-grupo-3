@@ -1,16 +1,5 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 20px;
-}
 
-/* Estilos para el título */
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 20px;
-}
+
 
 /* Estilos para la lista de cursos */
 ul {
@@ -20,8 +9,12 @@ ul {
     margin: auto;
 }
 
+h1{
+    text-align: center;
+}
+
 /* Estilos para cada curso en la lista */
-li {
+.custom-li {
     background-color: #fff;
     margin-bottom: 15px;
     padding: 20px;
@@ -30,8 +23,7 @@ li {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto al pasar el cursor sobre un curso */
-li:hover {
+.custom-li:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
@@ -55,7 +47,7 @@ li:hover {
 
 /* Estilos para el botón de eliminar */
 .delete-button {
-    background-color: #008cff;
+    background-color: #b30000;
     color: #fff;
     padding: 10px 15px;
     text-decoration: none;
@@ -65,7 +57,7 @@ li:hover {
 
 /* Efecto al pasar el cursor sobre el botón de eliminar */
 .delete-button:hover {
-    background-color: #b30000;
+    background-color: #df0a0a;
     transform: scale(1.05);
 }
 

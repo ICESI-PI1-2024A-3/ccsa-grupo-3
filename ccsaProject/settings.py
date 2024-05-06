@@ -9,10 +9,16 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
+import environ
+import dj_database_url
 
 from pathlib import Path
 
-import postgraduateManagement
+env = environ.Env()
+environ.Env.read_env()
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,13 +28,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-@2+7e6#485_7#&^22p&z9#l@71#ne32%nte-2=q+v1y7561gdx'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 DEBUG = True
 
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -40,13 +48,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'postgraduateManagement',
-    'requestsManagement',
     'login'
 ]
 
 MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -81,13 +89,26 @@ WSGI_APPLICATION = 'ccsaProject.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE':'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'USER': os.environ.get('DATABASE_USER'),
+        'PASSWORD': os.environ.get('DATABASE_PASS'),
+        'HOST': os.environ.get('DATABASE_HOST'),
+        'PORT': os.environ.get('DATABASE_PORT')
+        # 'NAME': env('DATABASE_NAME'),
+        # 'USER': env('DATABASE_USER'),
+        # 'PASSWORD': env('DATABASE_PASS'),
+        # 'HOST': env('DATABASE_HOST'),
+        # 'PORT': env('DATABASE_PORT')
     }
 }
 
+LANGUAGE_CODE = 'es'
+    
+DATABASES['default'] = dj_database_url.parse("postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -122,9 +143,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+
+if not DEBUG:    
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 

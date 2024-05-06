@@ -1,42 +1,41 @@
-{% extends "root.html" %}
-
-{% block title %}
-    Docentes
-{% endblock %}
+{% extends "program_details_root.html" %}
 
 {% load static %}
 {% block static %}
-    {{block.super}}
+    {{ block.super }}
 
-    <link rel="stylesheet" href="{% static "css/teachers_styles.css" %}">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/program_details_teachers.css' %}">
+{% endblock static %}
 
 {% block content %}
-    <form method="GET" action="." class="form-row">
-        <div class="search-bar">
-            <div class="input-group">
-                <ion-icon name="search-outline"></ion-icon>
-                <input type="search" name="search_contains" placeholder="Buscar"/>
+    {{ block.super }}
+
+    <form method="GET" action="docentes" class="form-row">
+
+            <div class="search-bar">
+                <div class="input-group">
+                    <ion-icon name="search-outline"></ion-icon>
+                    <input type="search" name="search_contains" placeholder="Buscar"/>
+                </div>
             </div>
-        </div>
         
-        <select name="status">
-            <option value="activo" selected>Profesores Activos</option>
-            <option value="inactivo">Profesores Inactivos</option>
-        </select>
+            <select name="status">
+                <option value = "activo" selected>Profesores Activos</option>
+                <option value = "inactivo">Profesores Inactivos</option>
+            </select>
 
-        <select name="city">
-            <option value="" select>Cuidad</option>
-            {% for city in cities %}
-                <option value="{{city.id}}">{{city.nombre}}</option>
-            {% endfor %}
-        </select>
+            <select name="city">
+                <option value = "" select>Cuidad</option>
+                {% for city in cities %}
+                    <option value="{{city.id}}">{{city.nombre}}</option>
+                {% endfor %}
+            </select>
 
-        <button id="submit" type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
     <div class="grid-container">
+
         {% for teacher in teacher_list %}
         
         <div class="card">
@@ -44,7 +43,7 @@
                 <img src="https://th.bing.com/th/id/OIP.pYdFHETEFknKbd54t2d42AHaLH?rs=1&pid=ImgDetMain" alt="image">
             </div>
             <div class="info">
-                <div id="teacher{{ teacher.cedula}}"class="name">
+                <div class="name">
                     <h2>{{teacher.nombre}} {{teacher.apellido}}</h2>
                     <p>Docente, EN</p>
                 </div>
@@ -92,24 +91,23 @@
                             </ul>
                         </div>
                         <div class="button">
-                            <a href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
+                            <a href="#"><span>Hire Me</span></a>
                             <a href="#" class="light"><span>More of Me</span></a>
                         </div>
-                    </div> 
-                </div>
+                    </div>
+                </div> 
             </div>
-        {% endfor %}
+        </div>
+
+    {% endfor %}
     </div>
 
     <script src="{% static 'js/teachers_script.js' %}"></script>
 {% endblock %}
 
 {% block breadcrumb-items %}
+    {{ block.super }}
     <li class="breadcrumb-item">
         <a href="{% url 'teachers' %}">Docentes</a>
     </li>
-{% endblock %}
-
-{% block actual_patch %}
-    <h2>Docentes</h2>
 {% endblock %}

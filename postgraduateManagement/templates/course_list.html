@@ -1,15 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+{% extends "root.html" %}
+
+{% block title %}
+    Listado de Cursos
+{% endblock %}
+
+{% block breadcrumb-items %}
+   
+    <li style="margin: 0 5px;">/</li> <!-- Agrega un margen a cada lado del elemento "/" -->
+    <li>Cursos</li>
+{% endblock breadcrumb-items %}
+
+
+{% block actual_patch %}
+    <h2>Listado de cursos</h2>
+{% endblock actual_patch %}
+
+
+
+{% block content %}
 
      <!--Carga los estilos -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/courseListStyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/course_list_style.css' %}">
     {% block stylesheet %}{% endblock %}
     
-    <meta charset="UTF-8">
-    <title>Listado de Cursos</title>
-</head>
+ 
+
 <body>
     <div class="content">
         <h1>Listado de Cursos</h1>
@@ -17,7 +33,11 @@
         {% if object_list %}
             <ul class="courses-list">
                 {% for curso in object_list %}
-                    <li class="course-item">
+
+                <li class="course-item custom-li"> 
+                   
+            
+            
                         <div class="course-info">
 
                             <!-- Información del Curso -->
@@ -25,17 +45,17 @@
                             <span class="course-value">{{ curso.materia }}</span><br>
                             
                             <span class="course-label">NRC:</span>
-                            <span class="course-value">{{ curso.nrc }}</span><br>
+                            <span id="nrc{{ curso.nrc }}" class="course-value">{{ curso.nrc }}</span><br>
                             
                             <span class="course-label">Grupo:</span>
-                            <span class="course-value">{{ curso.grupo }}</span><br>
+                            <span id="grupo{{curso.nrc}}{{ curso.grupo }}"class="course-value">{{ curso.grupo }}</span><br>
                         </div>
                         
                         <div class="course-actions">
 
                             <!-- Acciones del Curso -->
-                            <a href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
-                            <a href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
+                            <a id="delete{{ curso.pk }}" href="{% url 'course_delete' curso.pk %}" class="action-button delete-button">Eliminar</a>
+                            <a id="update{{ curso.pk }}"href="{% url 'course_update' codigo_materia=curso.materia.codigo pk=curso.pk %}" class="action-button update-button">Actualizar</a>
                         </div>
                     </li>
                 {% endfor %}
@@ -43,7 +63,7 @@
             
             <!-- Botón para crear nuevo curso -->
             <div class="create-course-button-container">
-                <a href="{% url 'course_create'%}" class="create-course-button">Crear Curso</a>
+                <a id="createbutton"href="{% url 'course_create' codigo_materia=codigo_materia %}" class="create-course-button">Crear Curso</a>
             </div>
         {% else %}
             <!-- Mensaje cuando no hay cursos -->
@@ -52,10 +72,10 @@
                 
                 <!-- Botón para Crear Nuevo Curso -->
                 <div class="create-course-button-container">
-                    <a href="{% url 'course_create'%}" class="create-course-button">Crear Curso</a>
+                    <a href="{% url 'course_create' codigo_materia=codigo_materia %}" class="create-course-button">Crear Curso</a>
                 </div>
             </div>
         {% endif %}
     </div>
-</body>
-</html>
+
+{% endblock content %}
