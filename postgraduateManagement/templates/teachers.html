@@ -22,14 +22,15 @@
         </div>
         
         <select name="status">
-            <option value="activo" selected>Profesores Activos</option>
-            <option value="inactivo">Profesores Inactivos</option>
+            <option value="" selected>Estado</option>
+            <option value="activo">Activo</option>
+            <option value="inactivo">Inactivo</option>
         </select>
 
         <input class="city_selector" list="cities" name="city" placeholder="Ciudad">
         <datalist id="cities">
             {% for city in cities %}
-            <option value="{{city.nombre}}">
+                <option value="{{city.id}}">{{city.nombre}}</option>
             {% endfor %}
         </datalist>
 
@@ -45,7 +46,12 @@
                 <div class="info">
                     <div class="name">
                         <h2>{{teacher.nombre}} {{teacher.apellido}}</h2>
-                        <p>Docente, EN</p>
+                        {% if teacher.estado == 'Activo' %}
+                            <p>Docente 🟢</p>
+                        {% else %}
+                            <p>Docente 🔴</p>
+                        {% endif %}
+    
                     </div>
                     <div class="button">
                         <a href="" class="trigger">
@@ -82,14 +88,7 @@
                                     </button>
                                 </div>
                             </div>
-                            <div class="socials">
-                                <ul>
-                                    <li><a href="#"><ion-icon name="logo-dribbble"></ion-icon></a></li>
-                                    <li><a href="#"><ion-icon name="logo-behance"></ion-icon></a></li>
-                                    <li><a href="#"><ion-icon name="logo-github"></ion-icon></a></li>
-                                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                                </ul>
-                            </div>
+                            
                             <div class="button">
                                 <a href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
                                 <a href="{% url 'teacher_info' cedula=teacher.cedula %}" class="light"><span>Información</span></a>

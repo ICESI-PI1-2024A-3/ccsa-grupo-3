@@ -2,7 +2,7 @@
 
 
 :root{
-    --main-color: #ff5252;
+    --main-color: #00599C;
     --light-color: #c6c6c6;
     --lighter-color: #edf2f4;
     --dark-color: #2b2d42;
@@ -155,7 +155,6 @@ ul {
     padding: 2.5em;
     display: flex;
     justify-content: center;
-    width: fit-content;
 }
 
 .left {
@@ -199,7 +198,7 @@ ul {
 }
 
 .left .button a:first-child span {
-    box-shadow: rgb(255 82 82 / 50%) 0 10px 20px;
+    box-shadow: rgba(0, 89, 156, 0.5) 0 10px 20px;
 }
 
 .left .button a.light span {
