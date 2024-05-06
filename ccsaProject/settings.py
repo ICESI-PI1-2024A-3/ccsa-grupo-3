@@ -19,7 +19,6 @@ env = environ.Env()
 environ.Env.read_env()
 
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,15 +27,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-# SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
+# SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'e6740a20f427de877f241a59f3a51ef3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
-# DEBUG = True
+# DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+DEBUG = True
 
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
-# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -92,7 +91,7 @@ WSGI_APPLICATION = 'ccsaProject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('DATABASE_NAME'),
         'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASS'),
@@ -107,8 +106,9 @@ DATABASES = {
 }
 
 LANGUAGE_CODE = 'es'
-    
-DATABASES['default'] = dj_database_url.parse("postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
+
+DATABASES['default'] = dj_database_url.parse(
+    "postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -147,7 +147,7 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-if not DEBUG:    
+if not DEBUG:
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
