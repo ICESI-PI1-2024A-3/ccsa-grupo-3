@@ -66,7 +66,14 @@ class CourseUpdateView(UpdateView):
     template_name = 'postgraduateManagement/../edit_course.html'
     model = Curso
     fields = ['grupo', 'cupo', 'usuario', 'periodo']
-    success_url = reverse_lazy('subjectmanagment')
+    
+    def get_success_url(self):
+        # Obtén el código de materia de la URL
+        materia_codigo = self.kwargs.get('codigo_materia')
+        # Aquí asumimos que 'codigo' es otro parámetro en tu URL
+        codigo = self.kwargs.get('codigo')
+        # Construye la URL de redirección
+        return reverse('courseview', args=[codigo, materia_codigo])
 
 
 @method_decorator(login_required, name='dispatch')

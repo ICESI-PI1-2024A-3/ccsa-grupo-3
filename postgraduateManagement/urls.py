@@ -45,8 +45,7 @@ urlpatterns = [
          ####
      path('programas/<codigo>/<str:codigo_materia>/<int:pk>/eliminar/', postgraduateManagement.views.views_course.CourseDeleteView.as_view(),
          name='course_delete'),
-    path('courses/<str:codigo_materia>/<int:pk>/update/',
-         postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
+         path('programas/<codigo>/<str:codigo_materia>/<int:pk>/actualizar/', postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
           ###
 
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
