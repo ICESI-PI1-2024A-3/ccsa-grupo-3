@@ -31,6 +31,9 @@ urlpatterns = [
     path('programas/<codigo>/docentes', postgraduate_program_details.view_program_teachers, name = "program_teachers"),
     path('programas/<codigo>/materias', postgraduate_program_details.view_program_subjects, name = "program_subjects"),
 
+     path('programas/<codigo>/<str:codigo_materia>/', postgraduateManagement.views.views_course.CourseView.as_view()),
+     path('programas/<codigo>/<str:codigo_materia>/nuevo_curso', postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
+
     path('viaticos/', ViaticoListView.as_view(), name='viatic_list'),
     path('viaticos/crear/', ViaticoCreateView.as_view(), name='crear_viatico'),
     path('viaticos/<int:pk>/editar/', ViaticoUpdateView.as_view(), name='actualizar_viatico'),
@@ -38,14 +41,11 @@ urlpatterns = [
 
     path('subjectmanagment/', postgraduateManagement.views.views_course.SubjectManagment.as_view(),
          name='subjectmanagment'),
-    path('courseview/<str:codigo_materia>/',
-         postgraduateManagement.views.views_course.CourseView.as_view(), name='courseview'),
     path('courses/<int:pk>/delete/', postgraduateManagement.views.views_course.CourseDeleteView.as_view(),
          name='course_delete'),
     path('courses/<str:codigo_materia>/<int:pk>/update/',
          postgraduateManagement.views.views_course.CourseUpdateView.as_view(), name='course_update'),
-    path('courses/create/<str:codigo_materia>',
-         postgraduateManagement.views.views_course.CourseCreateView.as_view(), name='course_create'),
+
 
     path('editarProgramacion/<str:codigo>/',
          postgraduate_program_details.editarProgramacion, name='editar_programacion'),
@@ -61,7 +61,4 @@ urlpatterns = [
     path('viewContract/', views_contract.viewContract, name='ver_contratos'),
     path('editingContract/', views_contract.editingContract, name='edicion_contratos'),
     path('viewContract/editContract/<codigo>/', views_contract.editContract, name='editar_contratos'),
-
-    
-    
 ]
