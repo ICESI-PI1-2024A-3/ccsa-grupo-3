@@ -1,0 +1,130 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="734391DF-336B-DF3D-2E8E-4FE5DFC40968" name="Persona">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="cedula" id="1DB397B5-26CA-355D-5E96-E78B5C1642C1">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>1500AADC-D3AA-35A3-F2D9-6015429773F0</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>32 CHAR</dataTypeSize>
+<ownDataTypeParameters>32 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="E5CDC997-081C-A582-7760-883A50FB6EDC">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>9A0A44A1-DC87-9164-EB77-790A2D033508</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="apellido" id="88780927-CA58-FE9B-C8FB-5038AF881CBF">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>B54986E8-E674-B7DF-53DD-442FAA45A14E</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="2A7F9152-08B3-7BAA-83FA-25AD5F61FFBE">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>59704453-C406-C756-5977-804FC5249EC4</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>120 CHAR</dataTypeSize>
+<ownDataTypeParameters>120 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono" id="8A2F641B-1723-8236-5A1C-FC1F6C07B6C4">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>7A03A51A-FDCB-1045-1BE8-539E7A243DE3</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="url_foto" id="C9F1C83E-1460-8A12-FD91-9C4A7FD9FC1A">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>B248277C-6E13-86EA-2698-72F35C4A4D9C</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>A3A3C77D-0366-9768-FF89-1C25E56881C8</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id" id="3A5D9181-3779-B5E2-4709-CDEA74F01C9E">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<generatorID>5209A792-BE5D-00D4-EA58-3106ECEF1756</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>C9A9E6DD-1347-1DA1-BEC0-4775D3A80BA6</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<referedAttribute>74F5EC71-74A5-A873-EFEB-9072AB4CABD8</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1B70DF97-0416-8353-F9B0-ED48595CCB97" name="Persona PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>1DB397B5-26CA-355D-5E96-E78B5C1642C1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

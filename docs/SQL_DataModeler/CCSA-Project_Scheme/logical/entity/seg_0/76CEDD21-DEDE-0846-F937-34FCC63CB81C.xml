@@ -1,0 +1,60 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76CEDD21-DEDE-0846-F937-34FCC63CB81C" name="Facultad">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="24E9347E-8313-385B-3634-0C710B83C4BD">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>BF69EE29-14CC-5260-B572-96E35B1B1E96</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre" id="ED9EA6F8-D8A0-5028-8129-B814C066E7B2">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<importedID>106733C2-3B01-DE58-B5A8-FE6386F8D53C</importedID>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="4E3DE977-4401-37DB-040E-56D8AF5F7F74" name="Facultad PK">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:20:33 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<engineerTo>
+<item key="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>24E9347E-8313-385B-3634-0C710B83C4BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,97 @@
+.program-detail {
+    margin-top: 28px;
+    width: 100%;
+    display: flex;
+}
+
+.program-detail .program-director, .program-detail .program-information {
+    width: calc(50% - 24px);
+}
+
+.program-detail .program-director {
+    margin-right: 24px;
+    border: black 1px solid;
+    padding: 12px 18px;
+}
+
+.program-director .director .director-image {
+    width: 18%;
+}
+
+.program-director .director .director-image img {
+    width: 72%;
+}
+
+.program-director .director-details .detail-breadcrumb {
+    display: flex;
+}
+
+.program-detail .program-information {
+    margin-left: 24px;
+    border: black 1px solid;
+    padding: 0px 18px;
+}
+
+.program-detail .director {
+    display: flex;
+    justify-content: left;
+    margin-top: 20px;
+}
+
+.program-detail .program-information .detail-breadcrumb {
+    display: flex;
+    margin: 22px 0;
+}
+
+.detail-breadcrumb .bold {
+    font-weight: bold;
+    padding-right: 8px;
+}
+
+/* study plan section */
+
+.pensum-detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pensum-detail .subjects1, .pensum-detail .subjects2 {
+    width: 50%;
+    border: black 1px solid;
+    padding: 12px 18px;
+}
+
+.pensum-detail .subjects1 {
+    margin-right: 24px;
+}
+
+.pensum-detail .subjects2 {
+    margin-left: 24px;
+}
+
+
+
+.subject-details .subject-breadcrumb {
+    width: 100%;
+    padding: 10px 30px 10px 15px;
+    cursor: pointer;
+
+    background: #FFFFFF;
+    border-color: #D5D7E0;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+.subject-details .subject-breadcrumb:not(:last-child) {
+    margin-bottom: 12px;
+}
+
+.subject-details .subject-breadcrumb:hover {
+    background: #F5F5F5;
+}
+
+.subject-details .subject-breadcrumb p {
+    font-weight: 700;
+}

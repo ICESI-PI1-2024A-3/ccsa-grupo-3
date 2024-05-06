@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="CCSA-Project_Scheme" id="28473D6F-3B93-FC66-79BB-86DCDD72F032" version="3.5">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:19:56 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>28473D6F-3B93-FC66-79BB-86DCDD72F032</designId>
+</OSDM_Design>

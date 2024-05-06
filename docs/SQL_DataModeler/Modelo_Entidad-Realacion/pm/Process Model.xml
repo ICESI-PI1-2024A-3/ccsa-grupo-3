@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="6534C181-50EA-DA08-1849-A39CCF674568">
-<createdBy>silem</createdBy>
-<createdTime>2024-03-10 23:06:31 UTC</createdTime>
-<ownerDesignName>xTerminar</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

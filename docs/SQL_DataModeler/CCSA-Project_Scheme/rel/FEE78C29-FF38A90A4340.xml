@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Modelo Entidad Relación" id="FEE78C29-F0F1-94AE-0EDF-FF38A90A4340" mainViewID="7D9F0B58-3C26-361F-695A-BE2EC6F03744">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:19:56 UTC</createdTime>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+</relationalModel>

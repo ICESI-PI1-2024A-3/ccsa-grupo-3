@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D444E8AF-AE4C-8800-8F72-B72606CA620C" containerWithKeyObject="5C907506-5B1C-4BCA-0D8D-FC5091207F63" localFKIndex="7A6D95DD-AB71-F6CC-7E6E-F98EB45D1478" name="Relation_20">
+<createdBy>silem</createdBy>
+<createdTime>2024-03-23 03:24:50 UTC</createdTime>
+<generatorID>3314FF22-31E0-2528-758D-120884DCBC77</generatorID>
+<ownerDesignName>CCSA-Project_Scheme</ownerDesignName>
+<referredTableLongName>TipoContable</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>7ACE3A74-F72E-8434-400E-FDE06B47BD03</referredTableID>
+<keyObject>E61A73E2-34A7-3F44-3BE3-8A31330376AB</keyObject>
+<referredKeyID>E61A73E2-34A7-3F44-3BE3-8A31330376AB</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
