@@ -90,8 +90,8 @@
                             </div>
                             
                             <div class="button">
-                                <a href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
-                                <a href="{% url 'teacher_info' cedula=teacher.cedula %}" class="light"><span>Información</span></a>
+                                <a id="changestate{{ teacher.cedula}}" href="{% url 'state' cedula=teacher.cedula %}"><span>Cambiar estado</span></a>
+                                <a id="info{{ teacher.cedula}}" href="{% url 'teacher_info' cedula=teacher.cedula %}" class="light"><span>Información</span></a>
                                 
                             </div>
                         </div>

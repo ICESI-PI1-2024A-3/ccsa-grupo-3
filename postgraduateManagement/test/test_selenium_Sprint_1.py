@@ -32,7 +32,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        assert "Programas de Posgrado" in driver.title
+        assert "Inicio" in driver.title
 
     def test_Login_incorrect(self):
         driver = self.scrap()
@@ -53,7 +53,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-
+        driver.execute_script("document.getElementById('programas').click();")
         assert "Programas de Posgrado" in driver.title
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
@@ -69,6 +69,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -85,6 +86,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -104,7 +106,6 @@ class LiveServerTestCase(LiveServerTestCase):
         driver.execute_script("document.getElementById('createbutton').click();")
         assert "Creación de Cursos" in driver.title
 
-    @transaction.atomic
     def test_Course_create1(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -113,6 +114,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -131,7 +133,6 @@ class LiveServerTestCase(LiveServerTestCase):
         guardar.click()
         assert "Creación de Cursos" in driver.title
 
-    @transaction.atomic
     def test_Course_create2(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -140,6 +141,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -162,7 +164,6 @@ class LiveServerTestCase(LiveServerTestCase):
         driver.execute_script("document.getElementById('delete50').click();")
         driver.execute_script("document.getElementById('delete').click();")
 
-    @transaction.atomic
     def test_Course_create3(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -171,6 +172,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -190,7 +192,6 @@ class LiveServerTestCase(LiveServerTestCase):
         assert "Creación de Cursos" in driver.title
         # desde aqui se hace un proceso de limpieza de la db
 
-    @transaction.atomic
     def test_Course_create4(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -199,6 +200,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -218,7 +220,6 @@ class LiveServerTestCase(LiveServerTestCase):
         assert "Creación de Cursos" in driver.title
         # desde aqui se hace un proceso de limpieza de la db
 
-    @transaction.atomic
     def test_Course_create5(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -227,6 +228,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -246,7 +248,6 @@ class LiveServerTestCase(LiveServerTestCase):
         assert "Creación de Cursos" in driver.title
         # desde aqui se hace un proceso de limpieza de la db
 
-    @transaction.atomic
     def test_Course_create6(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -255,6 +256,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -277,7 +279,6 @@ class LiveServerTestCase(LiveServerTestCase):
         driver.execute_script("document.getElementById('delete999999').click();")
         driver.execute_script("document.getElementById('delete').click();")
 
-    @transaction.atomic
     def test_Course_create7(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -286,6 +287,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -308,7 +310,6 @@ class LiveServerTestCase(LiveServerTestCase):
         driver.execute_script("document.getElementById('delete0').click();")
         driver.execute_script("document.getElementById('delete').click();")
 
-    @transaction.atomic
     def test_Course_create8(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -317,6 +318,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -335,7 +337,6 @@ class LiveServerTestCase(LiveServerTestCase):
         guardar.click()
         assert "Creación de Cursos" in driver.title
 
-    @transaction.atomic
     def test_Course_create9(self):
         driver = self.scrap()
         username = driver.find_element(By.NAME, "username")
@@ -344,6 +345,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -370,6 +372,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -423,6 +426,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         principalprogram = driver.find_element(By.ID, "buttonPROG001-M")
         principalprogram.click()
         driver.execute_script("document.getElementById('subjects').click();")
@@ -452,6 +456,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
+        driver.execute_script("document.getElementById('programas').click();")
         driver.execute_script("document.getElementById('home').click();")
         # cambiar el home con el home nuevo obvio
         assert "Programas de Posgrado" in driver.title
@@ -468,7 +473,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        driver.execute_script("document.getElementById('teacher').click();")
+        driver.execute_script("document.getElementById('docentes').click();")
         search = driver.find_element(By.NAME, "search_contains")
         search.send_keys("Ekaterina")
         submit = driver.find_element(By.ID, "submit")
@@ -483,7 +488,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        driver.execute_script("document.getElementById('teacher').click();")
+        driver.execute_script("document.getElementById('docentes').click();")
         search = driver.find_element(By.NAME, "status")
         search.send_keys("inactivo")
         submit = driver.find_element(By.ID, "submit")
@@ -498,7 +503,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        driver.execute_script("document.getElementById('teacher').click();")
+        driver.execute_script("document.getElementById('docentes').click();")
         search = driver.find_element(By.NAME, "status")
         search.send_keys("activo")
         submit = driver.find_element(By.ID, "submit")
@@ -515,7 +520,7 @@ class LiveServerTestCase(LiveServerTestCase):
         username.send_keys('mrzen')
         password.send_keys('1026')
         submit.click()
-        driver.execute_script("document.getElementById('teacher').click();")
+        driver.execute_script("document.getElementById('docentes').click();")
         search = driver.find_element(By.NAME, "city")
         search.send_keys("Valledupar")
         docente = driver.find_element(By.ID, "teacher60-777-6729")
