@@ -11,16 +11,15 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 class LiveServerTestCase(LiveServerTestCase):
     def scrap(self):
-        service = Service(ChromeDriverManager().install())
         options = Options()
-        options.add_argument("--headless")
+        #options.add_argument("--headless")
         options.add_argument("--window-size=1920,1080")
-        options.add_argument("--disable-gpu")
+        #options.add_argument("--disable-gpu")
         options.add_argument("--disable-extensions")
         options.add_argument("--no-sandbox")
         options.add_argument("--incognito")
         driver = webdriver.Chrome(options=options)
-        driver.get('http://127.0.0.1:8000/')
+        driver.get('https://ccsa-modulo-programacion-academica.onrender.com')
         return driver
 
     def test_home_links(self):
@@ -28,8 +27,8 @@ class LiveServerTestCase(LiveServerTestCase):
         username = driver.find_element(By.NAME, "username")
         password = driver.find_element(By.NAME, "password")
         submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
-        username.send_keys('mrzen')
-        password.send_keys('1026')
+        username.send_keys(' miguel.angel@icesi.edu.co')
+        password.send_keys('contraseña')
         submit.click()
         driver.execute_script("document.getElementById('programas').click();")
         assert "Programas de Posgrado" in driver.title

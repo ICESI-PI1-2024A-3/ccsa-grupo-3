@@ -23,9 +23,9 @@ class TestViews(TestCase):
         )
         self.docente = Docente.objects.create(cedula='1', nombre='Pedro', apellido='González',
                                          email='pedro@example.com', telefono=987654321,
-                                         ciudad=Ciudad.objects.create(id=2, nombre='Otra Ciudad de Ejemplo'))
+                                         ciudad=Ciudad.objects.create(id=2, nombre='Ejemplo2'))
         self.periodo = Periodo.objects.create(
-            semestre='2024A', fecha_inicio='2024-01-01', fecha_fin='2024-05-31')
+            semestre='29', fecha_inicio='2024-01-01', fecha_fin='2024-05-31')
         self.materia = Materia.objects.create(codigo='MAT01', nombre='Materia de Ejemplo', creditos=3,
                                          departamento=Departamento.objects.create(codigo='DEP01',
                                                                                   nombre='Departamento de Ejemplo'))

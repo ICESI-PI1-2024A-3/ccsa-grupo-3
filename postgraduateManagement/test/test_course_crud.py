@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 from postgraduateManagement.views.views_course import *
-from postgraduateManagement.models import Departamento, Usuario, Periodo
+from postgraduateManagement.models import Departamento, Usuario, Periodo, Programa, Director, Facultad, TipoPrograma, \
+    Ciudad
 
 
 class TestViews(TestCase):
@@ -14,7 +15,7 @@ class TestViews(TestCase):
         # Crear un departamento de prueba
         self.departamento_prueba = Departamento.objects.create(
             codigo="DEP001",
-            nombre="Departamento de Prueba"
+            nombre="Depar"
         )
 
         # Crear un usuario de prueba
@@ -29,7 +30,7 @@ class TestViews(TestCase):
 
         # Crear un periodo de prueba
         self.periodo_prueba = Periodo.objects.create(
-            semestre="2023-01",
+            semestre="20",
             fecha_inicio="2023-01-01",
             fecha_fin="2023-05-31"
         )
@@ -37,31 +38,43 @@ class TestViews(TestCase):
         # Crear una materia de prueba asociada al departamento de prueba
         self.materia_prueba = Materia.objects.create(
             codigo="MAT001",
-            nombre="Materia de Prueba",
+            nombre="Materia",
             creditos=3,
             departamento=self.departamento_prueba
         )
 
         # Crear un curso de prueba relacionado con la materia de prueba, usuario de prueba y periodo de prueba
         self.curso = Curso.objects.create(
-            nrc="12345",
-            grupo="Grupo de Prueba",
+            nrc="12",
+            grupo="23",
             cupo=30,
             materia=self.materia_prueba,
             usuario=self.usuario_prueba,
             periodo=self.periodo_prueba
         )
 
+        self.facultad2=Facultad.objects.create(id='01',nombre='por')
+
+        self.tipoprograma=TipoPrograma.objects.create(id='90',nombre='por')
+
+        self.ciudad=Ciudad.objects.create(id='01',nombre='c')
+
+        self.directorprueba = Director.objects.create(ciudad=self.ciudad)
+
+        self.Programa_prueba = Programa.objects.create(codigo='00', nombre='Programa', descripcion="lalo",
+                                                       facultad=self.facultad2,tipo_de_programa=self.tipoprograma
+                                                       ,director=self.directorprueba)
+
     def test_subject_list_view(self):
         # Prueba que la vista de lista de materias carga correctamente y utiliza el template adecuado
-        response = self.client.get(reverse('subjectmanagment'))
+        response = self.client.get(reverse('program_subjects', kwargs={'codigo': '00'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../subject_list.html')
+        self.assertTemplateUsed(response, 'program_details_subjects.html')
 
     def test_course_view(self):
         response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MateriaCodigo'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
+        self.assertTemplateUsed(response, 'course_list.html')
 
     def test_course_view_with_material_code(self):
         response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MAT001'}))
@@ -71,7 +84,7 @@ class TestViews(TestCase):
     def test_course_view_with_nonexistent_material_code(self):
         response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'NO_EXISTE'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
+        self.assertTemplateUsed(response, 'course_list.html')
         self.assertEqual(response.context['object_list'].count(), 0)
 
     def test_course_delete_view(self):
@@ -121,13 +134,13 @@ class TestViews(TestCase):
                                     })
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
+        self.assertTemplateUsed(response, 'edit_course.html')
 
     def test_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
-            'nrc': '54321',
-            'grupo': 'Nuevo Grupo',
+            'nrc': '54',
+            'grupo': '6',
             'cupo': 20,
             'usuario': self.usuario_prueba.pk,
             'periodo': self.periodo_prueba.semestre
@@ -135,7 +148,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_invalid_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
             'materia': 999,  # ID de materia no existente
             'nrc': '',  # NRC vacío, lo que debería ser inválido
             'grupo': 'Nuevo Grupo',
@@ -146,7 +159,7 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_duplicate_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
             'nrc': '54321',
             'grupo': 'Nuevo Grupo',
