@@ -1,7 +1,7 @@
 import unittest
 from django.test import TestCase, Client
 from django.urls import reverse
-from postgraduateManagement.views import viewProgramPosgraduates, eliminarPrograma, editingDirector, edicionPrograma
+from postgraduateManagement.views import eliminarPrograma, editingDirector, edicionPrograma
 from postgraduateManagement.models import Departamento, Usuario, Periodo
 
 from django.test import TestCase

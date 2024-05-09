@@ -1,4 +1,6 @@
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.urls import reverse
 
 from postgraduateManagement.models import Director, Ciudad, Programa, Facultad, TipoPrograma
 import unittest
@@ -55,6 +57,20 @@ class TestViews(TestCase):
             '/programas/', data={'programa_codigo': 'PGM1'})
         self.assertEqual(
             response.context['programa_seleccionado'], self.programa1)
+
+    def test_programs_view_post_with_existing_program(self):
+        response = self.client.post('/programas/', data={'programa_codigo': 'PGM1'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['programa_seleccionado'], self.programa1)
+
+    def test_programs_view_post_with_non_existing_program(self):
+        with self.assertRaises(ObjectDoesNotExist):
+            response = self.client.post('/programas/', data={'programa_codigo': 'PGM99'})
+
+    def test_programs_view_post_with_no_program_code(self):
+        response = self.client.post('/programas/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(response.context['programa_seleccionado'])
 
 
 if __name__ == '__main__':

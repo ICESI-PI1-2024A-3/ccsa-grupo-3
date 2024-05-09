@@ -1,14 +1,16 @@
+import traceback
 from datetime import datetime
 
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, Permission
+from django.core.exceptions import ObjectDoesNotExist
 from django.test import TestCase, Client
 from django.urls import reverse
-from postgraduateManagement.models import Docente, Materia, DocentesCursos, Ciudad, Departamento,Curso, Periodo, Usuario
+from postgraduateManagement.models import Docente, Materia, DocentesCursos, Ciudad, Departamento, Curso, Periodo, \
+    Usuario
 
 
 class AssingCourseForTeacherViewTest(TestCase):
     def setUp(self):
-
         self.ciudad = Ciudad.objects.create(
             id=1,
             nombre='San Francisco'
@@ -23,7 +25,6 @@ class AssingCourseForTeacherViewTest(TestCase):
             email="juanle.com",
             estado="activo"
         )
-
 
         self.departamento_prueba = Departamento.objects.create(
             codigo="DEP001",
@@ -40,7 +41,7 @@ class AssingCourseForTeacherViewTest(TestCase):
         self.client.force_login(self.user)
 
         self.periodo_prueba = Periodo.objects.create(
-            semestre="2023-01",
+            semestre="8",
             fecha_inicio="2023-01-01",
             fecha_fin="2023-05-31"
         )
@@ -53,8 +54,8 @@ class AssingCourseForTeacherViewTest(TestCase):
         )
 
         self.curso = Curso.objects.create(
-            nrc="12345",
-            grupo="Grupo de Prueba",
+            nrc="99",
+            grupo="12",
             cupo=30,
             materia=self.materia_prueba,
             usuario=self.usuario_prueba,
@@ -67,20 +68,35 @@ class AssingCourseForTeacherViewTest(TestCase):
             prioridad=1
         )
 
-
     def test_assign_course_to_active_teacher(self):
-        url = reverse('assing_course_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
-                                                           'codigo_materia': self.materia_prueba.codigo, 'nrc_curso': self.curso.nrc})
+        url = reverse('teacher_assign_course', kwargs={'cedula': self.docente_activo.cedula})
         response = self.client.post(url)
-        self.assertEqual(response.status_code, 302)
-
+        self.assertTemplateUsed(response, 'postgraduateManagement/../assign_course_to_teacher.html')
+        self.assertEqual(response.status_code, 200)
 
     def test_no_courses_available_for_subject(self):
         materia_sin_cursos = Materia.objects.create(codigo='MAT002', creditos=2, departamento=self.departamento_prueba)
-        url = reverse('assing_course_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
-                                                           'codigo_materia': materia_sin_cursos.codigo,'nrc_curso': self.curso.nrc})
+        url = reverse('teacher_assign_course', kwargs={'cedula': self.docente_activo.cedula})
         response = self.client.post(url)
-        self.assertEqual(response.status_code, 302)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../assign_course_to_teacher.html')
+        self.assertEqual(response.status_code, 200)
 
+    def test_assign_course_to_no_valid_teacher(self):
+        with self.assertRaises(ObjectDoesNotExist):
+            response = self.client.get(reverse('teacher_assign_course', kwargs={'cedula': '989898'}))
+
+    def test_view_course_for_teacher(self):
+        url = reverse('view_courses_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
+                                                          'codigo_materia': 'MAT001'})
+        response = self.client.post(url)
+        self.assertContains(response, self.curso.nrc)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../course_list_for_teacher.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_view_course_for_teacher_with_subject_without_courses(self):
+        url = reverse('view_courses_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
+                                                          'codigo_materia': 'patata'})
+        response = self.client.post(url)
+        self.assertEqual(response.status_code, 404)
 
 
