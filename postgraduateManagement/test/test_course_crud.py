@@ -2,6 +2,7 @@
 import unittest
 
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect, HttpRequest
 from django.test import TestCase
 from django.urls import reverse
 from postgraduateManagement.views.views_course import *
@@ -72,7 +73,7 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'program_details_subjects.html')
 
     def test_course_view(self):
-        response = self.client.get(reverse('courseview', kwargs={'codigo': 00,'codigo_materia': 'MateriaCodigo'}))
+        response = self.client.get(reverse('courseview', kwargs={'codigo': 00, 'codigo_materia': 'MateriaCodigo'}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 

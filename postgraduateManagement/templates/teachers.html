@@ -34,7 +34,7 @@
             {% endfor %}
         </datalist>
 
-        <button type="submit" class="btn btn-primary">Buscar</button>
+        <button id="submit" type="submit" class="btn btn-primary">Buscar</button>
     </form>
 
     <div class="grid-container">
@@ -45,7 +45,7 @@
                     <img src="{{ teacher.url_foto }}" alt="image">
                 </div>
                 <div class="info">
-                    <div class="name">
+                    <div id="name{{teacher.cedula}}"class="name">
                         <h2>{{teacher.nombre}} {{teacher.apellido}}</h2>
                         {% if teacher.estado == 'Activo' %}
                             <p>Docente 🟢</p>

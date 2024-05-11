@@ -1,10 +1,10 @@
+import unittest
+
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
-from django.urls import reverse
+from django.test import TestCase
 
 from postgraduateManagement.models import Director, Ciudad, Programa, Facultad, TipoPrograma
-import unittest
-from django.test import TestCase
 
 
 class TestViews(TestCase):
@@ -47,6 +47,10 @@ class TestViews(TestCase):
             tipo_de_programa=self.tipo_de_programa,
             director=self.director
         )
+
+    def test_home_view_get(self):
+        response = self.client.get('')
+        self.assertTemplateUsed('home.html')
 
     def test_programs_view_get(self):
         response = self.client.get('/programas/')
