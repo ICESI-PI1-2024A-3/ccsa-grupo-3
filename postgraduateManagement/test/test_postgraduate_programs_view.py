@@ -1,8 +1,10 @@
+import unittest
+
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
+from django.test import TestCase
 
 from postgraduateManagement.models import Director, Ciudad, Programa, Facultad, TipoPrograma
-import unittest
-from django.test import TestCase
 
 
 class TestViews(TestCase):
@@ -46,6 +48,10 @@ class TestViews(TestCase):
             director=self.director
         )
 
+    def test_home_view_get(self):
+        response = self.client.get('')
+        self.assertTemplateUsed('home.html')
+
     def test_programs_view_get(self):
         response = self.client.get('/programas/')
         self.assertEqual(len(response.context['programas']), 2)
@@ -55,6 +61,20 @@ class TestViews(TestCase):
             '/programas/', data={'programa_codigo': 'PGM1'})
         self.assertEqual(
             response.context['programa_seleccionado'], self.programa1)
+
+    def test_programs_view_post_with_existing_program(self):
+        response = self.client.post('/programas/', data={'programa_codigo': 'PGM1'})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context['programa_seleccionado'], self.programa1)
+
+    def test_programs_view_post_with_non_existing_program(self):
+        with self.assertRaises(ObjectDoesNotExist):
+            response = self.client.post('/programas/', data={'programa_codigo': 'PGM99'})
+
+    def test_programs_view_post_with_no_program_code(self):
+        response = self.client.post('/programas/')
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(response.context['programa_seleccionado'])
 
 
 if __name__ == '__main__':

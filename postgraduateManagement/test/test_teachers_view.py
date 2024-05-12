@@ -63,27 +63,6 @@ class TestViews(TestCase):
         self.assertTemplateUsed(response, 'teachers.html')
         self.assertTrue(all('Test3' in teachers.nombre for teachers in response.context['teacher_list']))
 
-        def test_get_object(self):
-            response = self.client.get(reverse('state', kwargs={'cedula': self.docente.cedula}))
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.context['docente'], self.docente)
-
-        def test_get_context_data(self):
-            # Testeamos si el contexto contiene el objeto Docente
-            response = self.client.get(reverse('state', kwargs={'cedula': self.docente.cedula}))
-            self.assertEqual(response.status_code, 200)
-            self.assertTrue('docente' in response.context)
-            self.assertEqual(response.context['docente'], self.docente)
-
-        def test_update_view(self):
-            # Testeamos si la vista de actualización funciona correctamente
-            new_estado = 'inactivo'
-            response = self.client.post(reverse('state', kwargs={'cedula': self.docente.cedula}),
-                                        {'estado': new_estado})
-            self.assertEqual(response.status_code, 302)  # Debería redirigir después de una actualización exitosa
-            updated_docente = Docente.objects.get(cedula=self.docente.cedula)
-            self.assertEqual(updated_docente.estado, new_estado)
-
 
 if __name__ == '__main__':
     unittest.main()

@@ -22,13 +22,13 @@ class TestViews(TestCase):
             clase_id=1  # ID de clase de prueba
         )
         self.docente = Docente.objects.create(cedula='1', nombre='Pedro', apellido='González',
-                                         email='pedro@example.com', telefono=987654321,
-                                         ciudad=Ciudad.objects.create(id=2, nombre='Ejemplo2'))
+                                              email='pedro@example.com', telefono=987654321,
+                                              ciudad=Ciudad.objects.create(id=2, nombre='Ejemplo2'))
         self.periodo = Periodo.objects.create(
             semestre='29', fecha_inicio='2024-01-01', fecha_fin='2024-05-31')
         self.materia = Materia.objects.create(codigo='MAT01', nombre='Materia de Ejemplo', creditos=3,
-                                         departamento=Departamento.objects.create(codigo='DEP01',
-                                                                                  nombre='Departamento de Ejemplo'))
+                                              departamento=Departamento.objects.create(codigo='DEP01',
+                                                                                       nombre='Departamento de Ejemplo'))
         self.curso = Curso.objects.create(nrc='1', grupo='01', cupo=30, materia=self.materia,
                                           usuario=Usuario.objects.create(id=1, nombre='Usuario', apellido='Prueba'),
                                           periodo=self.periodo)
