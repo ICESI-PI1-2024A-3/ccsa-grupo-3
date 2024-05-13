@@ -268,19 +268,14 @@ class LiveServerTestCase(LiveServerTestCase):
         assert "Contratos" in driver.title
         driver.execute_script("document.getElementById('send').click();")
         assert "Editar Contrato" in driver.title
-
         fecha_elaboracion_input = driver.find_element(By.NAME, 'fecha_elaboracion')
         fecha_elaboracion_input.send_keys('2024-05-20')
-
         tipo_contrato_select = driver.find_element(By.ID, 'tipo_contrato')
         tipo_contrato_select.send_keys('Tiempo parcial')
-
         estado_contrato_select = driver.find_element(By.ID, 'estado_contrato')
         estado_contrato_select.send_keys('Vencido')
-
         driver.execute_script("document.getElementById('send2').click();")
-
-        self.assertIn('http://127.0.0.1:8000/editingContract/', driver.current_url)
+        assert driver.current_url.__contains__("editingContract")
 
 
 

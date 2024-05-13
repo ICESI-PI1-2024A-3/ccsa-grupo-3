@@ -1,7 +1,8 @@
 from datetime import date
 
 from django.contrib.auth.models import User
-from postgraduateManagement.models import Programa, Periodo, Director, Ciudad, Facultad, TipoPrograma, Pensum, Materia, Docente, Departamento
+from postgraduateManagement.models import Programa, Periodo, Director, Ciudad, Facultad, TipoPrograma, Pensum, Materia, \
+    Docente, Departamento
 from django.test import TestCase, Client
 from django.urls import reverse
 
@@ -57,7 +58,8 @@ class TestViews(TestCase):
         self.materia1 = Materia.objects.create(codigo='MAT1', nombre='Materia 1', creditos=3,
                                                departamento=self.departamento)
         self.materia1.docente.add(self.docente1)
-        self.materia2 = Materia.objects.create(codigo='MAT2', nombre='Materia 2', creditos=3, departamento=self.departamento)
+        self.materia2 = Materia.objects.create(codigo='MAT2', nombre='Materia 2', creditos=3,
+                                               departamento=self.departamento)
         self.materia2.docente.add(self.docente1)
 
         self.pensum1 = Pensum.objects.create(programa=self.programa, materia=self.materia1, periodo=self.periodo1)
