@@ -10,6 +10,7 @@ from selenium.webdriver.support.select import Select
 from webdriver_manager.chrome import ChromeDriverManager
 
 
+
 class LiveServerTestCase(LiveServerTestCase):
     def scrap(self):
         options = Options()
@@ -230,6 +231,59 @@ class LiveServerTestCase(LiveServerTestCase):
         presupuesto.send_keys('100')
         guardar = driver.find_element(By.CLASS_NAME, "submit-btn")
         guardar.click()
+
+    def test_contracts(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys(' miguel.angel@icesi.edu.co')
+        password.send_keys('contraseña')
+        submit.click()
+        driver.execute_script("document.getElementById('contratos').click();")
+        assert "Contratos" in driver.title
+
+    def test_contracts2(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys(' miguel.angel@icesi.edu.co')
+        password.send_keys('contraseña')
+        submit.click()
+        driver.execute_script("document.getElementById('contratos').click();")
+        assert "Contratos" in driver.title
+        driver.execute_script("document.getElementById('send').click();")
+        assert "Editar Contrato" in driver.title
+
+    def test_contracts3(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys(' miguel.angel@icesi.edu.co')
+        password.send_keys('contraseña')
+        submit.click()
+        driver.execute_script("document.getElementById('contratos').click();")
+        assert "Contratos" in driver.title
+        driver.execute_script("document.getElementById('send').click();")
+        assert "Editar Contrato" in driver.title
+
+        fecha_elaboracion_input = driver.find_element(By.NAME, 'fecha_elaboracion')
+        fecha_elaboracion_input.send_keys('2024-05-20')
+
+        tipo_contrato_select = driver.find_element(By.ID, 'tipo_contrato')
+        tipo_contrato_select.send_keys('Tiempo parcial')
+
+        estado_contrato_select = driver.find_element(By.ID, 'estado_contrato')
+        estado_contrato_select.send_keys('Vencido')
+
+        driver.execute_script("document.getElementById('send2').click();")
+
+        self.assertIn('http://127.0.0.1:8000/editingContract/', driver.current_url)
+
+
+
 
         
 
