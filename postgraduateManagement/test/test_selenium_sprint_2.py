@@ -277,6 +277,21 @@ class LiveServerTestCase(LiveServerTestCase):
         driver.execute_script("document.getElementById('send2').click();")
         assert driver.current_url.__contains__("editingContract")
 
+    def test_assingCourse(self):
+        driver = self.scrap()
+        username = driver.find_element(By.NAME, "username")
+        password = driver.find_element(By.NAME, "password")
+        submit = driver.find_element(By.CSS_SELECTOR, 'input[type="submit"]')
+        username.send_keys(' miguel.angel@icesi.edu.co')
+        password.send_keys('contraseña')
+        submit.click()
+        driver.execute_script("document.getElementById('docentes').click();")
+        driver.execute_script("document.getElementById('info85-468-8207').click();")
+        driver.execute_script("document.getElementById('asignarcurso').click();")
+        driver.execute_script("document.getElementById('cursoPM-1').click();")
+        assert "Listado de cursos" in driver.title
+
+
 
 
 
