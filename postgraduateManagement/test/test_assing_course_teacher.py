@@ -69,12 +69,31 @@ class AssingCourseForTeacherViewTest(TestCase):
         )
 
     def test_assign_course_to_active_teacher(self):
+        """
+        Prueba la asignación de un curso a un docente activo.
+
+        Se realiza una solicitud POST a la URL de asignación de curso para un docente activo. Se verifica que se utilice la
+        plantilla 'assign_course_to_teacher.html' y que la respuesta tenga un código de estado 200.
+
+        :return: None
+        """
+
         url = reverse('teacher_assign_course', kwargs={'cedula': self.docente_activo.cedula})
         response = self.client.post(url)
         self.assertTemplateUsed(response, 'postgraduateManagement/../assign_course_to_teacher.html')
         self.assertEqual(response.status_code, 200)
 
     def test_no_courses_available_for_subject(self):
+        """
+        Prueba cuando no hay cursos disponibles para una materia.
+
+        Se crea una materia sin cursos disponibles. Se realiza una solicitud POST a la URL de asignación de curso para un
+        docente activo. Se verifica que se utilice la plantilla 'assign_course_to_teacher.html' y que la respuesta tenga un
+        código de estado 200.
+
+        :return: None
+        """
+
         materia_sin_cursos = Materia.objects.create(codigo='MAT002', creditos=2, departamento=self.departamento_prueba)
         url = reverse('teacher_assign_course', kwargs={'cedula': self.docente_activo.cedula})
         response = self.client.post(url)
@@ -82,10 +101,28 @@ class AssingCourseForTeacherViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_assign_course_to_no_valid_teacher(self):
+        """
+        Prueba cuando se intenta asignar un curso a un docente no válido.
+
+        Se espera que se genere una excepción ObjectDoesNotExist al intentar asignar un curso a un docente que no existe.
+
+        :return: None
+        """
+
         with self.assertRaises(ObjectDoesNotExist):
             response = self.client.get(reverse('teacher_assign_course', kwargs={'cedula': '989898'}))
 
     def test_view_course_for_teacher(self):
+        """
+        Prueba de visualización de cursos para un docente.
+
+        Se realiza una solicitud POST a la URL de visualización de cursos para un docente y una materia específicos. Se
+        verifica que la respuesta contenga el NRC del curso, que se utilice la plantilla 'course_list_for_teacher.html' y
+        que la respuesta tenga un código de estado 200.
+
+        :return: None
+        """
+
         url = reverse('view_courses_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
                                                           'codigo_materia': 'MAT001'})
         response = self.client.post(url)
@@ -94,6 +131,15 @@ class AssingCourseForTeacherViewTest(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_view_course_for_teacher_with_subject_without_courses(self):
+        """
+        Prueba de visualización de cursos para un docente cuando la materia no tiene cursos.
+
+        Se realiza una solicitud POST a la URL de visualización de cursos para un docente y una materia que no tiene cursos.
+        Se verifica que la respuesta tenga un código de estado 404.
+
+        :return: None
+        """
+
         url = reverse('view_courses_for_teacher', kwargs={'cedula_docente': self.docente_activo.cedula,
                                                           'codigo_materia': 'patata'})
         response = self.client.post(url)

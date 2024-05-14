@@ -66,30 +66,67 @@ class TestViews(TestCase):
         self.pensum2 = Pensum.objects.create(programa=self.programa, materia=self.materia2, periodo=self.periodo2)
 
     def test_view_program_summary(self):
-        response = self.client.get(
-            reverse('program_summary', args=[self.programa.codigo]))
+        """
+        Prueba la vista de resumen de un programa.
+
+        Realiza una solicitud GET a la URL para ver el resumen de un programa específico. Verifica que la respuesta tenga un
+        código de estado 200 y que se utilice la plantilla 'program_details_summary.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('program_summary', args=[self.programa.codigo]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'program_details_summary.html')
 
     def test_view_program_planning(self):
-        response = self.client.get(
-            reverse('program_planning', args=[self.programa.codigo]))
+        """
+        Prueba la vista de planificación de un programa.
+
+        Realiza una solicitud GET a la URL para ver la planificación de un programa específico. Verifica que la respuesta
+        tenga un código de estado 200 y que se utilice la plantilla 'program_details_planning.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('program_planning', args=[self.programa.codigo]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'program_details_planning.html')
 
     def test_view_program_teachers(self):
-        response = self.client.get(
-            reverse('program_teachers', args=[self.programa.codigo]))
+        """
+        Prueba la vista de docentes de un programa.
+
+        Realiza una solicitud GET a la URL para ver los docentes de un programa específico. Verifica que la respuesta tenga
+        un código de estado 200 y que se utilice la plantilla 'program_details_teachers.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('program_teachers', args=[self.programa.codigo]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'program_details_teachers.html')
 
     def test_view_program_subjects(self):
-        response = self.client.get(
-            reverse('program_subjects', args=[self.programa.codigo]))
+        """
+        Prueba la vista de materias de un programa.
+
+        Realiza una solicitud GET a la URL para ver las materias de un programa específico. Verifica que la respuesta tenga
+        un código de estado 200 y que se utilice la plantilla 'program_details_subjects.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('program_subjects', args=[self.programa.codigo]))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'program_details_subjects.html')
 
     def test_view_program_teachers_with_filters(self):
+        """
+        Prueba la vista de docentes de un programa con filtros.
+
+        Realiza una solicitud GET a la URL para ver los docentes de un programa específico con filtros. Verifica que la
+        respuesta tenga un código de estado 200, que se utilice la plantilla 'program_details_teachers.html' y que la lista
+        de docentes esté vacía.
+
+        :return: None
+        """
         expected_number_of_teachers = 0
         response = self.client.get(reverse('program_teachers', args=[self.programa.codigo]), {
             'search_contains': 'search_term',
@@ -101,6 +138,15 @@ class TestViews(TestCase):
         self.assertEqual(len(response.context['teacher_list']), expected_number_of_teachers)
 
     def test_view_program_subjects_with_subjects(self):
+        """
+        Prueba la vista de materias de un programa con materias existentes.
+
+        Realiza una solicitud GET a la URL para ver las materias de un programa específico. Verifica que la respuesta tenga
+        un código de estado 200, que se utilice la plantilla 'program_details_subjects.html' y que la cantidad de materias
+        en el contexto sea igual a 2.
+
+        :return: None
+        """
         expected_number_of_subjects = 2
         response = self.client.get(reverse('program_subjects', args=[self.programa.codigo]))
         self.assertEqual(response.status_code, 200)

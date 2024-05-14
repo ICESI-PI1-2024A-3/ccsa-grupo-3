@@ -49,29 +49,73 @@ class TestViews(TestCase):
         )
 
     def test_home_view_get(self):
+        """
+        Prueba la vista de inicio.
+
+        Realiza una solicitud GET a la URL raíz. Verifica que se utilice la plantilla 'home.html'.
+
+        :return: None
+        """
         response = self.client.get('')
         self.assertTemplateUsed('home.html')
 
     def test_programs_view_get(self):
+        """
+        Prueba la vista de programas con una solicitud GET.
+
+        Realiza una solicitud GET a la URL '/programas/'. Verifica que el número de programas en el contexto sea igual a 2.
+
+        :return: None
+        """
         response = self.client.get('/programas/')
         self.assertEqual(len(response.context['programas']), 2)
 
     def test_programs_view_post(self):
-        response = self.client.post(
-            '/programas/', data={'programa_codigo': 'PGM1'})
-        self.assertEqual(
-            response.context['programa_seleccionado'], self.programa1)
+        """
+        Prueba la vista de programas con una solicitud POST.
+
+        Realiza una solicitud POST a la URL '/programas/' con el código de programa 'PGM1'. Verifica que el programa
+        seleccionado en el contexto sea igual a 'programa1'.
+
+        :return: None
+        """
+        response = self.client.post('/programas/', data={'programa_codigo': 'PGM1'})
+        self.assertEqual(response.context['programa_seleccionado'], self.programa1)
 
     def test_programs_view_post_with_existing_program(self):
+        """
+        Prueba la vista de programas con una solicitud POST con un programa existente.
+
+        Realiza una solicitud POST a la URL '/programas/' con el código de programa 'PGM1'. Verifica que la respuesta tenga
+        un código de estado 200 y que el programa seleccionado en el contexto sea igual a 'programa1'.
+
+        :return: None
+        """
         response = self.client.post('/programas/', data={'programa_codigo': 'PGM1'})
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.context['programa_seleccionado'], self.programa1)
 
     def test_programs_view_post_with_non_existing_program(self):
+        """
+        Prueba la vista de programas con una solicitud POST con un programa no existente.
+
+        Realiza una solicitud POST a la URL '/programas/' con un código de programa no existente 'PGM99'. Verifica que se
+        genere una excepción de 'ObjectDoesNotExist'.
+
+        :return: None
+        """
         with self.assertRaises(ObjectDoesNotExist):
             response = self.client.post('/programas/', data={'programa_codigo': 'PGM99'})
 
     def test_programs_view_post_with_no_program_code(self):
+        """
+        Prueba la vista de programas con una solicitud POST sin código de programa.
+
+        Realiza una solicitud POST a la URL '/programas/' sin datos. Verifica que la respuesta tenga un código de estado 200
+        y que no haya ningún programa seleccionado en el contexto.
+
+        :return: None
+        """
         response = self.client.post('/programas/')
         self.assertEqual(response.status_code, 200)
         self.assertIsNone(response.context['programa_seleccionado'])
