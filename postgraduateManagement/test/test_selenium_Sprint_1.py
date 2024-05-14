@@ -20,8 +20,8 @@ class LiveServerTestCase(LiveServerTestCase):
         options.add_argument("--no-sandbox")
         options.add_argument("--incognito")
         driver = webdriver.Chrome(options=options)
-        driver.get('http://127.0.0.1:8000/')
-        #driver.get('https://ccsa-modulo-programacion-academica.onrender.com')
+        #driver.get('http://127.0.0.1:8000/')
+        driver.get('https://ccsa-modulo-programacion-academica.onrender.com')
         return driver
 
     def test_Login_correct(self):
