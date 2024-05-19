@@ -108,7 +108,7 @@ DATABASES = {
 LANGUAGE_CODE = 'es'
 
 DATABASES['default'] = dj_database_url.parse(
-    "postgres://ccsa_grupo_3_db_dev_user:VOVmsKrWmgZDLMdWGTDquQHUYNPQPZQw@dpg-cortge7sc6pc73dtm7mg-a.oregon-postgres.render.com/ccsa_grupo_3_db_dev")
+    "postgres://admin:wg3GahOhUbi4rcK5ZzchhHiOXdsZeUOT@dpg-cp4l43ocmk4c73elqcsg-a.oregon-postgres.render.com/ccsa_db_ikig")
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
