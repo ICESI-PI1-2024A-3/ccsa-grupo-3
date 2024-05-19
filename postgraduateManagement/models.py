@@ -541,18 +541,18 @@ class Clase(models.Model):
         primary_key=True
     )
 
-    fecha_inicio = models.DateTimeField(
-        null=True
-    )
+    dias_choices = [
+        ('L', 'Lunes'),
+        ('M', 'Martes'),
+        ('X', 'Miércoles'),
+        ('J', 'Jueves'),
+        ('V', 'Viernes'),
+        ('S', 'Sábado'),
+    ]
 
-    fecha_fin = models.DateTimeField(
-        null=True
-    )
-
-    curso = models.ForeignKey(
-        'Curso',
-        on_delete=models.CASCADE,
-
+    dia = models.CharField(
+        max_length=1,
+        choices=dias_choices
     )
 
     curso = models.ForeignKey(
@@ -572,13 +572,6 @@ class Clase(models.Model):
         on_delete=models.CASCADE,
         related_name='espacio'
     )
-
-    espacio_asignado = models.ForeignKey(
-        'Espacio',
-        on_delete=models.CASCADE,
-        related_name='espacio_asignado'
-    )
-
 
 class Pensum(models.Model):
     """
@@ -662,3 +655,7 @@ class Viatico(models.Model):
 
     def __str__(self):
         return f"{self.clase.materia,self.clase.nrc} - {self.docente.cedula}"
+    
+class Planificacion(models.Model):
+    pass
+

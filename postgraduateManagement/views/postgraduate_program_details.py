@@ -31,9 +31,16 @@ def view_program_planning(request, codigo):
 @login_required
 def view_program_teachers(request, codigo):
     programaP = Programa.objects.get(codigo=codigo)
-    pensum = Pensum.objects.filter(programa_id=programaP) # Materias del programa
+    pensum = Pensum.objects.filter(programa_id=programaP)
     subjects = [p.materia for p in pensum]
-    teacher_list = [docente for materia in subjects for docente in materia.docente.all()]
+    teacher_set = set()
+
+    for subject in subjects:
+        teachers = subject.docente.all()
+        for teacher in teachers:
+            teacher_set.add(teacher)
+
+    teacher_list = list(teacher_set)
 
     def is_valid_queryparam(param):
         return param != '' and param is not None
@@ -56,8 +63,9 @@ def view_program_teachers(request, codigo):
 
 
     teacher_list = filter_teachers(request, teacher_list)
+    cities = Ciudad.objects.all()
 
-    return render (request, "program_details_teachers.html", {"programa": programaP, "teacher_list": teacher_list})
+    return render (request, "program_details_teachers.html", {"programa": programaP, "teacher_list": teacher_list, "cities": cities})
 
 @login_required
 def view_program_subjects(request, codigo):
