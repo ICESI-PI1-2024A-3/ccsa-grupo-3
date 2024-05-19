@@ -22,6 +22,17 @@ class TestViews(TestCase):
         )
 
     def test_teacher_filter_by_city1(self):
+        """
+        Prueba de filtrado de docentes por ciudad (Caso 1).
+
+        Se crea un superusuario para simular la sesión. Luego, se realiza una solicitud GET con los parámetros de búsqueda
+        correspondientes a la ciudad 1 y estado activo. Se verifica que la página responda correctamente (código 200) y que
+        la plantilla 'teachers.html' sea utilizada. Se asegura que todos los docentes en la lista de contexto pertenezcan a
+        la ciudad 1 y tengan estado activo.
+
+        :return: None
+        """
+
         self.user = User.objects.create_superuser(username='testuser', password='12345')
         self.client.force_login(self.user)
         response = self.client.get('/docentes/?search_contains=&status=activo&city=1')
@@ -31,6 +42,14 @@ class TestViews(TestCase):
         self.assertTrue(all(teachers.estado == 'activo' for teachers in response.context['teacher_list']))
 
     def test_teacher_filter_by_city2(self):
+        """
+        Prueba de filtrado de docentes por ciudad (Caso 2).
+
+        Similar a test_teacher_filter_by_city1, pero para la ciudad 2.
+
+        :return: None
+        """
+
         self.user = User.objects.create_superuser(username='testuser', password='12345')
         self.client.force_login(self.user)
         response = self.client.get('/docentes/?search_contains=&status=activo&city=2')
@@ -40,6 +59,16 @@ class TestViews(TestCase):
         self.assertTrue(all(teachers.estado == 'activo' for teachers in response.context['teacher_list']))
 
     def test_teacher_filter_by_status(self):
+        """
+        Prueba de filtrado de docentes por estado.
+
+        Se crea un superusuario para simular la sesión. Se realiza una solicitud GET con el estado 'inactivo' y sin
+        especificar ciudad. Se verifica que la página responda correctamente (código 200) y que la plantilla 'teachers.html'
+        sea utilizada. Se asegura que todos los docentes en la lista de contexto tengan estado 'inactivo'.
+
+        :return: None
+        """
+
         self.user = User.objects.create_superuser(username='testuser', password='12345')
         self.client.force_login(self.user)
         response = self.client.get('/docentes/?search_contains=&status=inactivo&city=')
@@ -48,6 +77,17 @@ class TestViews(TestCase):
         self.assertTrue(all(teachers.estado == 'inactivo' for teachers in response.context['teacher_list']))
 
     def test_teacher_filter_by_search1(self):
+        """
+        Prueba de filtrado de docentes por búsqueda (Caso 1).
+
+        Se crea un superusuario para simular la sesión. Se realiza una solicitud GET con el parámetro 'search_contains'
+        establecido como 'Test1' para buscar docentes cuyo nombre contenga esa cadena, y se especifica estado activo y sin
+        ciudad. Se verifica que la página responda correctamente (código 200) y que la plantilla 'teachers.html' sea
+        utilizada. Se asegura que todos los docentes en la lista de contexto tengan 'Test1' en su nombre.
+
+        :return: None
+        """
+
         self.user = User.objects.create_superuser(username='testuser', password='12345')
         self.client.force_login(self.user)
         response = self.client.get('/docentes/?search_contains=Test1&status=activo&city=')
@@ -56,33 +96,20 @@ class TestViews(TestCase):
         self.assertTrue(all('Test1' in teachers.nombre for teachers in response.context['teacher_list']))
 
     def test_teacher_filter_by_search2(self):
+        """
+        Prueba de filtrado de docentes por búsqueda (Caso 2).
+
+        Similar a test_teacher_filter_by_search1, pero para buscar la cadena 'Test3'.
+
+        :return: None
+        """
+
         self.user = User.objects.create_superuser(username='testuser', password='12345')
         self.client.force_login(self.user)
         response = self.client.get('/docentes/?search_contains=Test3&status=activo&city=')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'teachers.html')
         self.assertTrue(all('Test3' in teachers.nombre for teachers in response.context['teacher_list']))
-
-        def test_get_object(self):
-            response = self.client.get(reverse('state', kwargs={'cedula': self.docente.cedula}))
-            self.assertEqual(response.status_code, 200)
-            self.assertEqual(response.context['docente'], self.docente)
-
-        def test_get_context_data(self):
-            # Testeamos si el contexto contiene el objeto Docente
-            response = self.client.get(reverse('state', kwargs={'cedula': self.docente.cedula}))
-            self.assertEqual(response.status_code, 200)
-            self.assertTrue('docente' in response.context)
-            self.assertEqual(response.context['docente'], self.docente)
-
-        def test_update_view(self):
-            # Testeamos si la vista de actualización funciona correctamente
-            new_estado = 'inactivo'
-            response = self.client.post(reverse('state', kwargs={'cedula': self.docente.cedula}),
-                                        {'estado': new_estado})
-            self.assertEqual(response.status_code, 302)  # Debería redirigir después de una actualización exitosa
-            updated_docente = Docente.objects.get(cedula=self.docente.cedula)
-            self.assertEqual(updated_docente.estado, new_estado)
 
 
 if __name__ == '__main__':

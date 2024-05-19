@@ -2,10 +2,12 @@
 import unittest
 
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect, HttpRequest
 from django.test import TestCase
 from django.urls import reverse
 from postgraduateManagement.views.views_course import *
-from postgraduateManagement.models import Departamento, Usuario, Periodo
+from postgraduateManagement.models import Departamento, Usuario, Periodo, Programa, Director, Facultad, TipoPrograma, \
+    Ciudad
 
 
 class TestViews(TestCase):
@@ -14,7 +16,7 @@ class TestViews(TestCase):
         # Crear un departamento de prueba
         self.departamento_prueba = Departamento.objects.create(
             codigo="DEP001",
-            nombre="Departamento de Prueba"
+            nombre="Depar"
         )
 
         # Crear un usuario de prueba
@@ -29,7 +31,7 @@ class TestViews(TestCase):
 
         # Crear un periodo de prueba
         self.periodo_prueba = Periodo.objects.create(
-            semestre="2023-01",
+            semestre="20",
             fecha_inicio="2023-01-01",
             fecha_fin="2023-05-31"
         )
@@ -37,97 +39,207 @@ class TestViews(TestCase):
         # Crear una materia de prueba asociada al departamento de prueba
         self.materia_prueba = Materia.objects.create(
             codigo="MAT001",
-            nombre="Materia de Prueba",
+            nombre="Materia",
             creditos=3,
             departamento=self.departamento_prueba
         )
 
         # Crear un curso de prueba relacionado con la materia de prueba, usuario de prueba y periodo de prueba
         self.curso = Curso.objects.create(
-            nrc="12345",
-            grupo="Grupo de Prueba",
+            nrc="12",
+            grupo="23",
             cupo=30,
             materia=self.materia_prueba,
             usuario=self.usuario_prueba,
             periodo=self.periodo_prueba
         )
 
+        self.facultad2 = Facultad.objects.create(id='01', nombre='por')
+
+        self.tipoprograma = TipoPrograma.objects.create(id='90', nombre='por')
+
+        self.ciudad = Ciudad.objects.create(id='01', nombre='c')
+
+        self.directorprueba = Director.objects.create(ciudad=self.ciudad)
+
+        self.Programa_prueba = Programa.objects.create(codigo='00', nombre='Programa', descripcion="lalo",
+                                                       facultad=self.facultad2, tipo_de_programa=self.tipoprograma,
+                                                       director=self.directorprueba)
+
     def test_subject_list_view(self):
-        # Prueba que la vista de lista de materias carga correctamente y utiliza el template adecuado
-        response = self.client.get(reverse('subjectmanagment'))
+        """
+        Prueba la vista de lista de materias de un programa.
+
+        Realiza una solicitud GET a la URL para ver la lista de materias de un programa específico. Verifica que la
+        respuesta tenga un código de estado 200 y que se utilice la plantilla 'program_details_subjects.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('program_subjects', kwargs={'codigo': '00'}))
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'postgraduateManagement/../subject_list.html')
+        self.assertTemplateUsed(response, 'program_details_subjects.html')
 
     def test_course_view(self):
-        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MateriaCodigo'}))
+        """
+        Prueba la vista de cursos.
+
+        Realiza una solicitud GET a la URL para ver los cursos de una materia específica. Verifica que la respuesta tenga un
+        código de estado 200 y que se utilice la plantilla 'course_list.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('courseview', kwargs={'codigo': 00, 'codigo_materia': 'MateriaCodigo'}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 
     def test_course_view_with_material_code(self):
-        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'MAT001'}))
+        """
+        Prueba la vista de cursos con un código de materia válido.
+
+        Realiza una solicitud GET a la URL para ver los cursos de una materia específica. Verifica que la respuesta tenga un
+        código de estado 200 y que se utilice la plantilla 'course_list.html'.
+
+        :return: None
+        """
+        response = self.client.get(reverse('courseview', kwargs={'codigo': 00, 'codigo_materia': 'MAT001'}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
 
     def test_course_view_with_nonexistent_material_code(self):
-        response = self.client.get(reverse('courseview', kwargs={'codigo_materia': 'NO_EXISTE'}))
+        """
+        Prueba la vista de cursos con un código de materia inexistente.
+
+        Realiza una solicitud GET a la URL para ver los cursos de una materia específica que no existe. Verifica que la
+        respuesta tenga un código de estado 200, que se utilice la plantilla 'course_list.html' y que la lista de objetos
+        esté vacía.
+
+        :return: None
+        """
+        response = self.client.get(reverse('courseview', kwargs={'codigo': 98, 'codigo_materia': 'NO_EXISTE'}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../course_list.html')
         self.assertEqual(response.context['object_list'].count(), 0)
 
     def test_course_delete_view(self):
-        response = self.client.post(reverse('course_delete', kwargs={'pk': self.curso.pk}))
+        """
+        Prueba la vista de eliminación de un curso.
+
+        Realiza una solicitud POST a la URL para eliminar un curso específico. Verifica que la respuesta tenga un código de
+        estado 302, que indica una redirección.
+
+        :return: None
+        """
+        response = self.client.post(
+            reverse('course_delete', kwargs={'codigo': 00, 'codigo_materia': 'MAT001', 'pk': self.curso.pk}))
         self.assertEqual(response.status_code, 302)
 
     def test_nonexistent_course_delete_view(self):
-        response = self.client.post(reverse('course_delete', kwargs={'pk': 999}))
-        self.assertEqual(response.status_code, 404)  # Asegurar que se devuelve un error 404 para el curso inexistente
+        """
+        Prueba la vista de eliminación de un curso inexistente.
+
+        Realiza una solicitud POST a la URL para eliminar un curso que no existe. Verifica que la respuesta tenga un código
+        de estado 404, lo que indica que el recurso no se encuentra.
+
+        :return: None
+        """
+        response = self.client.post(
+            reverse('course_delete', kwargs={'codigo': 00, 'codigo_materia': 'MAT001', 'pk': 99}))
+        self.assertEqual(response.status_code, 404)
 
     def test_course_update_view(self):
-        response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
-                                    {
-                                        'grupo': 'Nuevo Grupo',
-                                        'cupo': 40,
-                                        'usuario': self.usuario_prueba.pk,
-                                        'periodo': self.periodo_prueba.semestre
-                                    })
+        """
+        Prueba la vista de actualización de un curso.
+
+        Realiza una solicitud POST a la URL para actualizar un curso específico. Verifica que la respuesta tenga un código de
+        estado 200, lo que indica que la actualización fue exitosa.
+
+        :return: None
+        """
+        response = self.client.post(
+            reverse('course_update', kwargs={'codigo': '00', 'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+            {
+                'grupo': '58',
+                'cupo': 40,
+                'usuario': self.usuario_prueba.pk,
+                'periodo': self.periodo_prueba.semestre
+            })
         self.assertEqual(response.status_code, 200)
 
     def test_invalid_course_update_view(self):
-        response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
-                                    {
-                                        'grupo': '',  # Grupo vacío, lo que debería ser inválido
-                                        'cupo': -10,  # Cupo negativo, lo que debería ser inválido
-                                        'usuario': 999,  # ID de usuario no existente
-                                        'periodo': '2023-10'  # Período inexistente
-                                    })
+        response = self.client.post(
+            reverse('course_update', kwargs={'codigo': '00', 'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+            {
+                'grupo': '',  # Grupo vacío, lo que debería ser inválido
+                'cupo': -10,  # Cupo negativo, lo que debería ser inválido
+                'usuario': 99,  # ID de usuario no existente
+                'periodo': '2023-10'  # Período inexistente
+            })
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
+
+    def test_invalid_course_update_view(self):
+        """
+        Prueba la vista de actualización de un curso con datos inválidos.
+
+        Realiza una solicitud POST a la URL para actualizar un curso con datos inválidos. Verifica que la respuesta tenga un
+        código de estado 200 y que se utilice la plantilla 'edit_course.html'.
+
+        :return: None
+        """
+        response = self.client.post(
+            reverse('course_update', kwargs={'codigo': '00', 'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+            {
+                'grupo': '',  # Grupo vacío, lo que debería ser inválido
+                'cupo': -10,  # Cupo negativo, lo que debería ser inválido
+                'usuario': 99,  # ID de usuario no existente
+                'periodo': '2023-10'  # Período inexistente
+            })
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
 
     def test_duplicate_group_course_update_view(self):
+        """
+        Prueba la vista de actualización de un curso con un grupo duplicado.
+
+        Realiza una solicitud POST a la URL para actualizar un curso con un grupo que ya existe para la misma materia y
+        período. Verifica que la respuesta tenga un código de estado 200 y que se utilice la plantilla 'edit_course.html'.
+
+        :return: None
+        """
         otro_curso = Curso.objects.create(
-            nrc="54321",
-            grupo="Nuevo Grupo Duplicado",
+            nrc="56",
+            grupo="59",
             cupo=20,
             materia=self.materia_prueba,
             usuario=self.usuario_prueba,
             periodo=self.periodo_prueba
         )
 
-        response = self.client.post(reverse('course_update', kwargs={'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
-                                    {
-                                        'grupo': 'Nuevo Grupo Duplicado',
-                                        'cupo': 40,
-                                        'usuario': self.usuario_prueba.pk,
-                                        'periodo': self.periodo_prueba.semestre
-                                    })
+        response = self.client.post(
+            reverse('course_update', kwargs={'codigo': '00', 'codigo_materia': 'MAT001', 'pk': self.curso.pk}),
+            {
+                'grupo': '23',
+                'cupo': 40,
+                'usuario': self.usuario_prueba.pk,
+                'periodo': self.periodo_prueba.semestre
+            })
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'postgraduateManagement/../edit_course.html')
 
     def test_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
+        """
+        Prueba la vista de creación de un curso.
+
+        Realiza una solicitud POST a la URL para crear un nuevo curso. Verifica que la respuesta tenga un código de estado
+        200, lo que indica que la creación fue exitosa.
+
+        :return: None
+        """
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
-            'nrc': '54321',
-            'grupo': 'Nuevo Grupo',
+            'nrc': '54',
+            'grupo': '6',
             'cupo': 20,
             'usuario': self.usuario_prueba.pk,
             'periodo': self.periodo_prueba.semestre
@@ -135,26 +247,44 @@ class TestViews(TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_invalid_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
-            'materia': 999,  # ID de materia no existente
+        """
+        Prueba la vista de creación de un curso con datos inválidos.
+
+        Realiza una solicitud POST a la URL para crear un nuevo curso con datos inválidos. Verifica que la respuesta tenga
+        un código de estado 200 y que se utilice la plantilla 'create_course.html'.
+
+        :return: None
+        """
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
+            'materia': 99,  # ID de materia no existente
             'nrc': '',  # NRC vacío, lo que debería ser inválido
-            'grupo': 'Nuevo Grupo',
+            'grupo': '35',
             'cupo': -5,  # Cupo negativo, lo que debería ser inválido
             'usuario': 999,  # ID de usuario no existente
             'periodo': '2023-10'  # Período inexistente
         })
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../create_course.html')
 
     def test_duplicate_course_create_view(self):
-        response = self.client.post(reverse('course_create', kwargs={'codigo_materia': 'MAT001'}), {
+        """
+        Prueba la vista de creación de un curso con un grupo duplicado.
+
+        Realiza una solicitud POST a la URL para crear un nuevo curso con un grupo que ya existe para la misma materia y
+        período. Verifica que la respuesta tenga un código de estado 200 y que se utilice la plantilla 'create_course.html'.
+
+        :return: None
+        """
+        response = self.client.post(reverse('course_create', kwargs={'codigo': '00', 'codigo_materia': 'MAT001'}), {
             'materia': self.materia_prueba.pk,
-            'nrc': '54321',
-            'grupo': 'Nuevo Grupo',
+            'nrc': '54',
+            'grupo': '25',
             'cupo': 20,
             'usuario': self.usuario_prueba.pk,
             'periodo': self.periodo_prueba.semestre
         })
         self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'postgraduateManagement/../create_course.html')
 
 
 if __name__ == '__main__':

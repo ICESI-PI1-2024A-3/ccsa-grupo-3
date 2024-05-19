@@ -7,19 +7,8 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 
-@method_decorator(login_required, name='dispatch')
-class SubjectManagment(ListView):
-    template_name = 'postgraduateManagement/../subject_list.html'
-    model = Materia
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        # Obtener el ID del programa de la consulta
-        programa_id = self.request.GET.get('programa_id')
-        if programa_id:
-            # Filtrar las materias por el programa dado
-            queryset = queryset.filter(programas__id=programa_id)
-        return queryset
+
 
 
 @method_decorator(login_required, name='dispatch')
